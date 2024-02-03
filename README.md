@@ -42,3 +42,6 @@ Currently SnoopGod includes [800 pre-installed libraries and tools. ](https://gi
 #### Screenshots
 
 If you want a quick overview and see what exactly SnoopGod Linux OS looks like, we invite you to take a look at the [screenshots](https://github.com/snoopgod-linux/screenshots) section.
+
+### Last Update
+
