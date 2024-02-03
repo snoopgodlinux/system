@@ -955,8 +955,9 @@
    <Menuname>Terminal</Menuname>
    <Merge type="files"/>
    <Filename>firefox_firefox.desktop</Filename>
-   <Filename>fwbuilder.desktop</Filename>
    <Filename>google-chrome.desktop</Filename>
+   <Filename>snoopgod-torbrowser.desktop</Filename>
+   <Filename>fwbuilder.desktop</Filename>
    <Filename>org.kde.kdeconnect_open.desktop</Filename>
    <Filename>org.kde.kdeconnect.sms.desktop</Filename>
    <Filename>org.kde.kdeconnect.app.desktop</Filename>
