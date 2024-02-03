@@ -128,6 +128,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [gconf2](https://packages.ubuntu.com/jammy/gconf2)
 - [ghex](https://packages.ubuntu.com/jammy/ghex)
 - [git](https://packages.ubuntu.com/jammy/git)
+- [gnome-disk-utility](https://packages.ubuntu.com/jammy/gnome-disk-utility)
 - [gnuradio](https://packages.ubuntu.com/jammy/gnuradio)
 - [gpg](https://packages.ubuntu.com/jammy/gpg)
 - [gqrx-sdr](https://packages.ubuntu.com/jammy/gqrx-sdr)

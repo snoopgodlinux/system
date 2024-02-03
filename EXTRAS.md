@@ -37,6 +37,14 @@ sudo apt-get -y install gedit
 
 * * *
 
+#### Install `gnome-disk-utility`
+
+```shell
+sudo apt-get -y install gnome-disk-utility
+```
+
+* * *
+
 #### Install `gwenview`
 
 ```shell
