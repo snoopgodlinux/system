@@ -15,8 +15,8 @@ The current version of SnoopGod is based on Ubuntu 22.04.3 LTS. More information
 | Key | Description |
 | :--- | :--- |
 | Custom Disk | [snoopgod-22.04.3-desktop-amd64.iso]() |
-| Size | 6,09 GiB (6 535 995 392 bytes) |
-| Checksum | 54722b14352bb2031d6768be93bb3391 |
+| Size | 7.27 GiB (7,806,365,696 bytes) |
+| Checksum | 851f37dc7e4c4780ea4a500c35bac5b7 |
 | Checksum File | [snoopgod-22.04.3-desktop-amd64.md5]() |
 | Version | 22.04.3 |
 | Volume ID | SnoopGod 22.04.3 LTS amd64 |
