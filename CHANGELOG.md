@@ -2,12 +2,17 @@
 
 Follow at anytime the development of SnoopGod Linux OS along with all the corrections and the optimizations made to the project.
 
+* * *
+
+**2024-02-03**
+
+- Added SendEmail package
 
 * * *
 
 **2024-02-01**
 
-- Added Tor library
+- Added Tor package
 - Added Tor Browser
 
 * * *

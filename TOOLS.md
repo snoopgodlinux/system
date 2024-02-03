@@ -161,6 +161,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [screen](https://packages.ubuntu.com/jammy/screen)
 - [screenfetch](https://packages.ubuntu.com/jammy/screenfetch)
 - [secure-delete](https://packages.ubuntu.com/jammy/secure-delete)
+- [sendemail](https://packages.ubuntu.com/jammy/sendemail)
 - [simplescreenrecorder](https://packages.ubuntu.com/jammy/simplescreenrecorder)
 - [sqlitebrowser](https://packages.ubuntu.com/jammy/sqlitebrowser)
 - [socat](https://packages.ubuntu.com/jammy/socat)
