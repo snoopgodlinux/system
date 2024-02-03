@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'ext3grep --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Ext3grep
+Terminal=true
+Type=Application

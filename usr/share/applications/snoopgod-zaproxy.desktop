@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Sniffing - Spoofing;
+Exec="/opt/snoopgod/sniffing-spoofing/zaproxy/zap.sh" %U
+Icon=/usr/share/icons/snoopgod/zaproxy.png
+Name=Zaproxy
+Terminal=false
+Type=Application

@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+#
+# [Release]: SnoopGod 22.04.3 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=22.04.3
+# [License]: http://www.gnu.org/licenses/gpl-3.0.html
+
+## Help Menu
+## ---------
+function helpmenu()
+{
+	echo 
+	echo "Usage: snoopgod [-h|--help] [--update] [--upgrade] [--clean]"
+	echo
+	echo "Options:"
+	echo " -h, --help           show this help"
+	echo " --update             update the packages to their latest version"
+	echo " --upgrade            update the core distribution"
+	echo " --clean              delete all temporary files, traces and logs"	
+}
+
+## Callback
+## --------
+while test $# -gt 0;
+do
+	case "$1" in
+    	-h|--help)
+      		helpmenu
+      		exit 1
+      		;;
+      	--update)
+      		/usr/share/snoopgod/usr/bin/updater
+        	exit 1
+      		;;
+    	--upgrade)
+      		/usr/share/snoopgod/usr/bin/upgrader
+        	exit 1
+      		;;
+    	--clean)
+      		/usr/share/snoopgod/usr/bin/cleaner
+        	exit 1
+      		;;
+      	*)
+      		helpmenu
+      		exit 1
+      		;;
+  	esac
+done
+
+## Check Argument
+## --------------
+if [ $# -eq 0 ]
+then
+    helpmenu
+fi

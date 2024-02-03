@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Information Gathering;
+Exec=sh -c 'sntop --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Sntop
+Terminal=true
+Type=Application

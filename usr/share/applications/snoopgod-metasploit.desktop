@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Exploitation;
+Exec=sh -c 'msfconsole; $SHELL'
+Icon=/usr/share/icons/snoopgod/metasploit.png
+Name=Metasploit
+Terminal=true
+Type=Application

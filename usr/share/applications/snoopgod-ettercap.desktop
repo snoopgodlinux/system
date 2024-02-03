@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Sniffing - Spoofing;
+Exec=ettercap-pkexec -G
+Icon=/usr/share/icons/snoopgod/ettercap.png
+Name=Ettercap
+Terminal=false
+Type=Application

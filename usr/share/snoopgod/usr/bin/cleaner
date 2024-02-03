@@ -1,0 +1,403 @@
+#!/usr/bin/env bash
+#
+# [Release]: SnoopGod 22.04.3 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=22.04.3
+# [License]: http://www.gnu.org/licenses/gpl-3.0.html
+
+## ---------------- ##
+## DEFINE VARIABLES ##
+## ---------------- ##
+
+## Colour output
+## -------------
+texterror="\033[01;31m"		# Error
+textreset="\033[00m"		# Reset
+
+## ------------------- ##
+## PREPARE ENVIRONMENT ##
+## ------------------- ##
+
+## Clear screen
+## ------------
+function clearscreen()
+{
+	clear
+	sleep 2s
+}
+
+## Warning
+## -------
+function showwarning()
+{
+	echo
+    echo -e "${texterror}*** Warning ***${textreset}"
+    echo -e "${texterror}You are about to clean and remove all temporary files, traces and logs${textreset}"
+    echo -e "${texterror}We recommend to exit all other programs before to proceed${textreset}"
+    echo
+    read -p "Do you want to continue? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			echo
+            ;;
+        [Nn]* )
+            exit
+            ;;
+        * )
+            exit
+            ;;
+    esac
+}
+
+## -------------- ##
+## DEFINE ACTIONS ##
+## -------------- ##
+
+## Secure Delete
+## -------------
+function securedelete()
+{
+    path=$1
+	if [ -d "$path" ];
+	then
+		srm -f -r -v $path >/dev/null 2>&1
+	elif [ -f "$path" ];
+	then
+		srm -f -v $path >/dev/null 2>&1
+	fi
+}
+
+## Delete Firefox Logs
+## -------------------
+function deletefirefoxlogs()
+{
+    read -p "[?] Do you want to delete Firefox logs? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /home/$USER/Downloads/firefox.tmp
+			echo -e "[+] Firefox temporary folder deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Firefox temporary folder not deleted\n"
+			;;
+        * )
+            deletefirefoxlogs
+            ;;
+    esac
+}
+
+## Delete Cache Directory
+## ----------------------
+function deletecachedirs()
+{
+    read -p "[?] Do you want to delete user cache directory? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf /home/$USER/.cache
+			echo -e "[+] User cache directory deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] User cache directory not deleted\n"
+            ;;
+        * )
+            deletecachedirs
+            ;;
+    esac
+}
+
+## Delete files history
+## --------------------
+function deletefileshistory()
+{
+    read -p "[?] Do you want to delete files history? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /home/$USER/.local/share/recently-used.xbel
+			securedelete /home/$USER/.config/sublime-text/Local/Session.sublime_session
+			securedelete /home/$USER/.msf4/history
+			echo -e "[+] Files history deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Files history not deleted\n"
+            ;;
+        * )
+            deletefileshistory
+            ;;
+    esac
+}
+
+## Delete SSH keys
+## ---------------
+function deletesshkeys()
+{
+    read -p "[?] Do you want to delete SSH keys? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /home/$USER/.ssh/authorized_keys
+			securedelete /home/$USER/.ssh/known_hosts
+			securedelete /home/$USER/.ssh/known_hosts.old
+			echo -e "[+] SSH keys deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] SSH keys not deleted\n"
+            ;;
+        * )
+            deletesshkeys
+            ;;
+    esac
+}
+
+## Delete SNAP Directory
+## ---------------------
+function deletesnapdir()
+{
+    read -p "[?] Do you want to delete Snap directory? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf /home/$USER/snap
+			echo -e "[+] Snap directory deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Snap directory not deleted\n"
+            ;;
+        * )
+            deletesnapdir
+            ;;
+    esac
+}
+
+## Delete useless documentations
+## -----------------------------
+function deleteuselessdocs()
+{
+    read -p "[?] Do you want to delete unnecessary documentations? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			array=( man groff info lintian linda )
+			for item in "${array[@]}"
+			do
+				securedelete /usr/share/$item
+				echo -e "[+] Documentation file /usr/share/$item deleted"
+			done
+
+			securedelete /var/cache/man
+			echo -e "[+] Documentation directory /var/cache/man deleted"
+
+			sudo find /usr/share/doc -depth -type f ! -name copyright -exec rm -rf {} \; >/dev/null 2>&1
+			sudo find /usr/share/doc -empty -exec rm -rf {} \; >/dev/null 2>&1
+			echo -e "[+] Documentation directory /usr/share/doc deleted"
+
+			sudo find /usr/share/locale -mindepth 1 -maxdepth 1 ! -name 'en' -exec rm -rf {} \; >/dev/null 2>&1
+			echo -e "[+] Documentation directory /usr/share/locale deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Unnecessary documentations not deleted\n"
+            ;;
+        * )
+            deleteuselessdocs
+            ;;
+    esac
+}
+
+## Delete APT cache
+## ----------------
+function deleteaptcache()
+{
+    read -p "[?] Do you want to delete APT cache? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /var/cache/apt/*
+			echo -e "[+] APT cache deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] APT cache not deleted\n"
+            ;;
+        * )
+            deleteaptcache
+            ;;
+    esac
+}
+
+## Clear `/var/log` recursively
+## ----------------------------
+function deletevarlog()
+{
+    read -p "[?] Do you want to delete the system logs? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			array=( *.gz *.journal *.old *.1 *.log )
+			for item in "${array[@]}"
+			do
+				sudo find /var/log/ -type f -name $item -exec rm -f {} \; >/dev/null 2>&1
+				echo -e "[+] System logs /var/log/$item deleted"
+			done
+
+			array=( btmp debug faillog lastlog messages syslog wtmp cups/access_log installer/debug installer/media-info installer/partman installer/syslog installer/telemetry installer/version )
+			for item in "${array[@]}"
+			do
+				securedelete /var/log/$item
+				sudo touch /var/log/$item
+				echo -e "[+] System logs /var/log/$item deleted"
+			done
+			echo 
+            ;;
+        [Nn]* )
+			echo -e "[!] System logs not deleted\n"
+            ;;
+        * )
+            deletevarlog
+            ;;
+    esac
+}
+
+## Delete Wget History
+## -------------------
+function deletewgets()
+{
+    read -p "[?] Do you want to delete the Wget history? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /home/$USER/.wget-hsts
+			echo -e "[+] Wget history deleted\n"
+		    ;;
+        [Nn]* )
+			echo -e "[!] Wget history not deleted\n"
+            ;;
+        * )
+            deletetrash
+            ;;
+    esac
+}
+
+## Delete Xsession Errors
+## ----------------------
+function deletexerrors()
+{
+    read -p "[?] Do you want to delete the X-session errors? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /home/$USER/.xsession-errors
+			echo -e "[+] X-Session errors deleted\n"
+		    ;;
+        [Nn]* )
+			echo -e "[!] X-Session errors not deleted\n"
+            ;;
+        * )
+            deletetrash
+            ;;
+    esac
+}
+
+## Delete Trash
+## ------------
+function deletetrash()
+{
+    read -p "[?] Do you want to delete the trash folder content? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /home/$USER/.local/share/Trash/*
+			securedelete /home/$USER/.local/share/Trash/expunged/*
+			securedelete /home/$USER/.local/share/Trash/files/*
+			securedelete /home/$USER/.local/share/Trash/info/*
+			echo -e "[+] Trash folder content deleted\n"
+		    ;;
+        [Nn]* )
+			echo -e "[!] Trash folder content not deleted\n"
+            ;;
+        * )
+            deletetrash
+            ;;
+    esac
+}
+
+## Correct folders permissions
+## ---------------------------
+function correctperms()
+{
+    read -p "[?] Do you want to correct folders permissions? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			sudo chown -R $USER:$USER /var/www
+			echo -e "[+] Folders permissions corrected\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Folders permissions not corrected\n"
+            ;;
+        * )
+            correctperms
+            ;;
+    esac
+}
+
+## Remove unwanted launchers
+## -------------------------
+function removelaunchers()
+{
+	sudo rm -rf /usr/share/applications/kde4
+	sudo rm -f /usr/share/applications/arduino.desktop
+	sudo rm -f /usr/share/applications/edb.desktop
+	sudo rm -f /usr/share/applications/ettercap.desktop
+	sudo rm -f /usr/share/applications/gtkhash.desktop
+	sudo rm -f /usr/share/applications/guymager.desktop
+	sudo rm -f /usr/share/applications/lstopo.desktop
+	sudo rm -f /usr/share/applications/lynis.desktop
+	sudo rm -f /usr/share/applications/ophcrack.desktop
+	sudo rm -f /usr/share/applications/org.kde.plasma.emojier.desktop
+	sudo rm -f /usr/share/applications/org.wireshark.Wireshark.desktop
+	sudo rm -f /usr/share/applications/texdoctk.desktop
+	sudo rm -f /usr/share/applications/ubiquity.desktop
+	sudo rm -f /usr/share/applications/*-BurpSuiteCommunity.desktop
+	sudo rm -f /usr/share/applications/*-zap.sh.desktop
+}
+
+## Terminate
+## ---------
+function terminate()
+{
+	echo "Process completed"
+	sleep 1s
+}
+
+## -------------- ##
+## EXECUTE SCRIPT ##
+## -------------- ##
+
+## Launch
+## ------
+function launch()
+{
+    # Retrieve current datetime
+	flushtime=`date +%s.%N`
+
+	# Prepare Environment
+	clearscreen
+	showwarning
+	
+	# Execute Actions
+	deletefirefoxlogs
+	deletecachedirs
+	deletefileshistory
+	deletesshkeys
+	deletesnapdir
+	deleteuselessdocs
+	deleteaptcache
+	deletevarlog
+	deletexerrors
+	deletewgets
+	deletetrash
+	correctperms
+	removelaunchers
+
+	# Terminate
+	terminate
+
+	# Return notice
+	endtime=`date +%s.%N`
+	runtime=$( echo "$endtime - $flushtime" | bc -l )
+	echo "Executed within ${runtime} seconds"
+}
+
+## -------- ##
+## CALLBACK ##
+## -------- ##
+
+launch

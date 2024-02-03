@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=NmapSI4 - User
+Categories=Information Gathering;
+Exec=nmapsi4
+Icon=/usr/share/icons/snoopgod/nmapsi4.png
+Terminal=false
+Type=Application

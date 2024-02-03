@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=Qt;Development;Documentation;
+Comment=
+Exec=/usr/lib/qt5/bin/assistant
+GenericName=Document Browser
+Icon=assistant-qt5
+Name=QT5 Assistant
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-StartupNotify=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=

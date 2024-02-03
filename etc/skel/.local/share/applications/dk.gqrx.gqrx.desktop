@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=AudioVideo;Audio;Qt;HamRadio;
+Comment=Software defined radio receiver implemented using GNU Radio and the Qt GUI toolkit
+Exec=gqrx
+GenericName=Software Defined Radio
+Icon=gqrx
+Keywords=SDR;Radio;HAM;
+Name=GQRX
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

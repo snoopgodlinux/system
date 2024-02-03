@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Vulnerability Analysis;
+Exec=sh -c 'wapiti -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Wapiti
+Terminal=true
+Type=Application

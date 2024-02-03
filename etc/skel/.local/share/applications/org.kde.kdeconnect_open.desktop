@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Qt;KDE;Network;
+Comment=Open on a connected device using KDE Connect
+Exec=kdeconnect-handler --open %U
+GenericName=Open on connected device via KDE Connect
+Icon=kdeconnect
+MimeType=application/octet-stream;
+Name=KDE Connect Device
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Service
+X-KDE-FormFactor=desktop;tablet;handset;
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Web Applications;
+Exec=sh -c 'ffuf -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=FastWeb Fuzzer
+Terminal=true
+Type=Application

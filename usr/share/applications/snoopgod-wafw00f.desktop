@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Web Applications;
+Exec=sh -c 'wafw00f -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=WAF-W00f
+Terminal=true
+Type=Application

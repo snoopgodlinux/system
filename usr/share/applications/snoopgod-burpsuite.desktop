@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=BurpSuite
+Exec="/opt/snoopgod/exploitation/burpsuite/BurpSuiteCommunity" %U
+MimeType=application/x-extension-burp;
+Icon=/usr/share/icons/snoopgod/burpsuite.png
+Categories=Exploitation;
+StartupWMClass=install4j-burp-StartBurp

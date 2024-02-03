@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Vulnerability Analysis;
+Exec=sh -c 'afl-analyze -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=AFL Analyze
+Terminal=true
+Type=Application

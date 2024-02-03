@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Vulnerability Analysis;
+Exec=sh -c 'sqlmap --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Sqlmap
+Terminal=true
+Type=Application

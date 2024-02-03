@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Web Applications;
+Exec=sh -c 'wfuzz --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Wfuzz
+Terminal=true
+Type=Application

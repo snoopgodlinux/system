@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'sudo p0f; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=P0f
+Terminal=true
+Type=Application

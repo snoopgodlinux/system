@@ -1,0 +1,80 @@
+#!/usr/bin/env bash
+#
+# [Release]: SnoopGod 22.04.3 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=22.04.3
+# [License]: http://www.gnu.org/licenses/gpl-3.0.html
+
+## -------------- ##
+## DEFINE ACTIONS ##
+## -------------- ##
+
+## Upgrade System
+## --------------
+function upgradesystem()
+{
+	cd /tmp/
+	sudo wget -q -O /tmp/upgrade.sh "https://raw.githubusercontent.com/snoopgod-linux/system/master/upgrade.sh"
+	if [ -f "/tmp/upgrade.sh" ];
+	then
+		sudo chmod +x /tmp/upgrade.sh
+		sudo bash /tmp/upgrade.sh
+		sudo rm -f /tmp/upgrade.sh
+	fi
+}
+
+## Remove unwanted launchers
+## -------------------------
+function removelaunchers()
+{
+	sudo rm -rf /usr/share/applications/kde4
+	sudo rm -f /usr/share/applications/arduino.desktop
+	sudo rm -f /usr/share/applications/edb.desktop
+	sudo rm -f /usr/share/applications/ettercap.desktop
+	sudo rm -f /usr/share/applications/gtkhash.desktop
+	sudo rm -f /usr/share/applications/guymager.desktop
+	sudo rm -f /usr/share/applications/lstopo.desktop
+	sudo rm -f /usr/share/applications/lynis.desktop
+	sudo rm -f /usr/share/applications/ophcrack.desktop
+	sudo rm -f /usr/share/applications/org.kde.plasma.emojier.desktop
+	sudo rm -f /usr/share/applications/org.wireshark.Wireshark.desktop
+	sudo rm -f /usr/share/applications/texdoctk.desktop
+	sudo rm -f /usr/share/applications/ubiquity.desktop
+	sudo rm -f /usr/share/applications/*-BurpSuiteCommunity.desktop
+	sudo rm -f /usr/share/applications/*-zap.sh.desktop
+}
+
+## Terminate
+## ---------
+function terminate()
+{
+	echo "Process completed"
+	sleep 1s
+}
+
+## -------------- ##
+## EXECUTE SCRIPT ##
+## -------------- ##
+
+## Launch
+## ------
+function launch()
+{
+	# Retrieve current datetime
+	flushtime=`date +%s.%N`
+
+	# Execute Actions
+	upgradesystem
+	removelaunchers
+	terminate
+
+	# Return notice
+	endtime=`date +%s.%N`
+	runtime=$( echo "$endtime - $flushtime" | bc -l )
+	echo "Executed within ${runtime} seconds"
+}
+
+## -------- ##
+## CALLBACK ##
+## -------- ##
+
+launch

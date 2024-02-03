@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=Development;Utility;Database;
+Comment=DB Browser for SQLite is a light GUI editor for SQLite databases
+Exec=sqlitebrowser %f
+Icon=sqlitebrowser
+MimeType=application/vnd.db4s-project+xml;application/sqlitebrowser;application/x-sqlitebrowser;application/vnd.sqlite3;application/geopackage+sqlite3;application/x-sqlite2;application/x-sqlite3;
+Name=SQLite Browser
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-MultipleArgs=false

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Networking;
+Exec=sh -c 'firewalk -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Firewalk
+Terminal=true
+Type=Application

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'fatcat -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Fatcat
+Terminal=true
+Type=Application

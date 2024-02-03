@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'galleta; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Galleta
+Terminal=true
+Type=Application

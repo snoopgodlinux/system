@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'de4dot --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=De4dot
+Terminal=true
+Type=Application

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Cracking;
+Exec=sh -c 'ccrypt --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Ccrypt
+Terminal=true
+Type=Application

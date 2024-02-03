@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Information Gathering;
+Exec=sh -c 'dnsrecon --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Dnsrecon
+Terminal=true
+Type=Application

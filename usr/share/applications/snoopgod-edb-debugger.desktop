@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Reverse Engineering;
+Exec=edb
+Icon=/usr/share/icons/snoopgod/edb.png
+Name=EDB Debugger
+Terminal=false
+Type=Application

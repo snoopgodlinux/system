@@ -1,0 +1,4 @@
+o
+/opt/snoopgod/exploitation/burpsuite
+y
+/usr/local/bin

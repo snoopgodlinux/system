@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Cracking;
+Exec=sh -c 'bruteforce-salted-openssl -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Bruteforce Salted OpenSSL
+Terminal=true
+Type=Application

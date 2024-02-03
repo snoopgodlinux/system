@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Utilities;
+Exec=sh -c 'polenum --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Polenum
+Terminal=true
+Type=Application

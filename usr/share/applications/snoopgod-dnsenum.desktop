@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Information Gathering;
+Exec=sh -c 'dnsenum --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Dnsenum
+Terminal=true
+Type=Application

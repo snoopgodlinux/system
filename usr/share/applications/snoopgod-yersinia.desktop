@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Exploitation;
+Exec=sh -c 'sudo yersinia -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Yersinia
+Terminal=true
+Type=Application

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'chntpw -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=ChntPW
+Terminal=true
+Type=Application

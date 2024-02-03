@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Wireless;
+Exec=sh -c 'cowpatty -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=CowPatty
+Terminal=true
+Type=Application

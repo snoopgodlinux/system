@@ -1,0 +1,5 @@
+#! /bin/bash
+set -e
+export PATH="/usr/lib/ubiquity/user-setup:$PATH"
+user-setup-ask
+user-setup-apply

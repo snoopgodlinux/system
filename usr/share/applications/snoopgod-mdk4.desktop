@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Wireless;
+Exec=sh -c 'sudo mdk4 --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=Mdk4
+Terminal=true
+Type=Application
