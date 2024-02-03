@@ -41,13 +41,4 @@ Currently SnoopGod includes [800 pre-installed libraries and tools. ](https://gi
 
 #### Screenshots
 
-![image-01](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-01.png)
-![image-02](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-02.png)
-![image-03](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-03.png)
-![image-04](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-04.png)
-![image-05](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-05.png)
-![image-06](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-06.png)
-![image-07](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-07.png)
-![image-08](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-08.png)
-![image-09](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-09.png)
-![image-10](https://raw.githubusercontent.com/snoopgod-linux/screenshots/main/installer/installer-10.png)
+If you want a quick overview and see what exactly SnoopGod Linux OS looks like, we invite you to take a look at the [https://github.com/snoopgod-linux/screenshots](screenshots) section.
