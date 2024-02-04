@@ -4,6 +4,14 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 * * *
 
+**2024-02-04**
+
+- Added Plymouth-Themes package
+- Added Fonts-Dejavu package
+- Added Fonts-Cantarell package
+
+* * *
+
 **2024-02-03**
 
 - Added SendEmail package
