@@ -10,6 +10,12 @@ You can find in the below document all the libraries and tools present in the Sn
 
 * * *
 
+#### Plymouth
+
+- [plymouth-themes](https://packages.ubuntu.com/jammy/plymouth-themes)
+
+* * *
+
 #### Libraries
 
 - [libbz2-dev](https://packages.ubuntu.com/jammy/libbz2-dev)
@@ -91,6 +97,13 @@ You can find in the below document all the libraries and tools present in the Sn
 - [p7zip](https://packages.ubuntu.com/jammy/p7zip)
 - [p7zip-full](https://packages.ubuntu.com/jammy/p7zip-full)
 - [p7zip-rar](https://packages.ubuntu.com/jammy/p7zip-rar)
+
+* * *
+
+#### Fonts
+
+- [fonts-dejavu](https://packages.ubuntu.com/jammy/fonts-dejavu)
+- [fonts-cantarell](https://packages.ubuntu.com/jammy/fonts-cantarell)
 
 * * *
 
