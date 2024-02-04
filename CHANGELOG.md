@@ -42,7 +42,7 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 **2024-01-15**
 
 - Changed the default installer logo
-- Changed the ISO compression from Gzip to Xz mode
+- Changed the ISO compression from Gzip to Xz compression mode
 
 * * *
 
