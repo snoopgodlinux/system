@@ -21,7 +21,6 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 - Build a new launcher menu
 - Added Linux generic kernel
-- Modified the plymouth password input field background and text
 
 * * *
 
