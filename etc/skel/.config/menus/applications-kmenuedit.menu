@@ -494,6 +494,7 @@
    <Filename>snoopgod-sslsplit.desktop</Filename>
    <Filename>snoopgod-traceroute.desktop</Filename>
    <Filename>snoopgod-whois.desktop</Filename>
+   <Filename>snoopgod-dnstracer.desktop</Filename>
   </Include>
   <Exclude>
    <Filename>snoopgod-exe2hex.desktop</Filename>
@@ -506,6 +507,7 @@
    <Filename>snoopgod-dnsenum.desktop</Filename>
    <Filename>snoopgod-dnsmap.desktop</Filename>
    <Filename>snoopgod-dnsrecon.desktop</Filename>
+   <Filename>snoopgod-dnstracer.desktop</Filename>
    <Filename>snoopgod-dnswalk.desktop</Filename>
    <Filename>snoopgod-enum4linux.desktop</Filename>
    <Filename>snoopgod-exifprobe.desktop</Filename>
@@ -789,7 +791,6 @@
    <Filename>snoopgod-d2j-jasmin2jar.desktop</Filename>
    <Filename>snoopgod-d2j-smali.desktop</Filename>
    <Filename>snoopgod-d2j-std-apk.desktop</Filename>
-   <Filename>snoopgod-dnstracer.desktop</Filename>
    <Filename>snoopgod-lynis.desktop</Filename>
   </Include>
   <Layout>
@@ -813,9 +814,11 @@
    <Filename>snoopgod-d2j-jasmin2jar.desktop</Filename>
    <Filename>snoopgod-d2j-smali.desktop</Filename>
    <Filename>snoopgod-d2j-std-apk.desktop</Filename>
-   <Filename>snoopgod-dnstracer.desktop</Filename>
    <Filename>snoopgod-lynis.desktop</Filename>
   </Layout>
+  <Exclude>
+   <Filename>snoopgod-dnstracer.desktop</Filename>
+  </Exclude>
  </Menu>
  <Include/>
  <Exclude>

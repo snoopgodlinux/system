@@ -8,6 +8,11 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 - Added SendEmail package
 - Correction of Tor Browser desktop launcher
+- Correction of DNSenum desktop launcher
+- Correction of DNSmap desktop launcher
+- Correction of DNSrecon desktop launcher
+- Correction of DNStwist desktop launcher
+- Correction of DNSwalk desktop launcher
 
 * * *
 

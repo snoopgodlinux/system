@@ -3,6 +3,6 @@ Version=1.0
 Categories=Information Gathering;
 Exec=sh -c 'dnstracer; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Dnstracer
+Name=DNStracer
 Terminal=true
 Type=Application
