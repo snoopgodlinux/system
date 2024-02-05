@@ -12,7 +12,7 @@
 ## -------------
 function updatehook()
 {
-	echo -e "Update system\n"
+	echo -e "Update system"
 }
 
 ## -------------- ##

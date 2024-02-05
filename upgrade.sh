@@ -12,7 +12,7 @@
 ## ---------------
 function upgradehook()
 {
-	echo -e "Upgrade system\n"
+	echo -e "Upgrade system"
 }
 
 ## -------------- ##
