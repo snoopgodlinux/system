@@ -24,6 +24,7 @@ The current version of SnoopGod is based on Ubuntu 22.04.3 LTS. More information
 | Release Date | 2024/01/02 |
 | Release Link | [https://snoopgod.com/releases/?ver=22.04.3](https://snoopgod.com/releases/?ver=22.04.3) |
 | Disk Name | SnoopGod 22.04.3 LTS amd64 "Jammy Jellyfish" |
+| Kernel Version | Kernel 6.5.0-15-generic |
 
 * * *
 
