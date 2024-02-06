@@ -167,6 +167,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [sqlitebrowser](https://packages.ubuntu.com/jammy/sqlitebrowser)
 - [socat](https://packages.ubuntu.com/jammy/socat)
 - [software-properties-common](https://packages.ubuntu.com/jammy/software-properties-common)
+- [software-properties-gtk](https://packages.ubuntu.com/jammy/software-properties-gtk)
 - [squashfs-tools](https://packages.ubuntu.com/jammy/squashfs-tools)
 - [synaptic](https://packages.ubuntu.com/jammy/synaptic)
 - [terminator](https://packages.ubuntu.com/jammy/terminator)
