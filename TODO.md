@@ -1,5 +1,7 @@
 ## Todo
 
+\[x\] Add fonts-dejavu package
+
 \[x\] Add software-properties-gtk package
 
 \[x\] Translate the installer into all available languages in the dropdown list

@@ -92,6 +92,10 @@ You can find in the below document all the libraries and tools present in the Sn
 - [p7zip-full](https://packages.ubuntu.com/jammy/p7zip-full)
 - [p7zip-rar](https://packages.ubuntu.com/jammy/p7zip-rar)
 
+#### Fonts
+
+- [fonts-dejavu](https://packages.ubuntu.com/jammy/fonts-dejavu)
+
 * * *
 
 #### Commons
