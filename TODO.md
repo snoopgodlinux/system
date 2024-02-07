@@ -1,5 +1,7 @@
 ## Todo
 
+\[x\] Remove description from every desktop launchers
+
 \[x\] Add fonts-dejavu package
 
 \[x\] Add software-properties-gtk package
