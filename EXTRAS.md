@@ -116,3 +116,22 @@ sudo apt-get -y install subversion
 ```shell
 sudo apt-get -y install virtualbox virtualbox-dkms virtualbox-guest-utils
 ```
+
+* * *
+
+#### Install `transmission`
+
+```shell
+sudo apt-get -y install transmission-cli transmission-common transmission-daemon transmission-gtk
+```
+
+* * *
+
+#### Install `rtorrent`
+
+```shell
+sudo apt-get -y install rtorrent
+cp /usr/share/doc/rtorrent/examples/rtorrent.rc.gz $HOME/
+cd $HOME/ && gzip -d rtorrent.rc.gz
+mv rtorrent.rc .rtorrent.rc
+```

@@ -86,8 +86,9 @@ You can find in the below document all the libraries and tools present in the Sn
 
 * * *
 
-#### 7zip
+#### Archives
 
+- [file-roller](https://packages.ubuntu.com/jammy/file-roller)
 - [p7zip](https://packages.ubuntu.com/jammy/p7zip)
 - [p7zip-full](https://packages.ubuntu.com/jammy/p7zip-full)
 - [p7zip-rar](https://packages.ubuntu.com/jammy/p7zip-rar)
@@ -108,6 +109,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [atftp](https://packages.ubuntu.com/jammy/atftp)
 - [autoconf](https://packages.ubuntu.com/jammy/autoconf)
 - [autopsy](https://packages.ubuntu.com/jammy/autopsy)
+- [baobab](https://packages.ubuntu.com/jammy/baobab)
 - [binutils](https://packages.ubuntu.com/jammy/binutils)
 - [binwalk](https://packages.ubuntu.com/jammy/binwalk)
 - [build-essential](https://packages.ubuntu.com/jammy/build-essential)
