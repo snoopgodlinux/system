@@ -9,14 +9,14 @@
 function helpmenu()
 {
 	echo 
-	echo "Usage: snoopgod [-h|--help] [--update] [--upgrade] [--clean] [--wipeall]"
+	echo "Usage: snoopgod [-h|--help] [--update] [--upgrade] [--clean-user] [--clean-root]"
 	echo
 	echo "Options:"
 	echo " -h, --help           show this help"
 	echo " --update             update the packages to their latest version"
 	echo " --upgrade            update the core distribution"
-	echo " --clean              delete all user temporary files"
-	echo " --wipeall            delete all root obsolete files"
+	echo " --clean-user         delete all user temporary files"
+	echo " --clean-root         delete all root obsolete files"
 }
 
 ## Callback
@@ -36,12 +36,12 @@ do
       		/usr/share/snoopgod/usr/bin/upgrader
         	exit 1
       		;;
-    	--clean)
-      		/usr/share/snoopgod/usr/bin/cleaner
+    	--clean-user)
+      		/usr/share/snoopgod/usr/bin/ucleaner
         	exit 1
       		;;
-    	--wipeall)
-      		/usr/share/snoopgod/usr/bin/wipeall
+    	--clean-root)
+      		/usr/share/snoopgod/usr/bin/rcleaner
         	exit 1
       		;;
       	*)

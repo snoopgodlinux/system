@@ -31,7 +31,7 @@ function showwarning()
 {
 	echo
     echo -e "${texterror}*** Warning ***${textreset}"
-    echo -e "${texterror}You are about to wipe and remove all user temporary files${textreset}"
+    echo -e "${texterror}You are about to clean all user temporary files${textreset}"
     echo -e "${texterror}We recommend to exit all other programs before to proceed${textreset}"
     echo
     read -p "Do you want to continue? [y/N] " yn
@@ -81,29 +81,6 @@ function deletefirefoxlogs()
 			;;
         * )
             deletefirefoxlogs
-            ;;
-    esac
-}
-
-## Delete cache files
-## ------------------
-function deletecachefiles()
-{
-    read -p "[?] Do you want to delete user cache files? [y/N] " yn
-    case $yn in
-        [Yy]* )
-			securedelete $HOME/.cache/obexd
-			securedelete $HOME/.cache/qtshadercache-x86_64-little_endian-lp64
-			securedelete $HOME/.cache/icon-cache.kcache
-			securedelete $HOME/.cache/ksycoca5*
-			securedelete $HOME/.cache/plasma_theme_default_v5.92.0.kcache
-			echo -e "[+] User cache files deleted\n"
-            ;;
-        [Nn]* )
-			echo -e "[!] User cache files not deleted\n"
-            ;;
-        * )
-            deletecachefiles
             ;;
     esac
 }
@@ -317,7 +294,6 @@ function launch()
 	
 	# Execute Actions
 	deletefirefoxlogs
-	deletecachefiles
 	deletecachethumbs
 	deletefileshistory
 	deletesshkeys

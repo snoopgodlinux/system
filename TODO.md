@@ -1,5 +1,7 @@
 ## Todo
 
+\[x\] Add `trash-cli` package
+
 \[x\] Add `baobab` package
 
 \[x\] Remove description from every desktop launchers

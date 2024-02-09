@@ -4,6 +4,14 @@ Want to do a little bit more? Here are somes of the additional packages that can
 
 * * *
 
+#### Install `baobab`
+
+```shell
+sudo apt-get -y install baobab
+```
+
+* * *
+
 #### Install `cubic`
 
 ```shell
@@ -123,6 +131,14 @@ sudo apt-get -y install virtualbox virtualbox-dkms virtualbox-guest-utils
 
 ```shell
 sudo apt-get -y install transmission-cli transmission-common transmission-daemon transmission-gtk
+```
+
+* * *
+
+#### Install `trash-cli`
+
+```shell
+sudo apt-get -y install trash-cli
 ```
 
 * * *
