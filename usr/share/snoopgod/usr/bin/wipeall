@@ -25,13 +25,26 @@ function clearscreen()
 	sleep 2s
 }
 
+## Keep alive
+## ----------
+function keepalive()
+{
+	sudo -v
+	while true;
+	do
+		sudo -n true;
+		sleep 60s;
+		kill -0 "$$" || exit;
+	done 2>/dev/null &
+}
+
 ## Warning
 ## -------
 function showwarning()
 {
 	echo
     echo -e "${texterror}*** Warning ***${textreset}"
-    echo -e "${texterror}You are about to wipe and remove all user temporary files${textreset}"
+    echo -e "${texterror}You are about to wipe and remove all root obsolete files${textreset}"
     echo -e "${texterror}We recommend to exit all other programs before to proceed${textreset}"
     echo
     read -p "Do you want to continue? [y/N] " yn
@@ -66,25 +79,6 @@ function securedelete()
 ## DEFINE ACTIONS ##
 ## -------------- ##
 
-## Delete Firefox Logs
-## -------------------
-function deletefirefoxlogs()
-{
-    read -p "[?] Do you want to delete Firefox logs? [y/N] " yn
-    case $yn in
-        [Yy]* )
-			securedelete /home/$USER/Downloads/firefox.tmp
-			echo -e "[+] Firefox temporary folder deleted\n"
-            ;;
-        [Nn]* )
-			echo -e "[!] Firefox temporary folder not deleted\n"
-			;;
-        * )
-            deletefirefoxlogs
-            ;;
-    esac
-}
-
 ## Delete Cache Thumbnails
 ## -----------------------
 function deletecachethumbs()
@@ -111,9 +105,9 @@ function deletefileshistory()
     read -p "[?] Do you want to delete files history? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.local/share/recently-used.xbel
-			securedelete /home/$USER/.config/sublime-text/Local/Session.sublime_session
-			securedelete /home/$USER/.msf4/history
+			securedelete "$HOME/.local/share/recently-used.xbel"
+			securedelete "$HOME/.config/sublime-text/Local/Session.sublime_session"
+			securedelete "$HOME/.msf4/history"
 			echo -e "[+] Files history deleted\n"
             ;;
         [Nn]* )
@@ -132,9 +126,9 @@ function deletesshkeys()
     read -p "[?] Do you want to delete SSH keys? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.ssh/authorized_keys
-			securedelete /home/$USER/.ssh/known_hosts
-			securedelete /home/$USER/.ssh/known_hosts.old
+			securedelete $HOME/.ssh/authorized_keys
+			securedelete $HOME/.ssh/known_hosts
+			securedelete $HOME/.ssh/known_hosts.old
 			echo -e "[+] SSH keys deleted\n"
             ;;
         [Nn]* )
@@ -146,25 +140,6 @@ function deletesshkeys()
     esac
 }
 
-## Delete SNAP Directory
-## ---------------------
-function deletesnapdir()
-{
-    read -p "[?] Do you want to delete Snap directory? [y/N] " yn
-    case $yn in
-        [Yy]* )
-			rm -rf /home/$USER/snap
-			echo -e "[+] Snap directory deleted\n"
-            ;;
-        [Nn]* )
-			echo -e "[!] Snap directory not deleted\n"
-            ;;
-        * )
-            deletesnapdir
-            ;;
-    esac
-}
-
 ## Delete Wget History
 ## -------------------
 function deletewgets()
@@ -172,7 +147,7 @@ function deletewgets()
     read -p "[?] Do you want to delete the Wget history? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.wget-hsts
+			securedelete $HOME/.wget-hsts
 			echo -e "[+] Wget history deleted\n"
 		    ;;
         [Nn]* )
@@ -191,7 +166,7 @@ function deletexerrors()
     read -p "[?] Do you want to delete the X-session errors? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.xsession-errors
+			securedelete $HOME/.xsession-errors
 			echo -e "[+] X-Session errors deleted\n"
 		    ;;
         [Nn]* )
@@ -203,51 +178,88 @@ function deletexerrors()
     esac
 }
 
-## Delete Kate Search History
-## --------------------------
-function deletekatesearch()
+## Delete useless documentations
+## -----------------------------
+function deleteuselessdocs()
 {
-    read -p "[?] Do you want to delete the Kate search history? [y/N] " yn
+    read -p "[?] Do you want to delete unnecessary documentations? [y/N] " yn
     case $yn in
         [Yy]* )
-			sed -i s/"^Search History=.*"/"Search History="/g /home/$USER/.config/katerc
-			echo -e "[+] Kate search history deleted\n"
-		    ;;
+			array=( man groff info lintian linda )
+			for item in "${array[@]}"
+			do
+				securedelete /usr/share/$item
+				echo -e "[+] Documentation file /usr/share/$item deleted"
+			done
+
+			securedelete /var/cache/man
+			echo -e "[+] Documentation directory /var/cache/man deleted"
+
+			sudo find /usr/share/doc -depth -type f ! -name copyright -exec rm -rf {} \; >/dev/null 2>&1
+			sudo find /usr/share/doc -empty -exec rm -rf {} \; >/dev/null 2>&1
+			echo -e "[+] Documentation directory /usr/share/doc deleted"
+
+			sudo find /usr/share/locale -mindepth 1 -maxdepth 1 ! -name 'en' -exec rm -rf {} \; >/dev/null 2>&1
+			echo -e "[+] Documentation directory /usr/share/locale deleted\n"
+            ;;
         [Nn]* )
-			echo -e "[!] Kate search history not deleted\n"
+			echo -e "[!] Unnecessary documentations not deleted\n"
             ;;
         * )
-            deletekatesearch
+            deleteuselessdocs
             ;;
     esac
 }
 
-## Delete Jetbrains history and logs
-## ---------------------------------
-function deletejetbrainslogs()
+## Delete APT cache
+## ----------------
+function deleteaptcache()
 {
-	if [ -d "/home/$USER/.config/JetBrains" ];
-	then
-	    read -p "[?] Do you want to delete the Jetbrains history and logs? [y/N] " yn
-	    case $yn in
-	        [Yy]* )
-				securedelete /home/$USER/Android
-				securedelete /home/$USER/.android
-				securedelete /home/$USER/.config/Google/AndroidStudio*
-				securedelete /home/$USER/.config/JetBrains
-				securedelete /home/$USER/.cache/Google/AndroidStudio*
-				securedelete /home/$USER/.cache/JetBrains
-				securedelete /home/$USER/.cache/JNA
-				echo -e "[+] Jetbrains history and logs deleted\n"
-			    ;;
-	        [Nn]* )
-				echo -e "[!] Jetbrains history and logs not deleted\n"
-	            ;;
-	        * )
-	            deletejetbrainslogs
-	            ;;
-	    esac
-	fi
+    read -p "[?] Do you want to delete APT cache? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete /var/cache/apt/*
+			echo -e "[+] APT cache deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] APT cache not deleted\n"
+            ;;
+        * )
+            deleteaptcache
+            ;;
+    esac
+}
+
+## Clear `/var/log` recursively
+## ----------------------------
+function deletevarlog()
+{
+    read -p "[?] Do you want to delete the system logs? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			array=( *.gz *.journal *.old *.1 *.log )
+			for item in "${array[@]}"
+			do
+				sudo find /var/log/ -type f -name $item -exec rm -f {} \; >/dev/null 2>&1
+				echo -e "[+] System logs /var/log/$item deleted"
+			done
+
+			array=( btmp debug faillog lastlog messages syslog wtmp cups/access_log installer/debug installer/media-info installer/partman installer/syslog installer/telemetry installer/version )
+			for item in "${array[@]}"
+			do
+				securedelete /var/log/$item
+				sudo touch /var/log/$item
+				echo -e "[+] System logs /var/log/$item deleted"
+			done
+			echo 
+            ;;
+        [Nn]* )
+			echo -e "[!] System logs not deleted\n"
+            ;;
+        * )
+            deletevarlog
+            ;;
+    esac
 }
 
 ## Delete Trash
@@ -267,6 +279,27 @@ function deletetrash()
             deletetrash
             ;;
     esac
+}
+
+## Remove unwanted launchers
+## -------------------------
+function removelaunchers()
+{
+	sudo rm -rf /usr/share/applications/kde4
+	sudo rm -f /usr/share/applications/arduino.desktop
+	sudo rm -f /usr/share/applications/edb.desktop
+	sudo rm -f /usr/share/applications/ettercap.desktop
+	sudo rm -f /usr/share/applications/gtkhash.desktop
+	sudo rm -f /usr/share/applications/guymager.desktop
+	sudo rm -f /usr/share/applications/lstopo.desktop
+	sudo rm -f /usr/share/applications/lynis.desktop
+	sudo rm -f /usr/share/applications/ophcrack.desktop
+	sudo rm -f /usr/share/applications/org.kde.plasma.emojier.desktop
+	sudo rm -f /usr/share/applications/org.wireshark.Wireshark.desktop
+	sudo rm -f /usr/share/applications/texdoctk.desktop
+	sudo rm -f /usr/share/applications/ubiquity.desktop
+	sudo rm -f /usr/share/applications/*-BurpSuiteCommunity.desktop
+	sudo rm -f /usr/share/applications/*-zap.sh.desktop
 }
 
 ## Terminate
@@ -290,20 +323,21 @@ function launch()
 
 	# Prepare Environment
 	clearscreen
+	keepalive
 	showwarning
 	
 	# Execute Actions
-	deletefirefoxlogs
 	deletecachethumbs
 	deletefileshistory
 	deletesshkeys
-	deletesnapdir
-	deletexerrors
 	deletewgets
-	deletekatesearch
-	deletejetbrainslogs
+	deletexerrors
+	deleteuselessdocs
+	deleteaptcache
+	deletevarlog
 	deletetrash
-
+	removelaunchers
+	
 	# Terminate
 	terminate
 

@@ -179,6 +179,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [terminator](https://packages.ubuntu.com/jammy/terminator)
 - [tor](https://packages.ubuntu.com/jammy/tor)
 - [torbrowser](https://www.torproject.org)
+- [trash-cli](https://packages.ubuntu.com/jammy/trash-cli)
 - [tree](https://packages.ubuntu.com/jammy/tree)
 - [wget](https://packages.ubuntu.com/jammy/wget)
 - [xorriso](https://packages.ubuntu.com/jammy/xorriso)
