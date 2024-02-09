@@ -85,6 +85,25 @@ sudo apt-get -y install libreoffice
 
 * * *
 
+#### Install `okular`
+
+```shell
+sudo apt-get -y install okular
+```
+
+* * *
+
+#### Install `rtorrent`
+
+```shell
+sudo apt-get -y install rtorrent
+cp /usr/share/doc/rtorrent/examples/rtorrent.rc.gz $HOME/
+cd $HOME/ && gzip -d rtorrent.rc.gz
+mv rtorrent.rc .rtorrent.rc
+```
+
+* * *
+
 #### Install `shotwell`
 
 ```shell
@@ -119,14 +138,6 @@ sudo apt-get -y install subversion
 
 * * *
 
-#### Install `virtualbox`
-
-```shell
-sudo apt-get -y install virtualbox virtualbox-dkms virtualbox-guest-utils
-```
-
-* * *
-
 #### Install `transmission`
 
 ```shell
@@ -143,11 +154,16 @@ sudo apt-get -y install trash-cli
 
 * * *
 
-#### Install `rtorrent`
+#### Install `virtualbox`
 
 ```shell
-sudo apt-get -y install rtorrent
-cp /usr/share/doc/rtorrent/examples/rtorrent.rc.gz $HOME/
-cd $HOME/ && gzip -d rtorrent.rc.gz
-mv rtorrent.rc .rtorrent.rc
+sudo apt-get -y install virtualbox virtualbox-dkms virtualbox-guest-utils
+```
+
+* * *
+
+#### Install `vlc`
+
+```shell
+sudo apt-get -y install vlc
 ```

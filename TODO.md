@@ -1,5 +1,9 @@
 ## Todo
 
+\[x\] Add `okular` package
+
+\[x\] Add `vlc` package
+
 \[x\] Add `trash-cli` package
 
 \[x\] Add `baobab` package

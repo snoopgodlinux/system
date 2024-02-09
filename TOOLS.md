@@ -157,6 +157,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [mtools](https://packages.ubuntu.com/jammy/mtools)
 - [net-tools](https://packages.ubuntu.com/jammy/net-tools)
 - [ninja-build](https://packages.ubuntu.com/jammy/ninja-build)
+- [okular](https://packages.ubuntu.com/jammy/okular)
 - [openvpn](https://packages.ubuntu.com/jammy/openvpn)
 - [pkg-config](https://packages.ubuntu.com/jammy/pkg-config)
 - [proxychains](https://packages.ubuntu.com/jammy/proxychains)
@@ -181,6 +182,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [torbrowser](https://www.torproject.org)
 - [trash-cli](https://packages.ubuntu.com/jammy/trash-cli)
 - [tree](https://packages.ubuntu.com/jammy/tree)
+- [vlc](https://packages.ubuntu.com/jammy/vlc)
 - [wget](https://packages.ubuntu.com/jammy/wget)
 - [xorriso](https://packages.ubuntu.com/jammy/xorriso)
 
