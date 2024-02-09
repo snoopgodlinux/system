@@ -61,7 +61,7 @@ function showwarning()
     esac
 }
 
-## Secure Delete
+## Secure delete
 ## -------------
 function securedelete()
 {
@@ -79,21 +79,21 @@ function securedelete()
 ## DEFINE ACTIONS ##
 ## -------------- ##
 
-## Delete Cache Thumbnails
+## Delete cache thumbnails
 ## -----------------------
 function deletecachethumbs()
 {
     read -p "[?] Do you want to delete user cache thumbnails directory? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete $HOME/.cache/thumbnails/*
+			rm -rf $HOME/.cache/thumbnails/*
 			echo -e "[+] User cache thumbnails directory deleted\n"
             ;;
         [Nn]* )
 			echo -e "[!] User cache thumbnails directory not deleted\n"
             ;;
         * )
-            deletecachedirs
+            deletecachethumbs
             ;;
     esac
 }
@@ -140,7 +140,7 @@ function deletesshkeys()
     esac
 }
 
-## Delete Wget History
+## Delete Wget history
 ## -------------------
 function deletewgets()
 {
@@ -159,7 +159,7 @@ function deletewgets()
     esac
 }
 
-## Delete Xsession Errors
+## Delete Xsession errors
 ## ----------------------
 function deletexerrors()
 {
@@ -262,25 +262,6 @@ function deletevarlog()
     esac
 }
 
-## Delete Trash
-## ------------
-function deletetrash()
-{
-    read -p "[?] Do you want to delete the trash folder content? [y/N] " yn
-    case $yn in
-        [Yy]* )
-			trash-empty
-			echo -e "[+] Trash folder content deleted\n"
-		    ;;
-        [Nn]* )
-			echo -e "[!] Trash folder content not deleted\n"
-            ;;
-        * )
-            deletetrash
-            ;;
-    esac
-}
-
 ## Remove unwanted launchers
 ## -------------------------
 function removelaunchers()
@@ -335,7 +316,6 @@ function launch()
 	deleteuselessdocs
 	deleteaptcache
 	deletevarlog
-	deletetrash
 	removelaunchers
 	
 	# Terminate
