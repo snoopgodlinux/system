@@ -31,7 +31,7 @@ function showwarning()
 {
 	echo
     echo -e "${texterror}*** Warning ***${textreset}"
-    echo -e "${texterror}You are about to clean all user temporary files${textreset}"
+    echo -e "${texterror}You are about to clean all user temporary and cached files and folders${textreset}"
     echo -e "${texterror}We recommend to exit all other programs before to proceed${textreset}"
     echo
     read -p "Do you want to continue? [y/N] " yn
@@ -73,7 +73,7 @@ function deletefirefoxlogs()
     read -p "[?] Do you want to delete Firefox logs? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/Downloads/firefox.tmp
+			securedelete $HOME/Downloads/firefox.tmp
 			echo -e "[+] Firefox temporary folder deleted\n"
             ;;
         [Nn]* )
@@ -111,9 +111,9 @@ function deletefileshistory()
     read -p "[?] Do you want to delete files history? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.local/share/recently-used.xbel
-			securedelete /home/$USER/.config/sublime-text/Local/Session.sublime_session
-			securedelete /home/$USER/.msf4/history
+			securedelete $HOME/.local/share/recently-used.xbel
+			securedelete $HOME/.config/sublime-text/Local/Session.sublime_session
+			securedelete $HOME/.msf4/history
 			echo -e "[+] Files history deleted\n"
             ;;
         [Nn]* )
@@ -132,9 +132,9 @@ function deletesshkeys()
     read -p "[?] Do you want to delete SSH keys? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.ssh/authorized_keys
-			securedelete /home/$USER/.ssh/known_hosts
-			securedelete /home/$USER/.ssh/known_hosts.old
+			securedelete $HOME/.ssh/authorized_keys
+			securedelete $HOME/.ssh/known_hosts
+			securedelete $HOME/.ssh/known_hosts.old
 			echo -e "[+] SSH keys deleted\n"
             ;;
         [Nn]* )
@@ -153,7 +153,7 @@ function deletesnapdir()
     read -p "[?] Do you want to delete Snap directory? [y/N] " yn
     case $yn in
         [Yy]* )
-			rm -rf /home/$USER/snap
+			rm -rf $HOME/snap
 			echo -e "[+] Snap directory deleted\n"
             ;;
         [Nn]* )
@@ -172,7 +172,7 @@ function deletewgets()
     read -p "[?] Do you want to delete the Wget history? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.wget-hsts
+			securedelete $HOME/.wget-hsts
 			echo -e "[+] Wget history deleted\n"
 		    ;;
         [Nn]* )
@@ -191,7 +191,7 @@ function deletexerrors()
     read -p "[?] Do you want to delete the X-session errors? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete /home/$USER/.xsession-errors
+			securedelete $HOME/.xsession-errors
 			echo -e "[+] X-Session errors deleted\n"
 		    ;;
         [Nn]* )
@@ -210,7 +210,7 @@ function deletekatesearch()
     read -p "[?] Do you want to delete the Kate search history? [y/N] " yn
     case $yn in
         [Yy]* )
-			sed -i s/"^Search History=.*"/"Search History="/g /home/$USER/.config/katerc
+			sed -i s/"^Search History=.*"/"Search History="/g $HOME/.config/katerc
 			echo -e "[+] Kate search history deleted\n"
 		    ;;
         [Nn]* )
@@ -226,18 +226,18 @@ function deletekatesearch()
 ## ---------------------------------
 function deletejetbrainslogs()
 {
-	if [ -d "/home/$USER/.config/JetBrains" ];
+	if [ -d "$HOME/.config/JetBrains" ];
 	then
 	    read -p "[?] Do you want to delete the Jetbrains history and logs? [y/N] " yn
 	    case $yn in
 	        [Yy]* )
-				rm -rf /home/$USER/Android
-				rm -rf /home/$USER/.android
-				rm -rf /home/$USER/.config/Google/AndroidStudio*
-				rm -rf /home/$USER/.config/JetBrains
-				rm -rf /home/$USER/.cache/Google/AndroidStudio*
-				rm -rf /home/$USER/.cache/JetBrains
-				rm -rf /home/$USER/.cache/JNA
+				rm -rf $HOME/Android
+				rm -rf $HOME/.android
+				rm -rf $HOME/.config/Google/AndroidStudio*
+				rm -rf $HOME/.config/JetBrains
+				rm -rf $HOME/.cache/Google/AndroidStudio*
+				rm -rf $HOME/.cache/JetBrains
+				rm -rf $HOME/.cache/JNA
 				echo -e "[+] Jetbrains history and logs deleted\n"
 			    ;;
 	        [Nn]* )
