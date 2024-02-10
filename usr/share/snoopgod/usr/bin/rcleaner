@@ -105,9 +105,7 @@ function deletefileshistory()
     read -p "[?] Do you want to delete files history? [y/N] " yn
     case $yn in
         [Yy]* )
-			securedelete "$HOME/.local/share/recently-used.xbel"
-			securedelete "$HOME/.config/sublime-text/Local/Session.sublime_session"
-			securedelete "$HOME/.msf4/history"
+			securedelete $HOME/bettercap.history
 			echo -e "[+] Files history deleted\n"
             ;;
         [Nn]* )
@@ -136,6 +134,25 @@ function deletesshkeys()
             ;;
         * )
             deletesshkeys
+            ;;
+    esac
+}
+
+## Delete SNAP directory
+## ---------------------
+function deletesnapdir()
+{
+    read -p "[?] Do you want to delete Snap directory? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf $HOME/snap
+			echo -e "[+] Snap directory deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Snap directory not deleted\n"
+            ;;
+        * )
+            deletesnapdir
             ;;
     esac
 }
@@ -311,6 +328,7 @@ function launch()
 	deletecachethumbs
 	deletefileshistory
 	deletesshkeys
+	deletesnapdir
 	deletewgets
 	deletexerrors
 	deleteuselessdocs
