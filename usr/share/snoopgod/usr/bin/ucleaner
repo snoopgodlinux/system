@@ -31,7 +31,7 @@ function showwarning()
 {
 	echo
     echo -e "${texterror}*** Warning ***${textreset}"
-    echo -e "${texterror}You are about to clean all user temporary and cached files and folders${textreset}"
+    echo -e "${texterror}You are about to clean all user temporary cached files and folders${textreset}"
     echo -e "${texterror}We recommend to exit all other programs before to proceed${textreset}"
     echo
     read -p "Do you want to continue? [y/N] " yn
