@@ -83,14 +83,14 @@ function securedelete()
 ## -----------------------
 function deletecachethumbs()
 {
-    read -p "[?] Do you want to delete user cache thumbnails directory? [y/N] " yn
+    read -p "[?] Do you want to delete thumbnails cache? [y/N] " yn
     case $yn in
         [Yy]* )
 			rm -rf $HOME/.cache/thumbnails/*
-			echo -e "[+] User cache thumbnails directory deleted\n"
+			echo -e "[+] Thumbnails cache deleted\n"
             ;;
         [Nn]* )
-			echo -e "[!] User cache thumbnails directory not deleted\n"
+			echo -e "[+] Thumbnails cache not deleted\n"
             ;;
         * )
             deletecachethumbs
@@ -98,21 +98,21 @@ function deletecachethumbs()
     esac
 }
 
-## Delete files history
-## --------------------
-function deletefileshistory()
+## Delete recent files history
+## ---------------------------
+function deleterecentfiles()
 {
-    read -p "[?] Do you want to delete files history? [y/N] " yn
+    read -p "[?] Do you want to delete the recent files logs? [y/N] " yn
     case $yn in
         [Yy]* )
 			securedelete $HOME/bettercap.history
-			echo -e "[+] Files history deleted\n"
+			echo -e "[+] Recent files logs deleted\n"
             ;;
         [Nn]* )
-			echo -e "[!] Files history not deleted\n"
+			echo -e "[!] Recent Files logs not deleted\n"
             ;;
         * )
-            deletefileshistory
+            deleterecentfiles
             ;;
     esac
 }
@@ -140,7 +140,7 @@ function deletesshkeys()
 
 ## Delete SNAP directory
 ## ---------------------
-function deletesnapdir()
+function deletesnapdirectory()
 {
     read -p "[?] Do you want to delete Snap directory? [y/N] " yn
     case $yn in
@@ -152,14 +152,14 @@ function deletesnapdir()
 			echo -e "[!] Snap directory not deleted\n"
             ;;
         * )
-            deletesnapdir
+            deletesnapdirectory
             ;;
     esac
 }
 
 ## Delete Wget history
 ## -------------------
-function deletewgets()
+function deletewgetlogs()
 {
     read -p "[?] Do you want to delete the Wget history? [y/N] " yn
     case $yn in
@@ -171,7 +171,7 @@ function deletewgets()
 			echo -e "[!] Wget history not deleted\n"
             ;;
         * )
-            deletewgets
+            deletewgetlogs
             ;;
     esac
 }
@@ -249,7 +249,7 @@ function deleteaptcache()
 
 ## Clear `/var/log` recursively
 ## ----------------------------
-function deletevarlog()
+function deletevarlogs()
 {
     read -p "[?] Do you want to delete the system logs? [y/N] " yn
     case $yn in
@@ -274,7 +274,7 @@ function deletevarlog()
 			echo -e "[!] System logs not deleted\n"
             ;;
         * )
-            deletevarlog
+            deletevarlogs
             ;;
     esac
 }
@@ -326,14 +326,14 @@ function launch()
 	
 	# Execute Actions
 	deletecachethumbs
-	deletefileshistory
+	deleterecentfiles
 	deletesshkeys
-	deletesnapdir
-	deletewgets
+	deletesnapdirectory
+	deletewgetlogs
 	deletexerrors
 	deleteuselessdocs
 	deleteaptcache
-	deletevarlog
+	deletevarlogs
 	removelaunchers
 	
 	# Terminate

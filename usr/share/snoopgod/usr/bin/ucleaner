@@ -66,21 +66,88 @@ function securedelete()
 ## DEFINE ACTIONS ##
 ## -------------- ##
 
-## Delete Firefox logs
+## Delete Chrome cache
 ## -------------------
-function deletefirefoxlogs()
+function deletecachechrome()
 {
-    read -p "[?] Do you want to delete Firefox logs? [y/N] " yn
+    read -p "[?] Do you want to delete Chrome cache? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf $HOME/.cache/google-chrome/*
+		    rm -rf $HOME/.config/google-chrome/Default/*
+			echo -e "[+] Chrome cache folder deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Chrome cache folder not deleted\n"
+			;;
+        * )
+            deletecachechrome
+            ;;
+    esac
+}
+
+## Delete Firefox cache
+## --------------------
+function deletecachefirefox()
+{
+    read -p "[?] Do you want to delete Firefox cache? [y/N] " yn
     case $yn in
         [Yy]* )
 			securedelete $HOME/Downloads/firefox.tmp
-			echo -e "[+] Firefox temporary folder deleted\n"
+			echo -e "[+] Firefox cache folder deleted\n"
             ;;
         [Nn]* )
-			echo -e "[!] Firefox temporary folder not deleted\n"
+			echo -e "[!] Firefox cache folder not deleted\n"
 			;;
         * )
-            deletefirefoxlogs
+            deletecachefirefox
+            ;;
+    esac
+}
+
+## Delete Jetbrains cache
+## ----------------------
+function deletecachejetbrains()
+{
+	if [ -d "$HOME/.config/JetBrains" ];
+	then
+	    read -p "[?] Do you want to delete Jetbrains cache? [y/N] " yn
+	    case $yn in
+	        [Yy]* )
+				rm -rf $HOME/Android
+				rm -rf $HOME/.android
+				rm -rf $HOME/.config/Google/AndroidStudio*
+				rm -rf $HOME/.config/JetBrains
+				rm -rf $HOME/.cache/Google/AndroidStudio*
+				rm -rf $HOME/.cache/JetBrains
+				rm -rf $HOME/.cache/JNA
+				echo -e "[+] Jetbrains cache deleted\n"
+			    ;;
+	        [Nn]* )
+				echo -e "[!] Jetbrains cache not deleted\n"
+	            ;;
+	        * )
+	            deletecachejetbrains
+	            ;;
+	    esac
+	fi
+}
+
+## Delete KeePassXC cache
+## ----------------------
+function deletecachekeepassxc()
+{
+    read -p "[?] Do you want to delete KeePassXC cache? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf $HOME/.cache/keepassxc
+			echo -e "[+] KeePassXC cache deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[+] KeePassXC cache not deleted\n"
+            ;;
+        * )
+            deletecachekeepassxc
             ;;
     esac
 }
@@ -89,14 +156,14 @@ function deletefirefoxlogs()
 ## -----------------------
 function deletecachethumbs()
 {
-    read -p "[?] Do you want to delete user cache thumbnails directory? [y/N] " yn
+    read -p "[?] Do you want to delete thumbnails cache? [y/N] " yn
     case $yn in
         [Yy]* )
 			rm -rf $HOME/.cache/thumbnails/*
-			echo -e "[+] User cache thumbnails directory deleted\n"
+			echo -e "[+] Thumbnails cache deleted\n"
             ;;
         [Nn]* )
-			echo -e "[!] User cache thumbnails directory not deleted\n"
+			echo -e "[+] Thumbnails cache not deleted\n"
             ;;
         * )
             deletecachethumbs
@@ -104,23 +171,22 @@ function deletecachethumbs()
     esac
 }
 
-## Delete files history
-## --------------------
-function deletefileshistory()
+## Delete recent files history
+## ---------------------------
+function deleterecentfiles()
 {
-    read -p "[?] Do you want to delete files history? [y/N] " yn
+    read -p "[?] Do you want to delete the recent files logs? [y/N] " yn
     case $yn in
         [Yy]* )
 			securedelete $HOME/.local/share/recently-used.xbel
-			securedelete $HOME/.config/sublime-text/Local/Session.sublime_session
 			securedelete $HOME/.msf4/history
-			echo -e "[+] Files history deleted\n"
+			echo -e "[+] Recent files logs deleted\n"
             ;;
         [Nn]* )
-			echo -e "[!] Files history not deleted\n"
+			echo -e "[!] Recent Files logs not deleted\n"
             ;;
         * )
-            deletefileshistory
+            deleterecentfiles
             ;;
     esac
 }
@@ -148,7 +214,7 @@ function deletesshkeys()
 
 ## Delete SNAP directory
 ## ---------------------
-function deletesnapdir()
+function deletesnapdirectory()
 {
     read -p "[?] Do you want to delete Snap directory? [y/N] " yn
     case $yn in
@@ -160,14 +226,14 @@ function deletesnapdir()
 			echo -e "[!] Snap directory not deleted\n"
             ;;
         * )
-            deletesnapdir
+            deletesnapdirectory
             ;;
     esac
 }
 
 ## Delete Wget history
 ## -------------------
-function deletewgets()
+function deletewgetlogs()
 {
     read -p "[?] Do you want to delete the Wget history? [y/N] " yn
     case $yn in
@@ -179,7 +245,7 @@ function deletewgets()
 			echo -e "[!] Wget history not deleted\n"
             ;;
         * )
-            deletewgets
+            deletewgetlogs
             ;;
     esac
 }
@@ -222,32 +288,23 @@ function deletekatesearch()
     esac
 }
 
-## Delete Jetbrains history and logs
-## ---------------------------------
-function deletejetbrainslogs()
+## Delete Sublime-Text history
+## ---------------------------
+function deletesublimehistory()
 {
-	if [ -d "$HOME/.config/JetBrains" ];
-	then
-	    read -p "[?] Do you want to delete the Jetbrains history and logs? [y/N] " yn
-	    case $yn in
-	        [Yy]* )
-				rm -rf $HOME/Android
-				rm -rf $HOME/.android
-				rm -rf $HOME/.config/Google/AndroidStudio*
-				rm -rf $HOME/.config/JetBrains
-				rm -rf $HOME/.cache/Google/AndroidStudio*
-				rm -rf $HOME/.cache/JetBrains
-				rm -rf $HOME/.cache/JNA
-				echo -e "[+] Jetbrains history and logs deleted\n"
-			    ;;
-	        [Nn]* )
-				echo -e "[!] Jetbrains history and logs not deleted\n"
-	            ;;
-	        * )
-	            deletejetbrainslogs
-	            ;;
-	    esac
-	fi
+    read -p "[?] Do you want to delete the Sublime-Text files history? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			securedelete $HOME/.config/sublime-text/Local/Session.sublime_session
+			echo -e "[+] Sublime-Text files history deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Sublime-Text files history not deleted\n"
+            ;;
+        * )
+            deletesublimehistory
+            ;;
+    esac
 }
 
 ## Delete trash
@@ -293,15 +350,18 @@ function launch()
 	showwarning
 	
 	# Execute Actions
-	deletefirefoxlogs
+	deletecachechrome
+	deletecachefirefox
+	deletecachejetbrains
+	deletecachekeepassxc
 	deletecachethumbs
-	deletefileshistory
+	deleterecentfiles
 	deletesshkeys
-	deletesnapdir
+	deletesnapdirectory
+	deletewgetlogs
 	deletexerrors
-	deletewgets
 	deletekatesearch
-	deletejetbrainslogs
+	deletesublimehistory
 	deletetrash
 
 	# Terminate
