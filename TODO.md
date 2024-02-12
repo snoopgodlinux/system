@@ -1,5 +1,7 @@
 ## Todo
 
+\[x\] Correct Proxychains configuration
+
 \[x\] Add `postfix` package
 
 \[x\] Add `python3-nmap` package
