@@ -1,5 +1,9 @@
 ## Todo
 
+\[x\] Add `postfix` package
+
+\[x\] Add `python3-nmap` package
+
 \[x\] Add `okular` package
 
 \[x\] Add `vlc` package
