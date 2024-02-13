@@ -86,6 +86,26 @@ function deletecachechrome()
     esac
 }
 
+## Delete Filezilla cache
+## ----------------------
+function deletecachefilezilla()
+{
+    read -p "[?] Do you want to delete Filezilla cache? [y/N] " yn
+    case $yn in
+        [Yy]* )
+		    securedelete -rf $HOME/.config/filezilla/queue.sqlite3
+		    securedelete -rf $HOME/.config/filezilla/recentservers.xml
+			echo -e "[+] Filezilla cache folder deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Filezilla cache folder not deleted\n"
+			;;
+        * )
+            deletecachefilezilla
+            ;;
+    esac
+}
+
 ## Delete Firefox cache
 ## --------------------
 function deletecachefirefox()
@@ -351,6 +371,7 @@ function launch()
 	
 	# Execute Actions
 	deletecachechrome
+	deletecachefilezilla
 	deletecachefirefox
 	deletecachejetbrains
 	deletecachekeepassxc
