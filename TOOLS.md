@@ -186,6 +186,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [terminator](https://packages.ubuntu.com/jammy/terminator)
 - [tor](https://packages.ubuntu.com/jammy/tor)
 - [torbrowser](https://www.torproject.org)
+- [torsocks](https://packages.ubuntu.com/jammy/torsocks)
 - [trash-cli](https://packages.ubuntu.com/jammy/trash-cli)
 - [tree](https://packages.ubuntu.com/jammy/tree)
 - [vlc](https://packages.ubuntu.com/jammy/vlc)

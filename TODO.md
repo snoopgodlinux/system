@@ -1,5 +1,7 @@
 ## Todo
 
+\[v\] Add `torsocks` package
+
 \[v\] Add `natpmpc` package
 
 \[v\] Add `wireguard` package
