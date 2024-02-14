@@ -465,4 +465,3 @@ You can find in the below document all the libraries and tools present in the Sn
 - [wifi-honey](https://www.digininja.org/projects/wifi_honey.php7)
 - [wifite](https://packages.ubuntu.com/jammy/wifite)
 - [wps-breaker](https://github.com/SilentGhostX/HT-WPS-Breaker)
-
