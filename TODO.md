@@ -1,24 +1,30 @@
 ## Todo
 
-\[x\] Correct Proxychains configuration
+\[v\] Add `natpmpc` package
 
-\[x\] Add `postfix` package
+\[v\] Add `wireguard` package
 
-\[x\] Add `python3-nmap` package
+\[v\] Add `swaks` package
 
-\[x\] Add `okular` package
+\[v\] Correct Proxychains configuration
 
-\[x\] Add `vlc` package
+\[v\] Add `postfix` package
 
-\[x\] Add `trash-cli` package
+\[v\] Add `python3-nmap` package
 
-\[x\] Add `baobab` package
+\[v\] Add `okular` package
+
+\[v\] Add `vlc` package
+
+\[v\] Add `trash-cli` package
+
+\[v\] Add `baobab` package
 
 \[x\] Remove description from every desktop launchers
 
-\[x\] Add `fonts-dejavu` package
+\[v\] Add `fonts-dejavu` package
 
-\[x\] Add `software-properties-gtk` package
+\[v\] Add `software-properties-gtk` package
 
 \[x\] Translate the installer into all available languages in the dropdown list
 

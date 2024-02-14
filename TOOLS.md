@@ -94,6 +94,8 @@ You can find in the below document all the libraries and tools present in the Sn
 - [p7zip-full](https://packages.ubuntu.com/jammy/p7zip-full)
 - [p7zip-rar](https://packages.ubuntu.com/jammy/p7zip-rar)
 
+* * *
+
 #### Fonts
 
 - [fonts-dejavu](https://packages.ubuntu.com/jammy/fonts-dejavu)
@@ -157,6 +159,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [make](https://packages.ubuntu.com/jammy/make)
 - [mtools](https://packages.ubuntu.com/jammy/mtools)
 - [net-tools](https://packages.ubuntu.com/jammy/net-tools)
+- [natpmpc](https://packages.ubuntu.com/jammy/natpmpc)
 - [ninja-build](https://packages.ubuntu.com/jammy/ninja-build)
 - [okular](https://packages.ubuntu.com/jammy/okular)
 - [openvpn](https://packages.ubuntu.com/jammy/openvpn)
@@ -179,6 +182,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [software-properties-gtk](https://packages.ubuntu.com/jammy/software-properties-gtk)
 - [squashfs-tools](https://packages.ubuntu.com/jammy/squashfs-tools)
 - [synaptic](https://packages.ubuntu.com/jammy/synaptic)
+- [swaks](https://packages.ubuntu.com/jammy/swaks)
 - [terminator](https://packages.ubuntu.com/jammy/terminator)
 - [tor](https://packages.ubuntu.com/jammy/tor)
 - [torbrowser](https://www.torproject.org)
@@ -186,6 +190,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [tree](https://packages.ubuntu.com/jammy/tree)
 - [vlc](https://packages.ubuntu.com/jammy/vlc)
 - [wget](https://packages.ubuntu.com/jammy/wget)
+- [wireguard](https://packages.ubuntu.com/jammy/wireguard)
 - [xorriso](https://packages.ubuntu.com/jammy/xorriso)
 
 * * *
