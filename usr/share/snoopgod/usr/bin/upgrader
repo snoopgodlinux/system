@@ -13,7 +13,7 @@
 function upgradesystem()
 {
 	cd /tmp/
-	sudo wget -q -O /tmp/upgrade.sh "https://raw.githubusercontent.com/snoopgod-linux/system/master/upgrade.sh"
+	sudo wget -q -O /tmp/upgrade.sh "https://raw.githubusercontent.com/snoopgodlinux/system/master/upgrade.sh"
 	if [ -f "/tmp/upgrade.sh" ];
 	then
 		sudo chmod +x /tmp/upgrade.sh
