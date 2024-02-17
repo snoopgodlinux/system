@@ -2,6 +2,7 @@
 
 | Status | Description |
 | :--- | :--- |
+| \[x\] | Add `BeEf` package |
 | \[v\] | Add `libcurl4` package |
 | \[v\] | Add `torsocks` package |
 | \[v\] | Add `natpmpc` package |
