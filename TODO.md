@@ -21,9 +21,9 @@
 | \[v\] | Correct the wording of the installer |
 | \[v\] | Translate the installer into 'af' language |
 | \[v\] | Translate the installer into 'ar' language |
-| \[x\] | Translate the installer into 'ast' language |
-| \[x\] | Translate the installer into 'be' language |
-| \[x\] | Translate the installer into 'bg' language |
+| \[v\] | Translate the installer into 'ast' language |
+| \[v\] | Translate the installer into 'be' language |
+| \[v\] | Translate the installer into 'bg' language |
 | \[x\] | Translate the installer into 'bn' language |
 | \[x\] | Translate the installer into 'bs' language |
 | \[v\] | Translate the installer into 'ca' language |
