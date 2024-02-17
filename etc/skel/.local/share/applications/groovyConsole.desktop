@@ -1,10 +1,10 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=Development;IDE
 Comment=
-Exec=kdeconnect-app
-GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Exec=/usr/bin/groovyConsole
+Icon=ConsoleIcon
+Name[en_US]=Groovy Script Console
+Name=Groovy Console
 NoDisplay=false
 Path=
 StartupNotify=true

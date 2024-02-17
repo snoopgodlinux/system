@@ -1,15 +1,17 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=PackageManager;GTK;System;Settings;
 Comment=
-Exec=kdeconnect-app
+Exec=synaptic-pkexec
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=synaptic
+Name=Synaptic Package Manager
 NoDisplay=false
 Path=
 StartupNotify=true
+StartupWMClass=synaptic
 Terminal=false
 TerminalOptions=
 Type=Application
 X-KDE-SubstituteUID=false
 X-KDE-Username=
+X-Ubuntu-Gettext-Domain=synaptic

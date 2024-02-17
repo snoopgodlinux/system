@@ -2,7 +2,7 @@
 Categories=Qt;Development;Translation;
 Comment=
 Exec=/usr/lib/qt5/bin/linguist %F
-GenericName=Translation Tool
+GenericName=
 Icon=linguist-qt5
 MimeType=application/x-linguist;
 Name=QT5 Linguist

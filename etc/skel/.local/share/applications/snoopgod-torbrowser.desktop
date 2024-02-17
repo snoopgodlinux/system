@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Network;WebBrowser;Security;
+Comment=
+Exec=sh -c '$HOME/.torbrowser/Browser/start-tor-browser --detach || ([ ! -x $HOME/.torbrowser/Browser/start-tor-browser ] && $HOME/.torbrowser/Browser/start-tor-browser --detach)' dummy %k
+GenericName=
+Icon=/usr/share/icons/snoopgod/torbrowser.png
+Name=Tor Browser
+NoDisplay=false
+Path=
+StartupNotify=true
+StartupWMClass=Tor Browser
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-TorBrowser-ExecShell=./Browser/start-tor-browser --detach

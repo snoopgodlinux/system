@@ -1,15 +1,19 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=Utility;Security;Qt;
 Comment=
-Exec=kdeconnect-app
+Exec=keepassxc %f
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=keepassxc
+MimeType=application/x-keepass2;
+Name=KeePassXC
 NoDisplay=false
 Path=
 StartupNotify=true
+StartupWMClass=keepassxc
 Terminal=false
 TerminalOptions=
+TryExec=keepassxc
 Type=Application
+Version=1.0
 X-KDE-SubstituteUID=false
 X-KDE-Username=

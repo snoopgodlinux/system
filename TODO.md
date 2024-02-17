@@ -1,5 +1,7 @@
 ## Todo
 
+\[v\] Add `libcurl4` package
+
 \[v\] Add `torsocks` package
 
 \[v\] Add `natpmpc` package
@@ -22,7 +24,7 @@
 
 \[v\] Add `baobab` package
 
-\[x\] Remove description from every desktop launchers
+\[v\] Remove description from every desktop launchers
 
 \[v\] Add `fonts-dejavu` package
 

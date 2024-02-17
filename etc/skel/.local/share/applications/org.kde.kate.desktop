@@ -1,0 +1,22 @@
+[Desktop Entry]
+Categories=Qt;KDE;Utility;TextEditor;
+Comment=
+Exec=kate -b %U
+GenericName=
+Icon=kate
+InitialPreference=9
+MimeType=text/plain;inode/directory;
+Name=Kate
+NoDisplay=false
+Path=
+StartupNotify=true
+StartupWMClass=kate
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=org.kde.kate
+X-DBUS-StartupType=Multi
+X-DocPath=kate/index.html
+X-KDE-HasTempFileOption=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,43 @@
+[Desktop Action Next]
+Exec=rhythmbox-client --next
+Name=Next
+
+[Desktop Action PlayPause]
+Exec=rhythmbox-client --play-pause
+Name=Play/Pause
+
+[Desktop Action Previous]
+Exec=rhythmbox-client --previous
+Name=Previous
+
+[Desktop Action StopQuit]
+Exec=rhythmbox-client --quit
+Name=Stop & Quit
+
+[Desktop Entry]
+Actions=PlayPause;Next;Previous;StopQuit;
+Categories=GNOME;GTK;AudioVideo;Audio;Player;
+Comment=
+Exec=rhythmbox %U
+GenericName=
+Icon=org.gnome.Rhythmbox
+Keywords=Audio;Song;MP3;CD;Podcast;MTP;iPod;Playlist;Last.fm;UPnP;DLNA;Radio;
+MimeType=application/x-ogg;application/ogg;audio/x-vorbis+ogg;audio/vorbis;audio/x-vorbis;audio/x-scpls;audio/x-mp3;audio/x-mpeg;audio/mpeg;audio/x-mpegurl;audio/x-flac;audio/mp4;audio/x-it;audio/x-mod;audio/x-s3m;audio/x-stm;audio/x-xm;
+Name=Rhythmbox
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-OtherBinaries=rhythmbox-client;rhythmbox-metadata;
+X-GNOME-Bugzilla-Product=rhythmbox
+X-GNOME-Bugzilla-Version=3.4.4
+X-GNOME-DocPath=rhythmbox/rhythmbox.xml
+X-GNOME-FullName=Rhythmbox Music Player
+X-GNOME-UsesNotifications=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-Ubuntu-Gettext-Domain=rhythmbox

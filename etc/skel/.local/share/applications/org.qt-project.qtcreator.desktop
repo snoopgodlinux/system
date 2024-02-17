@@ -2,7 +2,7 @@
 Categories=Development;IDE;Qt;
 Comment=
 Exec=qtcreator %F
-GenericName=C++ IDE for developing Qt applications
+GenericName=
 Icon=QtProject-qtcreator
 MimeType=text/x-c++src;text/x-c++hdr;text/x-xsrc;application/x-designer;application/vnd.qt.qmakeprofile;application/vnd.qt.xml.resource;
 Name=QT Creator

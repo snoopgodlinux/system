@@ -872,6 +872,7 @@
    <Filename>gnuradio-grc.desktop</Filename>
    <Filename>sqlitebrowser.desktop</Filename>
    <Filename>chirp.desktop</Filename>
+   <Filename>terminator.desktop</Filename>
   </Include>
  </Menu>
  <Menu>
@@ -899,24 +900,25 @@
  </Menu>
  <Menu>
   <Name>Utilities</Name>
+  <Exclude>
+   <Filename>sqlitebrowser.desktop</Filename>
+   <Filename>chirp.desktop</Filename>
+   <Filename>terminator.desktop</Filename>
+  </Exclude>
   <Layout>
    <Merge type="menus"/>
    <Menuname>XUtilities</Menuname>
    <Merge type="files"/>
+   <Filename>org.gnome.DiskUtility.desktop</Filename>
    <Filename>org.kde.ark.desktop</Filename>
    <Filename>cherrytree.desktop</Filename>
    <Filename>org.kde.kate.desktop</Filename>
    <Filename>org.keepassxc.KeePassXC.desktop</Filename>
    <Filename>org.kde.spectacle.desktop</Filename>
-   <Filename>terminator.desktop</Filename>
    <Filename>info.desktop</Filename>
    <Separator/>
    <Menuname>More</Menuname>
   </Layout>
-  <Exclude>
-   <Filename>sqlitebrowser.desktop</Filename>
-   <Filename>chirp.desktop</Filename>
-  </Exclude>
  </Menu>
  <Layout>
   <Merge type="menus"/>

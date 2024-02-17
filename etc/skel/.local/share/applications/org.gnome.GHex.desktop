@@ -1,10 +1,11 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=GNOME;GTK;Development;
 Comment=
-Exec=kdeconnect-app
+Exec=ghex %F
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=org.gnome.GHex
+Keywords=binary;debug;
+Name=GHex
 NoDisplay=false
 Path=
 StartupNotify=true
@@ -13,3 +14,4 @@ TerminalOptions=
 Type=Application
 X-KDE-SubstituteUID=false
 X-KDE-Username=
+X-Ubuntu-Gettext-Domain=ghex

@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=AudioVideo;Audio;Qt;HamRadio;
-Comment=Software defined radio receiver implemented using GNU Radio and the Qt GUI toolkit
+Comment=
 Exec=gqrx
-GenericName=Software Defined Radio
+GenericName=
 Icon=gqrx
 Keywords=SDR;Radio;HAM;
 Name=GQRX

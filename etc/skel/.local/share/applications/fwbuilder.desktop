@@ -1,15 +1,17 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=Network
 Comment=
-Exec=kdeconnect-app
+Exec=fwbuilder %F
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=/usr/share/pixmaps/fwbuilder/firewall_64.xpm
+MimeType=text/x-xml-fwbuilder;
+Name=Firewall Builder
 NoDisplay=false
 Path=
 StartupNotify=true
 Terminal=false
 TerminalOptions=
 Type=Application
+Version=1.0
 X-KDE-SubstituteUID=false
 X-KDE-Username=

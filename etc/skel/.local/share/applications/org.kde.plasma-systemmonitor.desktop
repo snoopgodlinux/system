@@ -1,12 +1,13 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=Qt;KDE;System;
 Comment=
-Exec=kdeconnect-app
+Exec=plasma-systemmonitor
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=utilities-system-monitor
+Name=System Monitor
 NoDisplay=false
 Path=
+SingleMainWindow=true
 StartupNotify=true
 Terminal=false
 TerminalOptions=

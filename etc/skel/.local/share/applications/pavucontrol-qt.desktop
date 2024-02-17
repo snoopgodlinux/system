@@ -1,8 +1,8 @@
 [Desktop Entry]
 Categories=AudioVideo;Audio;Mixer;Qt;
-Comment=Adjust the volume level
+Comment=
 Exec=pavucontrol-qt
-GenericName=Volume Control
+GenericName=
 Icon=multimedia-volume-control
 Name=PulseAudio
 NoDisplay=false

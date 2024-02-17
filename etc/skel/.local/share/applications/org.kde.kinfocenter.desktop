@@ -1,17 +1,20 @@
 [Desktop Entry]
-Categories=Qt;Development;GUIDesigner;
+Categories=Qt;KDE;System;
 Comment=
-Exec=/usr/lib/qt5/bin/designer %F
+Exec=kinfocenter
 GenericName=
-Icon=designer-qt5
-MimeType=application/x-designer;
-Name=QT5 Designer
+Icon=hwinfo
+Name=Info Center
 NoDisplay=false
+OnlyShowIn=KDE;
 Path=
 StartupNotify=true
 Terminal=false
 TerminalOptions=
 Type=Application
+X-DBUS-ServiceName=org.kde.kinfocenter
+X-DBUS-StartupType=Unique
+X-DocPath=kinfocenter/index.html
 X-KDE-StartupNotify=true
 X-KDE-SubstituteUID=false
 X-KDE-Username=

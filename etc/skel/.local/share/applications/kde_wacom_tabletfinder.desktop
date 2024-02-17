@@ -1,10 +1,10 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=Qt;KDE;Settings
 Comment=
-Exec=kdeconnect-app
+Exec=kde_wacom_tabletfinder
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=input-tablet
+Name=Wacom Tablet finder
 NoDisplay=false
 Path=
 StartupNotify=true

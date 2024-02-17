@@ -14,6 +14,7 @@ You can find in the below document all the libraries and tools present in the Sn
 
 - [libbz2-dev](https://packages.ubuntu.com/jammy/libbz2-dev)
 - [libc6-x32](https://packages.ubuntu.com/jammy/libc6-x32)
+- [libcurl4](https://packages.ubuntu.com/jammy/libcurl4)
 - [libcurl4-openssl-dev](https://packages.ubuntu.com/jammy/libcurl4-openssl-dev)
 - [libffi-dev](https://packages.ubuntu.com/jammy/libffi-dev)
 - [libfmt-dev](https://packages.ubuntu.com/jammy/libfmt-dev)

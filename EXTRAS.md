@@ -157,7 +157,7 @@ sudo apt-get -y install trash-cli
 #### Install `virtualbox`
 
 ```shell
-sudo apt-get -y install virtualbox virtualbox-dkms virtualbox-guest-utils
+sudo apt-get -y install virtualbox virtualbox-ext-pack virtualbox-guest-utils
 ```
 
 * * *

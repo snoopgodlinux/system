@@ -1,15 +1,17 @@
 [Desktop Entry]
-Categories=Qt;KDE;Network
+Categories=System;Monitor;ConsoleOnly;
 Comment=
-Exec=kdeconnect-app
+Exec=htop
 GenericName=
-Icon=kdeconnect
-Name=KDE Connect Sync
+Icon=htop
+Keywords=system;process;task
+Name=Htop
 NoDisplay=false
 Path=
 StartupNotify=true
-Terminal=false
+Terminal=true
 TerminalOptions=
 Type=Application
+Version=1.0
 X-KDE-SubstituteUID=false
 X-KDE-Username=
