@@ -32,7 +32,7 @@
 
 \[x\] Translate the installer into all available languages in the dropdown list
 
-\[x\] Correct the wording of the installer
+\[v\] Correct the wording of the installer
 
 \[v\] Correct Tor Browser desktop launcher
 

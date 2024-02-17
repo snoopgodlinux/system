@@ -4,14 +4,6 @@ Want to do a little bit more? Here are somes of the additional packages that can
 
 * * *
 
-#### Install `baobab`
-
-```shell
-sudo apt-get -y install baobab
-```
-
-* * *
-
 #### Install `cubic`
 
 ```shell
@@ -45,14 +37,6 @@ sudo apt-get -y install gedit
 
 * * *
 
-#### Install `gwenview`
-
-```shell
-sudo apt-get -y install gwenview
-```
-
-* * *
-
 #### Install `gimp`
 
 ```shell
@@ -81,14 +65,6 @@ sudo apt-get -y install kdenlive
 
 ```shell
 sudo apt-get -y install libreoffice
-```
-
-* * *
-
-#### Install `okular`
-
-```shell
-sudo apt-get -y install okular
 ```
 
 * * *
@@ -146,24 +122,8 @@ sudo apt-get -y install transmission-cli transmission-common transmission-daemon
 
 * * *
 
-#### Install `trash-cli`
-
-```shell
-sudo apt-get -y install trash-cli
-```
-
-* * *
-
 #### Install `virtualbox`
 
 ```shell
 sudo apt-get -y install virtualbox virtualbox-ext-pack virtualbox-guest-utils
-```
-
-* * *
-
-#### Install `vlc`
-
-```shell
-sudo apt-get -y install vlc
 ```
