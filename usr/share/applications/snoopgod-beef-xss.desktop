@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Categories=Exploitation;
+Exec=sh -c '/opt/snoopgod/exploitation/beef/beef; $SHELL'
+Icon=/usr/share/icons/snoopgod/beef-xss.png
+Name=Beef XSS
+Terminal=true
+Type=Application
