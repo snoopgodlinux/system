@@ -2,8 +2,7 @@
 
 | Status | Description |
 | :--- | :--- |
-| \[x\] | Add `BeEf` package |
-| \[v\] | Add `libcurl4` package |
+| \[x\] | Add `mailutils` package |
 | \[v\] | Add `torsocks` package |
 | \[v\] | Add `natpmpc` package |
 | \[v\] | Add `wireguard` package |
