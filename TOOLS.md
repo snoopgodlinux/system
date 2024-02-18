@@ -233,6 +233,7 @@ You can find in the below document all the libraries and tools present in the Sn
 
 #### Exploitation
 
+- [beef](https://github.com/beefproject/beef/)
 - [burpsuite](https://portswigger.net/burp)
 - [cge](http://www.blackangels.it/)
 - [commix](https://github.com/commixproject/commix)
