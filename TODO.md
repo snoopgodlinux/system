@@ -74,8 +74,8 @@
 | \[x\] | Translate the installer into 'pl' language |
 | \[v\] | Translate the installer into 'pt' language |
 | \[v\] | Translate the installer into 'pt_BR' language |
-| \[x\] | Translate the installer into 'ro' language |
-| \[x\] | Translate the installer into 'ru' language |
+| \[v\] | Translate the installer into 'ro' language |
+| \[v\] | Translate the installer into 'ru' language |
 | \[x\] | Translate the installer into 'se' language |
 | \[x\] | Translate the installer into 'si' language |
 | \[x\] | Translate the installer into 'sk' language |
