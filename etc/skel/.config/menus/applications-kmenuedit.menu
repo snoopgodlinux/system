@@ -339,6 +339,8 @@
    <Filename>snoopgod-burpsuite.desktop</Filename>
    <Filename>snoopgod-zaproxy.desktop</Filename>
    <Filename>snoopgod-metasploit.desktop</Filename>
+   <Filename>snoopgod-beef-xss.desktop</Filename>
+   <Filename>snoopgod-fierce.desktop</Filename>
   </Exclude>
   <Include/>
   <Layout/>
@@ -440,9 +442,11 @@
    <Filename>snoopgod-yersinia.desktop</Filename>
    <Filename>snoopgod-burpsuite.desktop</Filename>
    <Filename>snoopgod-metasploit.desktop</Filename>
+   <Filename>snoopgod-beef-xss.desktop</Filename>
   </Include>
   <Layout>
    <Merge type="files"/>
+   <Filename>snoopgod-beef-xss.desktop</Filename>
    <Filename>snoopgod-burpsuite.desktop</Filename>
    <Filename>snoopgod-cge.desktop</Filename>
    <Filename>snoopgod-commix.desktop</Filename>
@@ -495,6 +499,7 @@
    <Filename>snoopgod-traceroute.desktop</Filename>
    <Filename>snoopgod-whois.desktop</Filename>
    <Filename>snoopgod-dnstracer.desktop</Filename>
+   <Filename>snoopgod-fierce.desktop</Filename>
   </Include>
   <Exclude>
    <Filename>snoopgod-exe2hex.desktop</Filename>
@@ -512,6 +517,7 @@
    <Filename>snoopgod-enum4linux.desktop</Filename>
    <Filename>snoopgod-exifprobe.desktop</Filename>
    <Filename>snoopgod-exiv2.desktop</Filename>
+   <Filename>snoopgod-fierce.desktop</Filename>
    <Filename>snoopgod-gnmap.desktop</Filename>
    <Filename>snoopgod-ike-scan.desktop</Filename>
    <Filename>snoopgod-lbd.desktop</Filename>
@@ -873,23 +879,25 @@
    <Filename>sqlitebrowser.desktop</Filename>
    <Filename>chirp.desktop</Filename>
    <Filename>terminator.desktop</Filename>
+   <Filename>org.kde.okular.desktop</Filename>
   </Include>
  </Menu>
  <Menu>
   <Name>Multimedia</Name>
+  <Exclude>
+   <Filename>dk.gqrx.gqrx.desktop</Filename>
+  </Exclude>
   <Layout>
    <Merge type="files"/>
    <Filename>easytag.desktop</Filename>
    <Filename>pavucontrol-qt.desktop</Filename>
    <Filename>rhythmbox.desktop</Filename>
    <Filename>simplescreenrecorder.desktop</Filename>
+   <Filename>vlc.desktop</Filename>
    <Separator/>
    <Merge type="menus"/>
    <Menuname>More</Menuname>
   </Layout>
-  <Exclude>
-   <Filename>dk.gqrx.gqrx.desktop</Filename>
-  </Exclude>
  </Menu>
  <Menu>
   <Name>Science</Name>
@@ -969,5 +977,18 @@
    <Separator/>
    <Menuname>More</Menuname>
   </Layout>
+ </Menu>
+ <Menu>
+  <Name>Graphics</Name>
+  <Layout>
+   <Merge type="files"/>
+   <Filename>org.kde.gwenview.desktop</Filename>
+   <Separator/>
+   <Merge type="menus"/>
+   <Menuname>More</Menuname>
+  </Layout>
+  <Exclude>
+   <Filename>org.kde.okular.desktop</Filename>
+  </Exclude>
  </Menu>
 </Menu>
