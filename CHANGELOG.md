@@ -7,7 +7,8 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 **2024-02-18**
 
 - Updated distribution logo
-- Updated distribution wallpaper
+- Updated distribution wallpapers
+- Updated distribution translations
 
 * * *
 
