@@ -9,6 +9,7 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 - Updated distribution logo
 - Updated distribution wallpapers
 - Updated distribution translations
+- Corrected Wireshark permission
 
 * * *
 
