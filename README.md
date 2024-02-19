@@ -14,10 +14,10 @@ The current version of SnoopGod is based on Ubuntu 22.04.3 LTS. More information
 
 | Key | Description |
 | :--- | :--- |
-| Custom Disk | [snoopgod-22.04.3-desktop-amd64.iso](https://mega.nz/file/oK8GjJxK#8M4cgDvrEeFulEGHAaLz0HdP6K2FW7dIkdzTWOoXPm0) |
+| Custom Disk | [snoopgod-22.04.3-desktop-amd64.iso](https://mega.nz/file/MLcxSAJB#r9AtEdbHoLpYhEOTmXrcXcgkQb9Jjx5msQqUCs2whfE) |
 | Size | 8,00 GiB (8,589,316,096 bytes) |
 | Checksum | 4725894615aac2b5d7fef3248336d4db |
-| Checksum File | [snoopgod-22.04.3-desktop-amd64.md5](https://mega.nz/file/0StWUCQQ#w1cNrvjJMZhYIuxekorQ9RQJ7FZR1Y3aGKNSNtkrdiM) |
+| Checksum File | [snoopgod-22.04.3-desktop-amd64.md5](https://mega.nz/file/BbFmWYgA#MUlfEPV2ZPC3RKr8qCTibnPCc-4NWH2FvToMaF4KT6o) |
 | Version | 22.04.3 |
 | Volume ID | SnoopGod 22.04.3 LTS amd64 |
 | Release Name | Jammy Jellyfish |
