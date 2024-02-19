@@ -33,13 +33,3 @@ To resolve this issue simply run the following command in your Terminal.
 ```shell
 sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
 ```
-
-* * *
-
-#### Lost `Softwares and Updates` after system upgrade
-
-If you lost the Softwares and Updates icon launcher after you just upgraded the system simply execute the following command from your terminal.
-
-```shell
-sudo apt-get -y install apturl gnome-remote-desktop nautilus-share python3-software-properties software-properties-common software-properties-gtk ubuntu-advantage-tools update-notifier update-notifier-common
-```
