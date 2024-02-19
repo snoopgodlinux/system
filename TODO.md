@@ -2,6 +2,7 @@
 
 | Status | Description |
 | :--- | :--- |
+| \[x\] | Correct `fierce` desktop launcher |
 | \[x\] | Translate the installer into 'cs' language |
 | \[x\] | Translate the installer into 'csb' language |
 | \[x\] | Translate the installer into 'cy' language |
