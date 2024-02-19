@@ -293,22 +293,25 @@ function deletexerrors()
 ## --------------------------
 function deletekatesearch()
 {
-    read -p "[?] Do you want to delete the Kate history? [y/N] " yn
-    case $yn in
-        [Yy]* )
-			sed -i s/"^Search History=.*"/"Search History="/g $HOME/.config/katerc
-			sed -i s/"^Recent Files\[\$e\]=.*"/"Recent Files\[\$e\]="/g $HOME/.config/katerc
-			sed -i s/"^Recent URLs\[\$e\]=.*"/"Recent URLs\[\$e\]="/g $HOME/.config/katerc
-			truncate -s 0 $HOME/.config/katemetainfos
-			echo -e "[+] Kate history deleted\n"
-		    ;;
-        [Nn]* )
-			echo -e "[!] Kate history not deleted\n"
-            ;;
-        * )
-            deletekatesearch
-            ;;
-    esac
+	if [ -f "$HOME/.config/katerc" ];
+	then
+        read -p "[?] Do you want to delete the Kate history? [y/N] " yn
+	    case $yn in
+	        [Yy]* )
+                sed -i s/"^Search History=.*"/"Search History="/g $HOME/.config/katerc
+                sed -i s/"^Recent Files\[\$e\]=.*"/"Recent Files\[\$e\]="/g $HOME/.config/katerc
+                sed -i s/"^Recent URLs\[\$e\]=.*"/"Recent URLs\[\$e\]="/g $HOME/.config/katerc
+                truncate -s 0 $HOME/.config/katemetainfos
+                echo -e "[+] Kate history deleted\n"
+			    ;;
+	        [Nn]* )
+                echo -e "[!] Kate history not deleted\n"
+	            ;;
+	        * )
+	            deletekatesearch
+	            ;;
+	    esac
+	fi
 }
 
 ## Delete Sublime-Text history
