@@ -119,11 +119,3 @@ sudo apt-get -y install subversion
 ```shell
 sudo apt-get -y install transmission-cli transmission-common transmission-daemon transmission-gtk
 ```
-
-* * *
-
-#### Install `virtualbox`
-
-```shell
-sudo apt-get -y install virtualbox virtualbox-ext-pack virtualbox-guest-utils
-```
