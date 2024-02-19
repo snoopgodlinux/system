@@ -4,6 +4,13 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 * * *
 
+**2024-02-18**
+
+- Updated distribution logo
+- Updated distribution wallpaper
+
+* * *
+
 **2024-02-06**
 
 - Added SendEmail package
