@@ -15,7 +15,6 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 **2024-02-06**
 
-- Added SendEmail package
 - Correction of Tor Browser desktop launcher
 - Correction of DNSenum desktop launcher
 - Correction of DNSmap desktop launcher
