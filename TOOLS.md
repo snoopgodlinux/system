@@ -305,7 +305,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [enum4linux](http://www.portcullis-security.com/)
 - [exifprobe](https://packages.ubuntu.com/jammy/exifprobe)
 - [exiv2](https://packages.ubuntu.com/jammy/exiv2)
-- [fierce](https://github.com/mschwager/fierce)
+- [fierce](https://packages.ubuntu.com/jammy/fierce)
 - [gnmap](https://github.com/themightyshiv/gnmap)
 - [ike-scan](https://packages.ubuntu.com/jammy/ike-scan)
 - [lbd](http://ge.mine.nu/code/)
