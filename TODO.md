@@ -2,9 +2,9 @@
 
 | Status | Description |
 | :--- | :--- |
-| \[x\] | Correct `fierce` desktop launcher |
-| \[x\] | Translate the installer into 'cs' language |
-| \[x\] | Translate the installer into 'csb' language |
+| \[x\] | Update `g++` package |
+| \[x\] | Remove `python3-socks` package |
+| \[x\] | Remove `Arduino` package |
 | \[x\] | Translate the installer into 'cy' language |
 | \[x\] | Translate the installer into 'da' language |
 | \[x\] | Translate the installer into 'de' language |
