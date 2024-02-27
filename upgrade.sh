@@ -20,7 +20,7 @@ function upgradehook()
 		## Retrieve system repository
 		echo -e "[+] Downloading upgrade"
 		wget -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
-		unzip /tmp/system-main.zip -d /tmp/snoopgod/
+		unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
 		mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
 
 		## Copy config directory
@@ -62,7 +62,7 @@ function upgradehook()
 		## Correct desktop launcher
 		echo -e "[+] Correct desktop launcher"
 		sudo rm -rf /usr/share/applications/snoopgod-fierce.desktop
-		sudo cp -r /usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
+		sudo cp /tmp/snoopgod/system/usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
 		echo -e "[+] Upgrade done successfully - You need to restart your machine"
 	fi
 
