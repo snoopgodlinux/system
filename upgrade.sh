@@ -26,7 +26,7 @@ function upgradehook()
 		## Copy config directory
 		echo -e "[+] Upgrading general configuration"
 		rm -f $HOME/.config/kdedefaults/kcm-about-distrorc
-		cp -r /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc $HOME/.config/kdedefaults/
+		cp /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc $HOME/.config/kdedefaults/
 
 		## Configure utilities
 		echo -e "[+] Upgrading system utilities"
@@ -53,6 +53,11 @@ function upgradehook()
 		echo -e "[+] Upgrading LSB-Release package"
 		sudo rm -f /etc/lsb-release
 		sudo cp /tmp/snoopgod/system/etc/lsb-release /etc/
+
+		## Copy `os-release` configuration
+		echo -e "[+] Upgrading OS-Release package"
+		sudo rm -f /etc/os-release
+		sudo cp /tmp/snoopgod/system/etc/os-release /etc/
 
 		## Copy wallpapers
 		echo -e "[+] Upgrading System wallpapers"
