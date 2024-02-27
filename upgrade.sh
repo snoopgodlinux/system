@@ -57,7 +57,9 @@ function upgradehook()
 		## Copy `os-release` configuration
 		echo -e "[+] Upgrading OS-Release package"
 		sudo rm -f /etc/os-release
+		sudo rm -f /usr/lib/os-release
 		sudo cp /tmp/snoopgod/system/etc/os-release /etc/
+		sudo cp /tmp/snoopgod/system/usr/lib/os-release /usr/lib/
 
 		## Copy wallpapers
 		echo -e "[+] Upgrading System wallpapers"
