@@ -23,10 +23,13 @@ function upgradehook()
 		unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
 		mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
 
-		## Copy config directory
-		echo -e "[+] Upgrading general configuration"
-		rm -f $HOME/.config/kdedefaults/kcm-about-distrorc
-		cp /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc $HOME/.config/kdedefaults/
+		if [ -f '$HOME/.config/kdedefaults/kcm-about-distrorc' ];
+		then
+			## Copy config directory
+			echo -e "[+] Upgrading general configuration"
+			rm -f $HOME/.config/kdedefaults/kcm-about-distrorc
+			cp /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc $HOME/.config/kdedefaults/
+		fi
 
 		## Configure utilities
 		echo -e "[+] Upgrading system utilities"
@@ -76,8 +79,11 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
-		echo -e "[+] Correct desktop launcher"
-		sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g $HOME/.local/share/applications/firefox_firefox.desktop
+		if [ -f '$HOME/.local/share/applications/firefox_firefox.desktop' ];
+		then
+			echo -e "[+] Correct desktop launcher"
+			sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g $HOME/.local/share/applications/firefox_firefox.desktop
+		fi
 	fi
 }
 
