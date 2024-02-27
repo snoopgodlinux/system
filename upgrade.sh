@@ -76,8 +76,6 @@ function upgradehook()
 	then
 		echo -e "[+] Correct desktop launcher"
 		sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g $HOME/.local/share/applications/firefox_firefox.desktop
-		echo -e "[+] Upgrade done successfully"
-		echo -e "[!] You need to restart your machine"
 	fi
 }
 
