@@ -19,7 +19,7 @@ function upgradehook()
 	then
 		## Retrieve system repository
 		echo -e "[+] Downloading upgrade"
-		wget -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
+		wget -q -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
 		unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
 		mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
 
@@ -68,14 +68,16 @@ function upgradehook()
 		echo -e "[+] Correct desktop launcher"
 		sudo rm -rf /usr/share/applications/snoopgod-fierce.desktop
 		sudo cp /tmp/snoopgod/system/usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
-		echo -e "[+] Upgrade done successfully - You need to restart your machine"
+		echo -e "[+] Upgrade done successfully"
+		echo -e "[!] You need to restart your machine"
 	fi
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
 		echo -e "[+] Correct desktop launcher"
 		sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g $HOME/.local/share/applications/firefox_firefox.desktop
-		echo -e "[+] Upgrade done successfully - You need to restart your machine"
+		echo -e "[+] Upgrade done successfully"
+		echo -e "[!] You need to restart your machine"
 	fi
 }
 
