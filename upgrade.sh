@@ -8,12 +8,36 @@
 ## DEFINE ACTIONS ##
 ## -------------- ##
 
+## Keep alive
+## ----------
+function keepalive()
+{
+	sudo -v
+	while true;
+	do
+		sudo -n true;
+		sleep 60s;
+		kill -0 "$$" || exit;
+	done 2>/dev/null &
+}
+
+## Prompt User
+## -----------
+function promptuser()
+{
+	read -p "Enter your username? " username
+	if ! id -u "$username" >/dev/null 2>&1; then
+	  	echo -e "[!] This username do not exists"
+	  	promptuser
+	fi
+}
+
 ## Upgrade System
 ## ---------------
 function upgradehook()
 {
 	echo -e "Upgrade system"
-	release=$(lsb_release -d | grep -Po 'SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS')
+	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
 
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
 	then
@@ -23,12 +47,12 @@ function upgradehook()
 		unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
 		mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
 
-		if [ -f '$HOME/.config/kdedefaults/kcm-about-distrorc' ];
+		if [ -f "/home/$username/.config/kdedefaults/kcm-about-distrorc" ];
 		then
 			## Copy config directory
 			echo -e "[+] Upgrading general configuration"
-			rm -f $HOME/.config/kdedefaults/kcm-about-distrorc
-			cp /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc $HOME/.config/kdedefaults/
+			rm -f /home/$username/.config/kdedefaults/kcm-about-distrorc
+			cp /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc /home/$username/.config/kdedefaults/
 		fi
 
 		## Configure utilities
@@ -79,10 +103,10 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
-		if [ -f '$HOME/.local/share/applications/firefox_firefox.desktop' ];
+		if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
 		then
 			echo -e "[+] Correct desktop launcher"
-			sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g $HOME/.local/share/applications/firefox_firefox.desktop
+			sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g /home/$username/.local/share/applications/firefox_firefox.desktop
 		fi
 	fi
 }
@@ -96,6 +120,8 @@ function upgradehook()
 function launch()
 {
 	# Execute Actions
+	keepalive
+	promptuser
 	upgradehook
 }
 
