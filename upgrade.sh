@@ -41,6 +41,9 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
 	then
+		## Checking for upgrade
+		echo -e "[+] Checking for upgrade"
+
 		## Retrieve system repository
 		echo -e "[+] Downloading upgrade"
 		wget -q -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
@@ -103,6 +106,9 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
+		## Checking for upgrade
+		echo -e "[+] Checking for upgrade"
+		
 		if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
 		then
 			firefoxlauncher=$(cat "/home/$username/.local/share/applications/firefox_firefox.desktop" | grep -Po "Icon=(.*).png")

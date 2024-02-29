@@ -36,7 +36,8 @@ function promptuser()
 ## -------------
 function updatehook()
 {
-	echo -e "[+] Update system"
+	## Checking for update
+	echo -e "[+] Checking for update"
 }
 
 ## -------------- ##
