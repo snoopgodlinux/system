@@ -12,7 +12,7 @@ Categories=GNOME;GTK;Network;WebBrowser;
 Comment=
 Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/firefox_firefox.desktop /snap/bin/firefox %u
 GenericName=
-Icon=/snap/firefox/3779/default256.png
+Icon=/usr/share/icons/snoopgod/firefox.png
 Keywords=Internet;WWW;Browser;Web;Explorer
 MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
 Name=Firefox Web Browser
