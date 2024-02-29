@@ -103,18 +103,18 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
-		firefoxlauncher=$(cat "/home/$username/.local/share/applications/firefox_firefox.desktop" | grep -Po "Icon=/usr/share/icons/snoopgod/firefox.png")
-		if [ "$firefoxlauncher" != "Icon=/usr/share/icons/snoopgod/firefox.png" ];
+		if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
 		then
-			if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
+			firefoxlauncher=$(cat "/home/$username/.local/share/applications/firefox_firefox.desktop" | grep -Po "Icon=(.*).png")
+			if [ "$firefoxlauncher" != "Icon=/usr/share/icons/snoopgod/firefox.png" ];
 			then
 				echo -e "[+] Downloading upgrade"
 				wget -q -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
 				unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
 				mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
 				sudo cp -r /tmp/snoopgod/system/usr/share/icons/snoopgod/firefox.png /usr/share/icons/snoopgod/
-				echo -e "[+] Correct desktop launcher"
 				sed -i s/"^Icon=.*"/"Icon=\/usr\/share\/icons\/snoopgod\/firefox.png"/g /home/$username/.local/share/applications/firefox_firefox.desktop
+				echo -e "[+] Correct desktop launcher"				
 			fi
 		fi
 	fi
