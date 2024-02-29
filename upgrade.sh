@@ -25,7 +25,7 @@ function keepalive()
 ## -----------
 function promptuser()
 {
-	read -p "Enter your username? " username
+	read -p "[?] Enter your username? " username
 	if ! id -u "$username" >/dev/null 2>&1; then
 	  	echo -e "[!] This username do not exists"
 	  	promptuser
@@ -36,7 +36,7 @@ function promptuser()
 ## ---------------
 function upgradehook()
 {
-	echo -e "Upgrade system"
+	echo -e "[+] Upgrade system"
 	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
 
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
@@ -103,10 +103,14 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
-		if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
+		firefoxlauncher = $(cat "/home/$username/.local/share/applications/firefox_firefox.desktop") | grep -Po "Icon=/snap/firefox/([0-9]{4})/default256.png"
+		if [ "$firefoxlauncher" != "Icon=/snap/firefox/3779/default256.png" ];
 		then
-			echo -e "[+] Correct desktop launcher"
-			sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g /home/$username/.local/share/applications/firefox_firefox.desktop
+			if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
+			then
+				echo -e "[+] Correct desktop launcher"
+				sed -i s/"^Icon=.*"/"Icon=\/snap\/firefox\/3779\/default256.png"/g /home/$username/.local/share/applications/firefox_firefox.desktop
+			fi
 		fi
 	fi
 }
