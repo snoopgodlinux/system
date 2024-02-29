@@ -103,7 +103,7 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
-		firefoxlauncher = $(cat "/home/$username/.local/share/applications/firefox_firefox.desktop") | grep -Po "Icon=/snap/firefox/([0-9]{4})/default256.png"
+		firefoxlauncher=$(cat "/home/$username/.local/share/applications/firefox_firefox.desktop" | grep -Po "Icon=/snap/firefox/([0-9]{4})/default256.png")
 		if [ "$firefoxlauncher" != "Icon=/snap/firefox/3779/default256.png" ];
 		then
 			if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
