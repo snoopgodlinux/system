@@ -36,8 +36,24 @@ function promptuser()
 ## -------------
 function updatehook()
 {
-	## Checking for update
-	echo -e "[+] Checking for update"
+	## Update system
+	echo -e "[+] Update system"
+
+	## Check current release
+	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
+
+	## Proceed update
+	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
+	then
+		## Checking for update
+		echo -e "[+] Checking for update"
+	fi
+
+	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
+	then
+		## Checking for update
+		echo -e "[+] Checking for update"
+	fi
 }
 
 ## -------------- ##
