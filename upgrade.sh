@@ -36,8 +36,8 @@ function promptuser()
 ## ---------------
 function upgradehook()
 {
-	## Upgrade system
-	echo -e "[+] Upgrade system"
+	## Checking for upgrade
+	echo -e "[+] Checking for upgrade"
 
 	## Check current release
 	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
@@ -45,8 +45,8 @@ function upgradehook()
 	## Proceed upgrade
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
 	then
-		## Checking for upgrade
-		echo -e "[+] Checking for upgrade"
+		## Upgrade system
+		echo -e "[+] Upgrade system"
 
 		## Retrieve system repository
 		echo -e "[+] Downloading upgrade"
@@ -110,8 +110,8 @@ function upgradehook()
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
-		## Checking for upgrade
-		echo -e "[+] Checking for upgrade"
+		## Upgrade system
+		echo -e "[+] Upgrade system"
 		
 		if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
 		then
