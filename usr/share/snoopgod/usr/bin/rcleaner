@@ -47,7 +47,7 @@ function showwarning()
     echo -e "${texterror}You are about to clean all root temporary cached files and folders${textreset}"
     echo -e "${texterror}We recommend to exit all other programs before to proceed${textreset}"
     echo
-    read -p "[?] Do you want to continue? [y/N] " yn
+    read -p "Do you want to continue? [y/N] " yn
     case $yn in
         [Yy]* )
 			echo
@@ -59,17 +59,6 @@ function showwarning()
             exit
             ;;
     esac
-}
-
-## Check for root user
-## -------------------
-checkroot()
-{
-	if [[ $EUID -ne 0 ]];
-	then
-		echo "[!] Script must run as root" 1>&2
-	   	exit 1
-	fi
 }
 
 ## Secure delete
@@ -168,18 +157,37 @@ function deletesnapdirectory()
     esac
 }
 
-## Delete Wget history
-## -------------------
+## Delete Sqlmap logs
+## ------------------
+function deletesqlmaplogs()
+{
+    read -p "[?] Do you want to delete the Sqlmap logs? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf $HOME/.local/share/sqlmap
+			echo -e "[+] Sqlmap logs deleted\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Sqlmap logs not deleted\n"
+            ;;
+        * )
+            deletesqlmaplogs
+            ;;
+    esac
+}
+
+## Delete Wget logs
+## ----------------
 function deletewgetlogs()
 {
-    read -p "[?] Do you want to delete the Wget history? [y/N] " yn
+    read -p "[?] Do you want to delete the Wget logs? [y/N] " yn
     case $yn in
         [Yy]* )
 			securedelete $HOME/.wget-hsts
-			echo -e "[+] Wget history deleted\n"
+			echo -e "[+] Wget logs deleted\n"
 		    ;;
         [Nn]* )
-			echo -e "[!] Wget history not deleted\n"
+			echo -e "[!] Wget logs not deleted\n"
             ;;
         * )
             deletewgetlogs
@@ -315,7 +323,7 @@ function removelaunchers()
 ## ---------
 function terminate()
 {
-	echo "[+] Process completed"
+	echo "Process completed"
 	sleep 1s
 }
 
@@ -334,13 +342,13 @@ function launch()
 	clearscreen
 	keepalive
 	showwarning
-	checkroot
 	
 	# Execute Actions
 	deletecachethumbs
 	deleterecentfiles
 	deletesshkeys
 	deletesnapdirectory
+	deletesqlmaplogs
 	deletewgetlogs
 	deletexerrors
 	deleteuselessdocs
@@ -354,7 +362,7 @@ function launch()
 	# Return notice
 	endtime=`date +%s.%N`
 	runtime=$( echo "$endtime - $flushtime" | bc -l )
-	echo "[+] Executed within ${runtime} seconds"
+	echo "Executed within ${runtime} seconds"
 }
 
 ## -------- ##
