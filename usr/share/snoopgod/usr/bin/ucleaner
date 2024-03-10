@@ -371,6 +371,26 @@ function deletetrash()
     esac
 }
 
+## Flush Cache directory
+## ---------------------
+function flushcachedir()
+{
+    read -p "[?] Do you want to flush the cache directory? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf $HOME/.cache
+			mkdir -p $HOME/.cache
+			echo -e "[+] Cache directory flushed\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Cache directory not flushed\n"
+            ;;
+        * )
+            flushcachedir
+            ;;
+    esac
+}
+
 ## Terminate
 ## ---------
 function terminate()
@@ -410,6 +430,7 @@ function launch()
 	deletekatesearch
 	deletesublimehistory
 	deletetrash
+	flushcachedir
 
 	# Terminate
 	terminate

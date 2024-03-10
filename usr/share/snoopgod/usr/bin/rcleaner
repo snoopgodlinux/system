@@ -298,6 +298,26 @@ function deletevarlogs()
     esac
 }
 
+## Flush Cache directory
+## ---------------------
+function flushcachedir()
+{
+    read -p "[?] Do you want to flush the cache directory? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			rm -rf $HOME/.cache
+			mkdir -p $HOME/.cache
+			echo -e "[+] Cache directory flushed\n"
+            ;;
+        [Nn]* )
+			echo -e "[!] Cache directory not flushed\n"
+            ;;
+        * )
+            flushcachedir
+            ;;
+    esac
+}
+
 ## Remove unwanted launchers
 ## -------------------------
 function removelaunchers()
@@ -354,6 +374,7 @@ function launch()
 	deleteuselessdocs
 	deleteaptcache
 	deletevarlogs
+	flushcachedir
 	removelaunchers
 	
 	# Terminate
