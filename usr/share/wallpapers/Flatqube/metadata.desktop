@@ -1,0 +1,35 @@
+[Desktop Entry]
+Name=Wordbox
+Name[bg]=Wordbox
+Name[ca]=Wordbox
+Name[ca@valencia]=Wordbox
+Name[cs]=Wordbox
+Name[da]=Wordbox
+Name[de]=Wordbox
+Name[en_GB]=Wordbox
+Name[es]=Wordbox
+Name[eu]=Wordbox
+Name[fi]=Wordbox
+Name[fr]=Wordbox
+Name[hu]=Wordbox
+Name[ia]=Wordbox
+Name[id]=Wordbox
+Name[it]=Wordbox
+Name[ja]=Wordbox
+Name[nl]=Wordbox
+Name[nn]=Wordbox
+Name[pl]=Wordbox
+Name[pt_BR]=Wordbox
+Name[ro]=Wordbox
+Name[ru]=Wordbox
+Name[sk]=Wordbox
+Name[sl]=Wordbox
+Name[sv]=Wordbox
+Name[tr]=Wordbox
+Name[uk]=Wordbox
+Name[zh_CN]=Wordbox
+
+X-KDE-PluginInfo-Name=Flatqube
+X-KDE-PluginInfo-Author=NeosLab
+X-KDE-PluginInfo-Email=NeosLab SAS <info@neoslab.com>
+X-KDE-PluginInfo-License=CC-BY-SA-4.0
