@@ -26,7 +26,8 @@ function keepalive()
 function promptuser()
 {
 	read -p "[?] Enter your username? " username
-	if ! id -u "$username" >/dev/null 2>&1; then
+	if ! id -u "$username" >/dev/null 2>&1;
+	then
 	  	echo -e "[!] This username do not exists"
 	  	promptuser
 	fi
@@ -86,14 +87,28 @@ function upgradehook()
 		## Copy `lsb-release` configuration
 		echo -e "[+] Upgrading LSB-Release package"
 		sudo rm -f /etc/lsb-release
-		sudo cp /tmp/snoopgod/system/etc/lsb-release /etc/
+		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
+		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
+		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
+		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 
 		## Copy `os-release` configuration
 		echo -e "[+] Upgrading OS-Release package"
 		sudo rm -f /etc/os-release
 		sudo rm -f /usr/lib/os-release
-		sudo cp /tmp/snoopgod/system/etc/os-release /etc/
-		sudo cp /tmp/snoopgod/system/usr/lib/os-release /usr/lib/
+		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
+		echo 'NAME="Ubuntu"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'VERSION_ID="22.04"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'VERSION="22.04.4 LTS (Jammy Jellyfish)"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'VERSION_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'ID=ubuntu' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'ID_LIKE=debian' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'HOME_URL="https://www.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'SUPPORT_URL="https://help.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'UBUNTU_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		sudo cp /usr/lib/os-release /etc/os-release >/dev/null 2>&1
 
 		## Copy wallpapers
 		echo -e "[+] Upgrading System wallpapers"
@@ -129,6 +144,32 @@ function upgradehook()
 				echo -e "[+] Correct desktop launcher"				
 			fi
 		fi
+
+		## Copy `lsb-release` configuration
+		echo -e "[+] Upgrading LSB-Release package"
+		sudo rm -f /etc/lsb-release
+		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
+		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
+		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
+		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
+
+		## Copy `os-release` configuration
+		echo -e "[+] Upgrading OS-Release package"
+		sudo rm -f /etc/os-release
+		sudo rm -f /usr/lib/os-release
+		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
+		echo 'NAME="Ubuntu"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'VERSION_ID="22.04"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'VERSION="22.04.4 LTS (Jammy Jellyfish)"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'VERSION_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'ID=ubuntu' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'ID_LIKE=debian' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'HOME_URL="https://www.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'SUPPORT_URL="https://help.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		echo 'UBUNTU_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
+		sudo cp /usr/lib/os-release /etc/os-release >/dev/null 2>&1
 
 		## Terminate
 		echo -e "[+] Upgrade done successfully"

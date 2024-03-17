@@ -26,7 +26,8 @@ function keepalive()
 function promptuser()
 {
 	read -p "[?] Enter your username? " username
-	if ! id -u "$username" >/dev/null 2>&1; then
+	if ! id -u "$username" >/dev/null 2>&1;
+	then
 	  	echo -e "[!] This username do not exists"
 	  	promptuser
 	fi
