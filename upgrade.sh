@@ -78,22 +78,32 @@ function upgradehook()
 		sudo chmod +x /usr/share/snoopgod/usr/bin/ucleaner
 		sudo chmod +x /usr/share/snoopgod/usr/bin/rcleaner
 
+		## Copy wallpapers
+		echo -e "[+] Upgrading System wallpapers"
+		sudo rm -rf /usr/share/wallpapers/*
+		sudo cp -r /tmp/snoopgod/system/usr/share/wallpapers/* /usr/share/wallpapers/
+
+		## Correct desktop launcher
+		echo -e "[+] Correct desktop launcher"
+		sudo rm -rf /usr/share/applications/snoopgod-fierce.desktop
+		sudo cp /tmp/snoopgod/system/usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
+
 		## Change Screenfetch
 		echo -e "[+] Upgrading Screenfetch package"
 		sudo rm -f /usr/bin/screenfetch
 		sudo cp /tmp/snoopgod/system/usr/bin/screenfetch /usr/bin/
 		sudo chmod +x /usr/bin/screenfetch
 
-		## Copy `lsb-release` configuration
-		echo -e "[+] Upgrading LSB-Release package"
+		## Controlling `lsb-release` configuration
+		echo -e "[+] Controlling LSB-Release package"
 		sudo rm -f /etc/lsb-release
 		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 
-		## Copy `os-release` configuration
-		echo -e "[+] Upgrading OS-Release package"
+		## Controlling `os-release` configuration
+		echo -e "[+] Controlling OS-Release package"
 		sudo rm -f /etc/os-release
 		sudo rm -f /usr/lib/os-release
 		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
@@ -110,16 +120,6 @@ function upgradehook()
 		echo 'UBUNTU_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
 		sudo cp /usr/lib/os-release /etc/os-release >/dev/null 2>&1
 
-		## Copy wallpapers
-		echo -e "[+] Upgrading System wallpapers"
-		sudo rm -rf /usr/share/wallpapers/*
-		sudo cp -r /tmp/snoopgod/system/usr/share/wallpapers/* /usr/share/wallpapers/
-
-		## Correct desktop launcher
-		echo -e "[+] Correct desktop launcher"
-		sudo rm -rf /usr/share/applications/snoopgod-fierce.desktop
-		sudo cp /tmp/snoopgod/system/usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
-		
 		## Terminate
 		echo -e "[+] Upgrade done successfully"
 		echo -e "[!] You need to restart your machine"
@@ -145,16 +145,16 @@ function upgradehook()
 			fi
 		fi
 
-		## Copy `lsb-release` configuration
-		echo -e "[+] Upgrading LSB-Release package"
+		## Controlling `lsb-release` configuration
+		echo -e "[+] Controlling LSB-Release package"
 		sudo rm -f /etc/lsb-release
 		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 
-		## Copy `os-release` configuration
-		echo -e "[+] Upgrading OS-Release package"
+		## Controlling `os-release` configuration
+		echo -e "[+] Controlling OS-Release package"
 		sudo rm -f /etc/os-release
 		sudo rm -f /usr/lib/os-release
 		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
