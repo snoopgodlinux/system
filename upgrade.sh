@@ -104,6 +104,8 @@ function upgradehook()
 		echo -e "[+] Correct desktop launcher"
 		sudo rm -rf /usr/share/applications/snoopgod-fierce.desktop
 		sudo cp /tmp/snoopgod/system/usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
+		
+		## Terminate
 		echo -e "[+] Upgrade done successfully"
 		echo -e "[!] You need to restart your machine"
 	fi
@@ -127,6 +129,11 @@ function upgradehook()
 				echo -e "[+] Correct desktop launcher"				
 			fi
 		fi
+
+		## Terminate
+		echo -e "[+] Upgrade done successfully"
+		echo -e "[!] You need to restart your machine"
+
 	fi
 }
 
