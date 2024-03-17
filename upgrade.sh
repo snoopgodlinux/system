@@ -122,7 +122,7 @@ function upgradehook()
 
 		## Terminate
 		echo -e "[+] Upgrade done successfully"
-		echo -e "[!] You need to restart your machine"
+		echo -e "[!] Your system needs a restart"
 	fi
 
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
@@ -173,7 +173,7 @@ function upgradehook()
 
 		## Terminate
 		echo -e "[+] Upgrade done successfully"
-		echo -e "[!] You need to restart your machine"
+		echo -e "[!] Your system needs a restart"
 
 	fi
 }
