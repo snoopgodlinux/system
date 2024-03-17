@@ -94,16 +94,16 @@ function upgradehook()
 		sudo cp /tmp/snoopgod/system/usr/bin/screenfetch /usr/bin/
 		sudo chmod +x /usr/bin/screenfetch
 
-		## Controlling `lsb-release` configuration
-		echo -e "[+] Controlling LSB-Release package"
+		## Controlling `lsb-release` versioning
+		echo -e "[+] Controlling LSB-Release versioning"
 		sudo rm -f /etc/lsb-release
 		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 
-		## Controlling `os-release` configuration
-		echo -e "[+] Controlling OS-Release package"
+		## Controlling `os-release` versioning
+		echo -e "[+] Controlling OS-Release versioning"
 		sudo rm -f /etc/os-release
 		sudo rm -f /usr/lib/os-release
 		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
@@ -145,16 +145,16 @@ function upgradehook()
 			fi
 		fi
 
-		## Controlling `lsb-release` configuration
-		echo -e "[+] Controlling LSB-Release package"
+		## Controlling `lsb-release` versioning
+		echo -e "[+] Controlling LSB-Release versioning"
 		sudo rm -f /etc/lsb-release
 		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
 
-		## Controlling `os-release` configuration
-		echo -e "[+] Controlling OS-Release package"
+		## Controlling `os-release` versioning
+		echo -e "[+] Controlling OS-Release versioning"
 		sudo rm -f /etc/os-release
 		sudo rm -f /usr/lib/os-release
 		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
