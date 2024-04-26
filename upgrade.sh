@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# [Release]: SnoopGod 22.04.4 LTS amd64
-# [Website]: https://snoopgod.com/releases/?ver=22.04.4
+# [Release]: SnoopGod 24.04.1 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=24.04.1
 # [License]: http://www.gnu.org/licenses/gpl-3.0.html
 
 ## -------------- ##
@@ -49,132 +49,28 @@ function upgradehook()
 		## Upgrade system
 		echo -e "[+] Upgrade system"
 
-		## Retrieve system repository
-		echo -e "[+] Downloading upgrade"
-		wget -q -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
-		unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
-		mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
-
-		if [ -f "/home/$username/.config/kdedefaults/kcm-about-distrorc" ];
-		then
-			## Copy config directory
-			echo -e "[+] Upgrading general configuration"
-			rm -f /home/$username/.config/kdedefaults/kcm-about-distrorc
-			cp /tmp/snoopgod/system/etc/skel/.config/kdedefaults/kcm-about-distrorc /home/$username/.config/kdedefaults/
-		fi
-
-		## Configure utilities
-		echo -e "[+] Upgrading system utilities"
-		sudo rm -f /usr/local/bin/snoopgod
-		sudo rm -f /usr/share/snoopgod/usr/bin/updater
-		sudo rm -f /usr/share/snoopgod/usr/bin/upgrader
-		sudo rm -f /usr/share/snoopgod/usr/bin/ucleaner
-		sudo rm -f /usr/share/snoopgod/usr/bin/rcleaner
-		sudo cp /tmp/snoopgod/system/usr/local/bin/snoopgod /usr/local/bin/
-		sudo chmod +x /usr/local/bin/snoopgod
-		sudo cp -r /tmp/snoopgod/system/usr/share/snoopgod /usr/share/
-		sudo chmod +x /usr/share/snoopgod/usr/bin/updater
-		sudo chmod +x /usr/share/snoopgod/usr/bin/upgrader
-		sudo chmod +x /usr/share/snoopgod/usr/bin/ucleaner
-		sudo chmod +x /usr/share/snoopgod/usr/bin/rcleaner
-
-		## Copy wallpapers
-		echo -e "[+] Upgrading System wallpapers"
-		sudo rm -rf /usr/share/wallpapers/*
-		sudo cp -r /tmp/snoopgod/system/usr/share/wallpapers/* /usr/share/wallpapers/
-
-		## Correct desktop launcher
-		echo -e "[+] Correct desktop launcher"
-		sudo rm -rf /usr/share/applications/snoopgod-fierce.desktop
-		sudo cp /tmp/snoopgod/system/usr/share/applications/snoopgod-fierce.desktop /usr/share/applications/
-
-		## Change Screenfetch
-		echo -e "[+] Upgrading Screenfetch package"
-		sudo rm -f /usr/bin/screenfetch
-		sudo cp /tmp/snoopgod/system/usr/bin/screenfetch /usr/bin/
-		sudo chmod +x /usr/bin/screenfetch
-
-		## Controlling `lsb-release` versioning
-		echo -e "[+] Controlling LSB-Release versioning"
-		sudo rm -f /etc/lsb-release
-		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
-		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
-		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
-		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
-
-		## Controlling `os-release` versioning
-		echo -e "[+] Controlling OS-Release versioning"
-		sudo rm -f /etc/os-release
-		sudo rm -f /usr/lib/os-release
-		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
-		echo 'NAME="Ubuntu"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'VERSION_ID="22.04"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'VERSION="22.04.4 LTS (Jammy Jellyfish)"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'VERSION_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'ID=ubuntu' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'ID_LIKE=debian' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'HOME_URL="https://www.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'SUPPORT_URL="https://help.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'UBUNTU_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		sudo cp /usr/lib/os-release /etc/os-release >/dev/null 2>&1
-
 		## Terminate
 		echo -e "[+] Upgrade done successfully"
-		echo -e "[!] Your system needs a restart"
 	fi
 
+	## Proceed upgrade
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
 		## Upgrade system
 		echo -e "[+] Upgrade system"
-		
-		if [ -f "/home/$username/.local/share/applications/firefox_firefox.desktop" ];
-		then
-			firefoxlauncher=$(cat "/home/$username/.local/share/applications/firefox_firefox.desktop" | grep -Po "Icon=(.*).png")
-			if [ "$firefoxlauncher" != "Icon=/usr/share/icons/snoopgod/firefox.png" ];
-			then
-				echo -e "[+] Downloading upgrade"
-				wget -q -O "/tmp/system-main.zip" "https://codeload.github.com/snoopgodlinux/system/zip/refs/heads/main"
-				unzip -qq /tmp/system-main.zip -d /tmp/snoopgod/
-				mv /tmp/snoopgod/system-main/ /tmp/snoopgod/system/
-				sudo cp -r /tmp/snoopgod/system/usr/share/icons/snoopgod/firefox.png /usr/share/icons/snoopgod/
-				sed -i s/"^Icon=.*"/"Icon=\/usr\/share\/icons\/snoopgod\/firefox.png"/g /home/$username/.local/share/applications/firefox_firefox.desktop
-				echo -e "[+] Correct desktop launcher"				
-			fi
-		fi
-
-		## Controlling `lsb-release` versioning
-		echo -e "[+] Controlling LSB-Release versioning"
-		sudo rm -f /etc/lsb-release
-		echo 'DISTRIB_ID=Ubuntu' | sudo tee /etc/lsb-release >/dev/null 2>&1
-		echo 'DISTRIB_RELEASE=22.04' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
-		echo 'DISTRIB_CODENAME=jammy' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
-		echo 'DISTRIB_DESCRIPTION="SnoopGod 22.04.4 LTS amd64"' | sudo tee -a /etc/lsb-release >/dev/null 2>&1
-
-		## Controlling `os-release` versioning
-		echo -e "[+] Controlling OS-Release versioning"
-		sudo rm -f /etc/os-release
-		sudo rm -f /usr/lib/os-release
-		echo 'PRETTY_NAME="SnoopGod 22.04.4 LTS amd64"' | sudo tee /usr/lib/os-release >/dev/null 2>&1
-		echo 'NAME="Ubuntu"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'VERSION_ID="22.04"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'VERSION="22.04.4 LTS (Jammy Jellyfish)"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'VERSION_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'ID=ubuntu' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'ID_LIKE=debian' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'HOME_URL="https://www.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'SUPPORT_URL="https://help.ubuntu.com/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		echo 'UBUNTU_CODENAME=jammy' | sudo tee -a /usr/lib/os-release >/dev/null 2>&1
-		sudo cp /usr/lib/os-release /etc/os-release >/dev/null 2>&1
 
 		## Terminate
 		echo -e "[+] Upgrade done successfully"
-		echo -e "[!] Your system needs a restart"
+	fi
 
+	## Proceed upgrade
+	if [ "$release" = "SnoopGod 24.04.1 LTS" ];
+	then
+		## Upgrade system
+		echo -e "[+] Upgrade system"
+
+		## Terminate
+		echo -e "[+] Upgrade done successfully"
 	fi
 }
 

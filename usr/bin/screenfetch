@@ -6370,7 +6370,7 @@ infoDisplay () {
 				mydistro=$(echo -e "$labelcolor OS:$textcolor $distro $sysArch")
 			else
 				if [ -n "$distro_more" ]; then
-					distro_more="SnoopGod 22.04 jammy"
+					distro_more="SnoopGod 24.04 Noble"
 					mydistro=$(echo -e "$labelcolor OS:$textcolor $distro_more")
 				else
 					mydistro=$(echo -e "$labelcolor OS:$textcolor $distro $sysArch")

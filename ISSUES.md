@@ -22,7 +22,7 @@ sudo pro config set apt_news=true
 
 #### Fixing `Key is stored in legacy trusted.gpg keyring`
 
-If you use a PPA or add an external repository in BlackBuntu v22.04 and later versions, chances are that you will see sooner or later a message like this:
+If you use a PPA or add an external repository in SnoopGod v22.04 and later versions, chances are that you will see sooner or later a message like this:
 
 ```plain
 W: [...] Key is stored in legacy trusted.gpg keyring (/etc/apt/trusted.gpg), see the DEPRECATION section in apt-key(8) for details.

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# [Release]: SnoopGod 22.04.4 LTS amd64
-# [Website]: https://snoopgod.com/releases/?ver=22.04.4
+# [Release]: SnoopGod 24.04.1 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=24.04.1
 # [License]: http://www.gnu.org/licenses/gpl-3.0.html
 
 ## -------------- ##
@@ -48,12 +48,29 @@ function updatehook()
 	then
 		## Update system
 		echo -e "[+] Update system"
+
+		## Terminate
+		echo -e "[+] Update done successfully"
 	fi
 
+	## Proceed update
 	if [ "$release" = "SnoopGod 22.04.4 LTS" ];
 	then
 		## Update system
 		echo -e "[+] Update system"
+
+		## Terminate
+		echo -e "[+] Update done successfully"
+	fi
+
+	## Proceed update
+	if [ "$release" = "SnoopGod 24.04.1 LTS" ];
+	then
+		## Update system
+		echo -e "[+] Update system"
+
+		## Terminate
+		echo -e "[+] Update done successfully"
 	fi
 }
 
