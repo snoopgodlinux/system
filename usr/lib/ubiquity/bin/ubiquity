@@ -33,7 +33,7 @@ sys.path.insert(0, '/usr/lib/ubiquity')
 from ubiquity import im_switch, misc, osextras
 
 
-VERSION = '24.04.5'
+VERSION = '22.04.20'
 TARGET = '/target'
 LOCKFILE = '/var/lock/ubiquity'
 lock = None
@@ -70,7 +70,7 @@ def disable_autologin():
     import traceback
 
     # Reverse actions of user-setup-apply.
-    for name in ('/etc/gdm3/custom.conf', '/etc/kde/kdm/kdmrc',
+    for name in ('/etc/gdm3/custom.conf', '/etc/kde4/kdm/kdmrc',
                  '/etc/lxdm/lxdm.conf', '/etc/xdg/lubuntu/lxdm/lxdm.conf',
                  '/etc/lightdm/lightdm.conf'):
         if os.path.exists('%s.oem' % name):

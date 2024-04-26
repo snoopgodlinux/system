@@ -288,13 +288,13 @@ AutomaticLogin=$USER\n"
 				fi
 			fi
 	 
-			if $chroot $ROOT [ -f /etc/kde/kdm/kdmrc ]; then
+			if $chroot $ROOT [ -f /etc/kde4/kdm/kdmrc ]; then
 				# Configure KDM autologin
 				$log $chroot $ROOT sed -i$BACKUP -r \
 					-e "s/^#?AutoLoginEnable=.*\$/AutoLoginEnable=true/" \
 					-e "s/^#?AutoLoginUser=.*\$/AutoLoginUser=$USER/" \
 					-e "s/^#?AutoReLogin=.*\$/AutoReLogin=true/" \
-					/etc/kde/kdm/kdmrc
+					/etc/kde4/kdm/kdmrc
 			fi
 
 			if $chroot $ROOT [ -f /etc/lxdm/lxdm.conf ]; then

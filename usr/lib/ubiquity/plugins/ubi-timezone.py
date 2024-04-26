@@ -93,9 +93,7 @@ class PageGtk(plugin.PluginUI):
             self.controller.allow_go_forward(True)
 
     def changed(self, entry):
-        import gi
-        gi.require_version('Soup', '3.0')
-        from gi.repository import Gtk, GObject, GLib, Gio, Soup
+        from gi.repository import Gtk, GObject, GLib, Soup
 
         text = misc.utf8(self.city_entry.get_text())
         if not text:
@@ -111,20 +109,18 @@ class PageGtk(plugin.PluginUI):
                                   GObject.TYPE_STRING)
 
             if self.geoname_session is None:
-                self.geoname_session = Soup.Session()
+                self.geoname_session = Soup.SessionAsync()
             url = _geoname_url % (quote(text), misc.get_release().version)
             message = Soup.Message.new('GET', url)
-            message.get_request_headers().replace('User-agent', 'Ubiquity/1.0')
+            message.request_headers.append('User-agent', 'Ubiquity/1.0')
             self.geoname_session.abort()
             if self.geoname_timeout_id is not None:
                 GLib.source_remove(self.geoname_timeout_id)
-            cancellable = Gio.Cancellable()
             self.geoname_timeout_id = \
                 GLib.timeout_add_seconds(2, self.geoname_timeout,
-                                         (text, model, cancellable))
-            self.geoname_session.send_and_read_async(
-                message, GLib.PRIORITY_DEFAULT, cancellable, self.geoname_cb,
-                (text, model))
+                                         (text, model))
+            self.geoname_session.queue_message(message, self.geoname_cb,
+                                               (text, model))
 
     def geoname_add_tzdb(self, text, model):
         if len(model):
@@ -149,17 +145,16 @@ class PageGtk(plugin.PluginUI):
                               str(loc.latitude), str(loc.longitude)])
 
     def geoname_timeout(self, user_data):
-        text, model, cancellable = user_data
-        cancellable.cancel()
+        text, model = user_data
         self.geoname_add_tzdb(text, model)
         self.geoname_timeout_id = None
         self.city_entry.get_completion().set_model(model)
         return False
 
-    def geoname_cb(self, session, result, user_data):
+    def geoname_cb(self, session, message, user_data):
         import syslog
         import json
-        from gi.repository import GLib, Gio, Soup
+        from gi.repository import GLib, Soup
 
         text, model = user_data
 
@@ -168,37 +163,27 @@ class PageGtk(plugin.PluginUI):
             self.geoname_timeout_id = None
         self.geoname_add_tzdb(text, model)
 
-        message = session.get_async_result_message(result)
-        try:
-            response = session.send_and_read_finish(result)
-        except GLib.GError as err:
-            if err.code == Gio.IOErrorEnum.CANCELLED:
-                # Silently ignore cancellation.
-                pass
-            else:
-                # Log but otherwise ignore failures.
-                syslog.syslog(
-                    'Geoname lookup for "%s" failed: %s' % (text, err.message))
+        if message.status_code == Soup.KnownStatusCode.CANCELLED:
+            # Silently ignore cancellation.
+            pass
+        elif message.status_code != Soup.KnownStatusCode.OK:
+            # Log but otherwise ignore failures.
+            syslog.syslog(
+                'Geoname lookup for "%s" failed: %d %s' %
+                (text, message.status_code, message.reason_phrase))
         else:
-            if message.get_status() != Soup.Status.OK:
-                # Log but otherwise ignore failures
+            try:
+                for result in json.loads(message.response_body.data):
+                    model.append([
+                        result['name'], result['admin1'], result['country'],
+                        result['latitude'], result['longitude']])
+
+                # Only cache positive results.
+                self.geoname_cache[text] = model
+
+            except ValueError:
                 syslog.syslog(
-                    'Geoname lookup for "%s" failed: %s %s' %
-                    (text, message.get_status(), message.get_reason_phrase()))
-            else:
-                try:
-                    for result in json.loads(response.get_data().decode()):
-                        model.append([
-                            result['name'], result['admin1'],
-                            result['country'], result['latitude'],
-                            result['longitude']])
-
-                    # Only cache positive results.
-                    self.geoname_cache[text] = model
-
-                except ValueError:
-                    syslog.syslog(
-                        'Server return does not appear to be valid JSON.')
+                    'Server return does not appear to be valid JSON.')
 
         self.city_entry.get_completion().set_model(model)
 

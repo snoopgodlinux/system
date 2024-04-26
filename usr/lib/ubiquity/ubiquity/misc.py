@@ -12,10 +12,6 @@ import syslog
 import json
 
 from ubiquity import osextras
-import gi
-gi.require_version('Gio', '2.0')
-gi.require_version('GLib', '2.0')
-gi.require_version('GObject', '2.0')
 from gi.repository import Gio, GLib, GObject
 
 
@@ -711,9 +707,6 @@ def dmimodel():
 
 def set_indicator_keymaps(lang):
     import xml.etree.cElementTree as ElementTree
-    import gi
-    gi.require_version('GdkX11', '3.0')
-    gi.require_version('Xkl', '1.0')
     from gi.repository import Xkl, GdkX11
     # GdkX11.x11_get_default_xdisplay() segfaults if Gtk hasn't been
     # imported; possibly finer-grained than this, but anything using this
