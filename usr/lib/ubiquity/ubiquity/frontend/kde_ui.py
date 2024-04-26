@@ -73,7 +73,7 @@ class UbiquityUI(QtWidgets.QMainWindow):
         # this to be restartable.
         signal.siginterrupt(signal.SIGCHLD, False)
 
-        distro_name = "SnoopGod"
+        distro_name = "Kubuntu"
         distro_release = ""
 
         # # setup the release and codename
@@ -474,7 +474,7 @@ class Wizard(BaseFrontend):
             self.start_slideshow()
             self.run_main_loop()
 
-        while(self.pagesindex < self.pageslen):
+        while (self.pagesindex < self.pageslen):
             if self.current_page is None:
                 break
 

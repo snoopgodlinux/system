@@ -1728,7 +1728,7 @@ class PageGtk(PageBase):
         self.move_crypto_widgets()
         self.show_encryption_passphrase(True)
         self.generate_recovery_key()
-        self.show_overwrite_space(not(self.use_crypto.get_active() and self.use_zfs.get_active()))
+        self.show_overwrite_space(not (self.use_crypto.get_active() and self.use_zfs.get_active()))
         self.controller.go_to_page(self.current_page)
         self.controller.toggle_next_button('install_button')
         self.info_loop(None)
@@ -2172,7 +2172,7 @@ class Page(plugin.Plugin):
             return True
         else:
             if 'locked' in self.partition_cache[devpart]:
-                del(self.partition_cache[devpart]['locked'])
+                del (self.partition_cache[devpart]['locked'])
             return False
 
     def get_actions(self, devpart, partition):
@@ -3518,7 +3518,7 @@ class Page(plugin.Plugin):
         lines = description.splitlines()
         # Remove the last line of the output from partman which corresponds to
         # the ext4 partition
-        del(lines[-1])
+        del (lines[-1])
 
         if not os.path.exists(zsys_layout):
             return description
