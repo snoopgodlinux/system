@@ -73,7 +73,7 @@ class UbiquityUI(QtWidgets.QMainWindow):
         # this to be restartable.
         signal.siginterrupt(signal.SIGCHLD, False)
 
-        distro_name = "Kubuntu"
+        distro_name = "SnoopGod"
         distro_release = ""
 
         # # setup the release and codename
