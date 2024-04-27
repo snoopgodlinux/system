@@ -21,10 +21,10 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Version | 24.04.1 |
 | Volume ID | SnoopGod 24.04.1 LTS amd64 |
 | Release Name | Noble Numbat |
-| Release Date | February 27th, 2024 |
-| Release Link | [https://snoopgod.com/releases/?ver=22.04.4](https://snoopgod.com/releases/?ver=22.04.4) |
-| Disk Name | SnoopGod 24.04.1 LTS amd64 "Jammy Jellyfish" |
-| Kernel Version | 6.5.0-21-generic |
+| Release Date | April 27th, 2024 |
+| Release Link | [https://snoopgod.com/releases/?ver=24.04.1](https://snoopgod.com/releases/?ver=24.04.1) |
+| Disk Name | SnoopGod 24.04.1 LTS amd64 "Noble Numbat" |
+| Kernel Version | 6.8.0-31-generic |
 
 * * *
 
