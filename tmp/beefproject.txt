@@ -5,242 +5,53 @@
 # See the file 'doc/COPYING' for copying permission
 #
 
-set -euo pipefail
-NORMIFS=$IFS
-SCRIFS=$'\n\t'
-IFS=$SCRIFS
+## Define Ruby suffix
+## ------------------
 RUBYSUFFIX=''
 
-command_exists() 
+## Check if given command exists
+## -----------------------------
+function cmdcheck() 
 {
 	command -v "${1}" >/dev/null 2>&1
 }
 
-check_os() 
+## Install packages
+## ----------------
+function install_packages() 
 {
-	echo "Detecting OS..."
-	OS=$(uname)
-	readonly OS
-	echo "Operating System: $OS"
-
-	if [ "${OS}" = "Linux" ];
+	apt -y update
+	apt -y install curl git build-essential openssl libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev autoconf libc6-dev libncurses5-dev automake libtool bison nodejs libcurl4-openssl-dev
+	if cmdcheck rvm || cmdcheck rbenv;
 	then
-		echo "Launching Linux install..."
-		install_linux
-	elif [ "${OS}" = "Darwin" ];
-	then
-		echo "Launching Mac OSX install..."
-		install_mac
-	elif [ "${OS}" = "FreeBSD" ];
-	then
-		echo "Launching FreeBSD install..."
-		for SUFX in 32 31 30;
-		do
-			if command_exists ruby${SUFX};
-			then
-				RUBYSUFFIX=${SUFX}
-				break
-			fi
-		done
-		install_freebsd
-	elif [ "${OS}" = "OpenBSD" ];
-	then
-		echo "Launching OpenBSD install..."
-		for SUFX in 32 31 30;
-		do
-			if command_exists ruby${SUFX}; then
-				RUBYSUFFIX=${SUFX}
-				break
-			fi
-		done
-		install_openbsd
+		echo "Ruby package Manager exists - Ruby install skipped"
 	else
-		echo "Unable to locate installer for your operating system: ${OS}"
+		apt -y install ruby-dev
 	fi
 }
 
-install_linux() 
+## Install bundler
+## ---------------
+function install_bundler() 
 {
-	echo "Detecting Linux OS distribution..."
-	Distro=''
-
-	if [ -f /etc/blackPanther-release ];
-	then
-		Distro='blackPanther'
-	elif [ -f /etc/redhat-release ];
-	then
-		Distro='RedHat'
-	elif [ -f /etc/debian_version ];
-	then
-		Distro='Debian'
-	elif [ -f /etc/alpine-release ];
-	then
-		Distro='Alpine'
-	elif [ -f /etc/os-release ];
-	then
-		DISTRO_ID=$(grep ID= /etc/os-release | grep -v "BUILD" | grep -v "IMAGE" | cut -d= -f2-)
-		if [ "${DISTRO_ID}" = 'kali' ];
-		then
-			Distro='Kali'
-		elif [ "${DISTRO_ID}" = 'arch' ] || [ "${DISTRO_ID}" = 'garuda' ] || [ "${DISTRO_ID}" = 'artix' ] || [ "${DISTRO_ID}" = 'manjaro' ] || [ "${DISTRO_ID}" = 'blackarch' ] || [ "${DISTRO_ID}" = 'arcolinux' ] || [ "${DISTRO_ID}" = '"endeavouros"' ];
-		then
-			Distro='Arch'
-		elif grep -Eqi '^ID.*suse' /etc/os-release; then
-			Distro='SuSE'
-		fi
-	fi
-
-	if [ -z "${Distro}" ];
-	then
-		echo "Unable to locate installer for your ${OS} distribution"
-	fi
-	
-	readonly Distro
-	echo "OS Distribution: ${Distro}"
-	echo "Installing ${Distro} prerequisite packages..."
-	
-	if [ "${Distro}" = "Debian" ] || [ "${Distro}" = "Kali" ];
-	then
-		apt -y update
-		apt -y install curl git build-essential openssl libreadline6-dev zlib1g zlib1g-dev libssl-dev libyaml-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev autoconf libc6-dev libncurses5-dev automake libtool bison nodejs libcurl4-openssl-dev
-		if command_exists rvm || command_exists rbenv;
-		then
-			echo "Ruby package Manager exists - Ruby install skipped"
-		else
-			echo "No Ruby package manager detected - will install Ruby"
-			apt -y install ruby-dev
-		fi
-	elif [ "${Distro}" = "RedHat" ];
-	then
-		sudo yum install -y git make gcc openssl-devel gcc-c++ patch readline readline-devel zlib zlib-devel libyaml-devel libffi-devel bzip2 autoconf automake libtool bison sqlite-devel nodejs
-	elif [ "${Distro}" = "SuSE" ];
-	then
-		IFS=$NORMIFS
-		intpkg=""
-		nodejsver=nodejs16
-
-		# having NodeJS 18 installed should mean NodeJS 16 is not needed
-		rpm --quiet -q nodejs18 && nodejsver=""
-
-		for i in git make gcc libopenssl-devel gcc-c++ patch libreadline6 readline6-devel libz1 zlib-devel libyaml-devel libffi-devel bzip2 autoconf automake libtool bison sqlite3-devel $nodejsver;
-		do
-			rpm --quiet -q "${i}" || intpkg="${intpkg} ${i}"
-		done
-		[ "$intpkg" ] && sudo zypper -n install -l "${intpkg}"
-		IFS=$SCRIFS
-	elif [ "${Distro}" = "blackPanther" ];
-	then
-		installing --auto git make gcc openssl-devel gcc-c++ patch readline-devel zlib-devel yaml-devel libffi-devel bzip2 autoconf automake libtool bison sqlite-devel nodejs sudo
-	elif [ "${Distro}" = "Arch" ];
-	then
-		sudo pacman -Syu
-		sudo pacman -S curl git make openssl gcc readline zlib libyaml sqlite bzip2 autoconf automake libtool bison nodejs
-		if command_exists rvm || command_exists rbenv;
-		then
-			echo "Ruby package Manager exists - Ruby install skipped"
-		else
-			echo "No Ruby package manager detected - will install Ruby"
-			sudo pacman -S ruby ruby-rdoc
-		fi
-	elif [ "${Distro}" = "Alpine" ];
-	then
-		apk update
-		apk add curl git build-base openssl readline-dev zlib zlib-dev libressl-dev yaml-dev sqlite-dev sqlite libxml2-dev libxslt-dev autoconf libc6-compat ncurses5 automake libtool bison nodejs
-	fi
-}
-
-install_openbsd()
-{
-	sudo pkg_add curl git libyaml libxml libxslt bison node ruby${RUBYSUFFIX}-bundler lame espeak
-}
-
-install_freebsd()
-{
-	sudo pkg install curl git libyaml libxslt devel/ruby-gems bison node espeak
-}
-
-install_mac()
-{
-	local mac_deps=(curl git nodejs python3
-		openssl readline libyaml sqlite3 libxml2
-		autoconf ncurses automake libtool
-		bison wget)
-
-	if ! command_exists brew;
-	then
-		echo "Homebrew (https://brew.sh/) required to install dependencies"
-	fi
-
-	echo "Installing dependencies via brew"
-	brew update
-
-	for package in "${mac_deps[@]}";
-	do
-		if brew install "${package}";
-		then
-			echo "${package} installed"
-		else
-			echo "Failed to install ${package}"
-		fi
-
-	done
-}
-
-check_ruby()
-{
-	echo 'Detecting Ruby environment...'
-	MIN_RUBY_VER='3.0'
-	if command_exists rvm;
-	then
-		RUBY_VERSION=$(rvm current | cut -d'-' -f 2)
-		echo "Ruby version ${RUBY_VERSION} is installed with RVM"
-	
-		if RUBY_VERSION -lt MIN_RUBY_VER;
-		then
-			echo "Ruby version ${RUBY_VERSION} is not supported. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
-		fi
-	elif command_exists rbenv;
-	then
-		RUBY_VERSION=$(rbenv version | cut -d' ' -f 2)
-		echo "Ruby version ${RUBY_VERSION} is installed with rbenv"
-		if RUBY_VERSION -lt MIN_RUBY_VER;
-		then
-			echo "Ruby version ${RUBY_VERSION} is not supported. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
-		fi
-	elif command_exists ruby${RUBYSUFFIX};
-	then
-		RUBY_VERSION=$(ruby${RUBYSUFFIX} -e "puts RUBY_VERSION")
-		echo "Ruby version ${RUBY_VERSION} is installed"
-		if [ "$(ruby${RUBYSUFFIX} -e "puts RUBY_VERSION.to_f >= ${MIN_RUBY_VER}")" = 'false' ];
-		then
-			echo "Ruby version ${RUBY_VERSION} is not supported. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
-		fi
-	else
-		echo "Ruby is not installed. Please install Ruby ${MIN_RUBY_VER} (or newer) and restart the installer."
-	fi
-}
-
-check_bundler() 
-{
-	echo 'Detecting bundler gem...'
-	if command_exists bundler${RUBYSUFFIX};
+	if cmdcheck bundler${RUBYSUFFIX};
 	then
 		echo "bundler${RUBYSUFFIX} gem is installed"
 	else
-		echo 'Installing bundler gem...'
 		gem${RUBYSUFFIX} install bundler
 	fi
 }
 
-install_beef()
+## Install BeEF
+## ------------
+function install_beef()
 {
-	echo "Installing required Ruby gems..."
 	if [ -w Gemfile.lock ];
 	then
 		/bin/rm Gemfile.lock
 	fi
 
-	if command_exists bundle${RUBYSUFFIX};
+	if cmdcheck bundle${RUBYSUFFIX};
 	then
 		bundle${RUBYSUFFIX} install
 	else
@@ -248,12 +59,15 @@ install_beef()
 	fi
 }
 
-main() 
+## Main callback
+## -------------
+function main() 
 {
-	check_os
-	check_ruby
-	check_bundler
+	install_packages
+	install_bundler
 	install_beef
 }
 
+## Callback
+## --------
 main "$@"
