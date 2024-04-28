@@ -1,0 +1,15 @@
+[Plymouth Theme]
+Name=SnoopGod Text
+Description=Text mode theme based on snoopgod-logo theme
+ModuleName=ubuntu-text
+
+[ubuntu-text]
+title=SnoopGod 24.04
+# Background
+black=0x000000
+# Title Text + Additional messages such as key interrupt
+white=0xFFFFFF
+# Dot coloring
+brown=0x0079C1
+# Status message (fsck)
+blue=0x0079C1
