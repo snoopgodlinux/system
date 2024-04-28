@@ -39,7 +39,7 @@ ModuleName=two-step
 [two-step]
 Font=Cantarell 12
 TitleFont=Cantarell Light 30
-ImageDir=/usr/share/plymouth/themes//spinner
+ImageDir=/usr/share/plymouth/themes/snoopgod-spinner
 DialogHorizontalAlignment=.5
 DialogVerticalAlignment=.382
 TitleHorizontalAlignment=.5
