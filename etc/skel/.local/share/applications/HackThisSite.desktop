@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=xdg-open https://www.hackthissite.org
+Icon=/usr/share/icons/snoopgod/hackthissite.png
+Name=HackThisSite
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

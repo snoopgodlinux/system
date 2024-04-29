@@ -1,0 +1,13 @@
+[Desktop Entry]
+Comment=
+Exec=xdg-open https://tryhackme.com
+Icon=/usr/share/icons/snoopgod/tryhackme.png
+Name=TryHackMe
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

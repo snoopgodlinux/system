@@ -823,39 +823,6 @@
   <Filename>snoopgod-nmap.desktop</Filename>
   <Filename>snoopgod-mitmweb.desktop</Filename>
  </Exclude>
- <Layout>
-  <Merge type="menus"/>
-  <Menuname>Cracking</Menuname>
-  <Menuname>Exploitation</Menuname>
-  <Menuname>Forensics</Menuname>
-  <Menuname>Hardening</Menuname>
-  <Menuname>Information Gathering</Menuname>
-  <Menuname>Networking</Menuname>
-  <Menuname>Reverse Engineering</Menuname>
-  <Menuname>Scripts &amp; Utilities</Menuname>
-  <Menuname>Sniifing &amp; Spoofing</Menuname>
-  <Menuname>Stress Testing</Menuname>
-  <Menuname>Vulnerability Analysis</Menuname>
-  <Menuname>Web Applications</Menuname>
-  <Menuname>Wireless</Menuname>
-  <Separator/>
-  <Menuname>Development</Menuname>
-  <Menuname>Education</Menuname>
-  <Menuname>Electronics</Menuname>
-  <Menuname>Games</Menuname>
-  <Menuname>Graphics</Menuname>
-  <Menuname>Hamradio</Menuname>
-  <Menuname>Internet</Menuname>
-  <Menuname>Multimedia</Menuname>
-  <Menuname>Office</Menuname>
-  <Menuname>Science</Menuname>
-  <Menuname>Settingsmenu</Menuname>
-  <Menuname>System</Menuname>
-  <Menuname>Utilities</Menuname>
-  <Menuname>Applications</Menuname>
-  <Merge type="files"/>
-  <Filename>org.kde.khelpcenter.desktop</Filename>
- </Layout>
  <Menu>
   <Name>Development</Name>
   <Layout>
@@ -1024,5 +991,58 @@
    <Filename>org.kde.kate.desktop</Filename>
    <Filename>terminator.desktop</Filename>
   </Include>
+ </Menu>
+ <Layout>
+  <Merge type="menus"/>
+  <Menuname>Cracking</Menuname>
+  <Menuname>Exploitation</Menuname>
+  <Menuname>Forensics</Menuname>
+  <Menuname>Hardening</Menuname>
+  <Menuname>Information Gathering</Menuname>
+  <Menuname>Networking</Menuname>
+  <Menuname>Reverse Engineering</Menuname>
+  <Menuname>Scripts &amp; Utilities</Menuname>
+  <Menuname>Sniifing &amp; Spoofing</Menuname>
+  <Menuname>Stress Testing</Menuname>
+  <Menuname>Vulnerability Analysis</Menuname>
+  <Menuname>Web Applications</Menuname>
+  <Menuname>Wireless</Menuname>
+  <Menuname>Shortcuts</Menuname>
+  <Separator/>
+  <Menuname>Development</Menuname>
+  <Menuname>Education</Menuname>
+  <Menuname>Electronics</Menuname>
+  <Menuname>Games</Menuname>
+  <Menuname>Graphics</Menuname>
+  <Menuname>Hamradio</Menuname>
+  <Menuname>Internet</Menuname>
+  <Menuname>Multimedia</Menuname>
+  <Menuname>Office</Menuname>
+  <Menuname>Science</Menuname>
+  <Menuname>Settingsmenu</Menuname>
+  <Menuname>System</Menuname>
+  <Menuname>Utilities</Menuname>
+  <Menuname>Applications</Menuname>
+  <Merge type="files"/>
+  <Filename>org.kde.khelpcenter.desktop</Filename>
+ </Layout>
+ <Menu>
+  <Name>Shortcuts</Name>
+  <Directory>Shortcuts.directory</Directory>
+  <Include>
+   <Filename>Hack The Box.desktop</Filename>
+   <Filename>TryHackMe.desktop</Filename>
+   <Filename>HackThisSite.desktop</Filename>
+   <Filename>ProtonVPN.desktop</Filename>
+   <Filename>SnoopGod.desktop</Filename>
+  </Include>
+  <Layout>
+   <Merge type="files"/>
+   <Filename>Hack The Box.desktop</Filename>
+   <Filename>HackThisSite.desktop</Filename>
+   <Filename>TryHackMe.desktop</Filename>
+   <Filename>ProtonVPN.desktop</Filename>
+   <Filename>SnoopGod.desktop</Filename>
+  </Layout>
  </Menu>
 </Menu>
