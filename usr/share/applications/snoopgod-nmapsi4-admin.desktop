@@ -1,5 +1,5 @@
 [Desktop Entry]
-Name=NmapSI4 - Admin
+Name=Nmap SI4 - Admin
 Categories=Information Gathering;
 Exec=kdesu QTWEBENGINE_DISABLE_SANDBOX=1 nmapsi4
 Icon=/usr/share/icons/snoopgod/nmapsi4.png

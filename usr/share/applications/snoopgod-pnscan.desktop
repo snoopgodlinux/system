@@ -3,6 +3,6 @@ Version=1.0
 Categories=Networking;
 Exec=sh -c 'pnscan -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Pnscan
+Name=PNScan
 Terminal=true
 Type=Application

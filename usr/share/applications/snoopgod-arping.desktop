@@ -3,6 +3,6 @@ Version=1.0
 Categories=Stress Testing;
 Exec=sh -c 'arping -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=ARPing
+Name=AR Ping
 Terminal=true
 Type=Application

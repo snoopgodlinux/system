@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=GTK;AudioVideo;AudioVideoEditing;Audio;
+Comment=
+Exec=easytag %F
+GenericName=
+Icon=easytag
+Keywords=mp3;tag;audio;music;
+MimeType=inode/directory;audio/x-mp3;audio/x-mpeg;audio/mpeg;application/ogg;audio/x-vorbis+ogg;audio/x-flac;audio/x-musepack;audio/x-ape;audio/x-speex+ogg;audio/x-opus+ogg;
+Name=EasyTAG
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

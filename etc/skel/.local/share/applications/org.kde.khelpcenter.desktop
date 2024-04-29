@@ -1,0 +1,23 @@
+[Desktop Entry]
+Categories=Qt;KDE;Core;
+Comment=
+DBusActivatable=true
+Exec=khelpcenter %u
+GenericName=
+Icon=help-browser
+Keywords=man;info;documentation;handbook;manual;information;
+MimeType=x-scheme-handler/help;x-scheme-handler/man;x-scheme-handler/info;
+Name=Help
+NoDisplay=false
+OnlyShowIn=KDE;
+Path=
+SingleMainWindow=true
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DBUS-ServiceName=org.kde.khelpcenter
+X-DBUS-StartupType=Unique
+X-DocPath=khelpcenter/index.html
+X-KDE-SubstituteUID=false
+X-KDE-Username=

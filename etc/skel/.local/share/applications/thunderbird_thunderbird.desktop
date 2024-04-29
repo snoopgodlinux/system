@@ -1,0 +1,29 @@
+[Desktop Action Compose]
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/thunderbird_thunderbird.desktop /snap/bin/thunderbird -compose
+Name=Compose New Message
+OnlyShowIn=Messaging Menu;Unity;
+
+[Desktop Action Contacts]
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/thunderbird_thunderbird.desktop /snap/bin/thunderbird -addressbook
+Name=Contacts
+OnlyShowIn=Messaging Menu;Unity;
+
+[Desktop Entry]
+Actions=Compose;Contacts
+Categories=Application;Network;Email;
+Comment=
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/thunderbird_thunderbird.desktop /snap/bin/thunderbird %u
+GenericName=
+Icon=/snap/thunderbird/470/meta/gui/thunderbird.png
+Keywords=Email;E-mail;Newsgroup;Feed;RSS
+MimeType=x-scheme-handler/mailto;application/x-xpinstall;x-scheme-handler/webcal;x-scheme-handler/mid;message/rfc822;text/calendar;text/vcard;text/x-vcard;
+Name=Thunderbird Mail
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-SnapInstanceName=thunderbird

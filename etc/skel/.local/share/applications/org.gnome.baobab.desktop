@@ -1,0 +1,20 @@
+[Desktop Entry]
+Categories=GTK;GNOME;System;Filesystem;X-GNOME-Utilities;
+Comment=
+DBusActivatable=true
+Exec=baobab %U
+Icon=org.gnome.baobab
+Keywords=storage;space;cleanup;
+MimeType=inode/directory;
+Name=Disk Usage Analyzer
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+TryExec=baobab
+Type=Application
+X-GNOME-UsesNotifications=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-Ubuntu-Gettext-Domain=baobab

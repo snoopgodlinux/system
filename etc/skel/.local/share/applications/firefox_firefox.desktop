@@ -1,0 +1,28 @@
+[Desktop Action NewPrivateWindow]
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/firefox_firefox.desktop /snap/bin/firefox -private-window
+Name=Open a New Private Window
+
+[Desktop Action NewWindow]
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/firefox_firefox.desktop /snap/bin/firefox -new-window
+Name=Open a New Window
+
+[Desktop Entry]
+Actions=NewWindow;NewPrivateWindow;
+Categories=GNOME;GTK;Network;WebBrowser;
+Comment=
+Exec=env BAMF_DESKTOP_FILE_HINT=/var/lib/snapd/desktop/applications/firefox_firefox.desktop /snap/bin/firefox %u
+GenericName=
+Icon=/snap/firefox/4173/default256.png
+Keywords=Internet;WWW;Browser;Web;Explorer
+MimeType=text/html;text/xml;application/xhtml+xml;application/xml;application/rss+xml;application/rdf+xml;image/gif;image/jpeg;image/png;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;x-scheme-handler/chrome;video/webm;application/x-xpinstall;
+Name=Firefox Web Browser
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+Version=1.0
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-SnapInstanceName=firefox

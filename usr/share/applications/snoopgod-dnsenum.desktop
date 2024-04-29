@@ -3,6 +3,6 @@ Version=1.0
 Categories=Information Gathering;
 Exec=sh -c 'dnsenum --help; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=DNSenum
+Name=DNS Enum
 Terminal=true
 Type=Application

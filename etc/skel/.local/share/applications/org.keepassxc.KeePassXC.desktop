@@ -1,0 +1,21 @@
+[Desktop Entry]
+Categories=Utility;Security;Qt;
+Comment=
+Exec=keepassxc %f
+GenericName=
+Icon=keepassxc
+MimeType=application/x-keepass2;
+Name=KeePassXC
+NoDisplay=false
+Path=
+SingleMainWindow=true
+StartupNotify=true
+StartupWMClass=keepassxc
+Terminal=false
+TerminalOptions=
+TryExec=keepassxc
+Type=Application
+Version=1.5
+X-GNOME-SingleWindow=true
+X-KDE-SubstituteUID=false
+X-KDE-Username=

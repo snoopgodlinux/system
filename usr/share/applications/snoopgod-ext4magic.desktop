@@ -3,6 +3,6 @@ Version=1.0
 Categories=Forensics;
 Exec=sh -c 'ext4magic; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Ext4magic
+Name=Ext4 Magic
 Terminal=true
 Type=Application

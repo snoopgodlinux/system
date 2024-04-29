@@ -3,6 +3,6 @@ Version=1.0
 Categories=Web Applications;
 Exec=sh -c 'wig -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Wig
+Name=WIG
 Terminal=true
 Type=Application

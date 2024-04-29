@@ -3,6 +3,6 @@ Version=1.0
 Categories=Networking;
 Exec=sh -c 'onesixtyone; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Onesixtyone
+Name=OneSixtyone
 Terminal=true
 Type=Application

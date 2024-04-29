@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=System;Monitor;ConsoleOnly;
+Comment=
+Exec=htop
+GenericName=
+Icon=htop
+Keywords=system;process;task
+Name=Htop
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Type=Application
+Version=1.0
+X-KDE-SubstituteUID=false
+X-KDE-Username=

@@ -1,0 +1,17 @@
+[Desktop Entry]
+Categories=Qt;KDE;System;Monitor;
+Comment=
+Exec=ksystemlog -qwindowtitle %c
+GenericName=
+Icon=utilities-log-viewer
+Keywords=log;logfile;system messages;system log;kernel log;authentication log;X.org log;journald log;services logs;Event Viewer;eventvwr;eventlog;
+Name=KSystemLog
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-DocPath=ksystemlog/index.html
+X-KDE-SubstituteUID=true
+X-KDE-Username=

@@ -1,0 +1,16 @@
+[Desktop Entry]
+Categories=Utility;Documentation;ConsoleOnly;
+Comment=
+Exec=info
+Icon=dialog-information
+Keywords=TeXInfo;Documentation
+Name=TeXInfo
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=true
+TerminalOptions=
+Type=Application
+X-Desktop-File-Install-Version=0.26
+X-KDE-SubstituteUID=false
+X-KDE-Username=

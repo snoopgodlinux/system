@@ -1,0 +1,14 @@
+[Desktop Entry]
+Categories=Development;IDE
+Comment=
+Exec=/usr/bin/groovyConsole
+Icon=ConsoleIcon
+Name=Groovy Console
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

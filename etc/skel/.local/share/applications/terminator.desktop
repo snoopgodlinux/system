@@ -1,0 +1,23 @@
+[Desktop Entry]
+Categories=GNOME;GTK;Utility;TerminalEmulator;System;
+Comment=
+Exec=terminator
+Icon=terminator
+Keywords=terminal;shell;prompt;command;commandline;
+Name=Terminator
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+TryExec=terminator
+Type=Application
+X-Ayatana-Desktop-Shortcuts=NewWindow;
+X-KDE-SubstituteUID=false
+X-KDE-Username=
+X-Ubuntu-Gettext-Domain=terminator
+
+[NewWindow Shortcut Group]
+Exec=terminator
+Name=Open a New Window
+TargetEnvironment=Unity

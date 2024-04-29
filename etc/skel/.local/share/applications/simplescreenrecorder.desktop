@@ -1,0 +1,15 @@
+[Desktop Entry]
+Categories=AudioVideo;Video;Recorder;Qt;
+Comment=
+Exec=simplescreenrecorder --logfile
+Icon=simplescreenrecorder
+Keywords=screen recorder;screencast;live streaming;ssr;
+Name=SimpleScreenRecorder
+NoDisplay=false
+Path=
+StartupNotify=true
+Terminal=false
+TerminalOptions=
+Type=Application
+X-KDE-SubstituteUID=false
+X-KDE-Username=

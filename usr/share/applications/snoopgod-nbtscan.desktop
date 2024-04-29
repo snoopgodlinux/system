@@ -3,6 +3,6 @@ Version=1.0
 Categories=Networking;
 Exec=sh -c 'nbtscan -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Nbtscan
+Name=NBT Scan
 Terminal=true
 Type=Application

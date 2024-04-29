@@ -3,6 +3,6 @@ Version=1.0
 Categories=Forensics;
 Exec=pkexec guymager
 Icon=/usr/share/icons/snoopgod/guymager.png
-Name=Guymager
+Name=GuyMager
 Terminal=false
 Type=Application

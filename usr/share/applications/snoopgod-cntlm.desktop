@@ -3,6 +3,6 @@ Version=1.0
 Categories=Networking;
 Exec=sh -c 'cntlm --help; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Cntlm
+Name=CNTLM
 Terminal=true
 Type=Application
