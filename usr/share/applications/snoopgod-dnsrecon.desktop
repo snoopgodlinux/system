@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Information Gathering;
 Exec=sh -c 'dnsrecon --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/dnsrecon.png
 Name=DNS Recon
 Terminal=true
 Type=Application

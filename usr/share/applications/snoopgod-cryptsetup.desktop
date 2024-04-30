@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Cracking;
+Exec=sh -c 'cryptsetup -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/cryptsetup.png
+Name=CryptSetup
+Terminal=true
+Type=Application

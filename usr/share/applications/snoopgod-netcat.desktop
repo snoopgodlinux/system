@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Networking;
 Exec=sh -c 'nc -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/netcat.png
 Name=NetCat
 Terminal=true
 Type=Application

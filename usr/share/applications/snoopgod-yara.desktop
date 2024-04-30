@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Reverse Engineering;
 Exec=sh -c 'yara --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/yara.png
 Name=Yara
 Terminal=true
 Type=Application

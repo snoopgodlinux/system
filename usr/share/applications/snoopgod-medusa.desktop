@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Cracking;
 Exec=sh -c 'medusa; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/medusa.png
 Name=Medusa
 Terminal=true
 Type=Application

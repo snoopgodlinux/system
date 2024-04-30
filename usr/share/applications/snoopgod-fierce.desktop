@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Information Gathering;
 Exec=sh -c 'fierce -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/fierce.png
 Name=Fierce
 Terminal=true
 Type=Application

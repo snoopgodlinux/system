@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Information Gathering;
 Exec=sh -c 'masscan --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/masscan.png
 Name=Masscan
 Terminal=true
 Type=Application

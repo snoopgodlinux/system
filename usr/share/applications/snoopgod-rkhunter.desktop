@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Forensics;
+Exec=sh -c 'rkhunter -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/rkhunter.png
+Name=Rkhunter
+Terminal=true
+Type=Application

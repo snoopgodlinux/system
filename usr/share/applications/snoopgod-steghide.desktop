@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Categories=Vulnerability Analysis;
-Exec=sh -c 'dirsearch -h; $SHELL'
+Categories=Forensics;
+Exec=sh -c 'steghide --help; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Dirsearch
+Name=StegHide
 Terminal=true
 Type=Application

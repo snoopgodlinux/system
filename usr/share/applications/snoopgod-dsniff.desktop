@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Networking;
 Exec=sh -c 'dsniff -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/dsniff.png
 Name=Dsniff
 Terminal=true
 Type=Application

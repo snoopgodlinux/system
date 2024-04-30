@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
 Categories=Networking;
-Exec=sh -c 'miredo --help; $SHELL'
+Exec=sh -c 'proxychains -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Miredo
+Name=Proxychains
 Terminal=true
 Type=Application

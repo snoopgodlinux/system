@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Vulnerability Analysis;
 Exec=sh -c 'sqlmap --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/sqlmap.png
 Name=Sqlmap
 Terminal=true
 Type=Application

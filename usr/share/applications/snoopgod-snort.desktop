@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Networking;
+Exec=sh -c 'snort -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/snort.png
+Name=Snort
+Terminal=true
+Type=Application

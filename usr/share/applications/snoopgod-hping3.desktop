@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Stress Testing;
 Exec=sh -c 'hping3 --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/hping3.png
 Name=HPing3
 Terminal=true
 Type=Application

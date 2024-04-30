@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Stress Testing;
 Exec=sh -c 'fping -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/fping.png
 Name=Fping
 Terminal=true
 Type=Application

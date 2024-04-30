@@ -2,7 +2,7 @@
 Version=1.0
 Categories=Information Gathering;
 Exec=sh -c 'sslsplit -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
+Icon=/usr/share/icons/snoopgod/sslsplit.png
 Name=SSL Split
 Terminal=true
 Type=Application

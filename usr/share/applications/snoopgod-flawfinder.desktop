@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Categories=Information Gathering;
-Exec=sh -c 'recon-ng --help; $SHELL'
+Categories=Reverse Engineering;
+Exec=sh -c 'flawfinder -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Recon-NG
+Name=FlawFinder
 Terminal=true
 Type=Application

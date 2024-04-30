@@ -1,8 +1,8 @@
 [Desktop Entry]
 Version=1.0
-Categories=Wireless;
-Exec=sh -c 'sudo wifite; $SHELL'
+Categories=Reverse Engineering;
+Exec=sh -c 'radare2 -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=Wifite
+Name=Radare2
 Terminal=true
 Type=Application

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Networking;
+Exec=sh -c 'driftnet -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/driftnet.png
+Name=DriftNet
+Terminal=true
+Type=Application
