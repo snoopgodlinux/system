@@ -3,6 +3,6 @@ Version=1.0
 Categories=Wireless;
 Exec=sh -c 'mfoc -h; $SHELL'
 Icon=/usr/share/icons/snoopgod/default.png
-Name=MFOC
+Name=MFoC
 Terminal=true
 Type=Application
