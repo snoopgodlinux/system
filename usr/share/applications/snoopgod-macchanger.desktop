@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Networking;
+Exec=sh -c 'macchanger -h; $SHELL'
+Icon=/usr/share/icons/snoopgod/default.png
+Name=MacChanger
+Terminal=true
+Type=Application
