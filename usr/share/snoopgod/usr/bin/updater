@@ -28,6 +28,7 @@ function removelaunchers()
 {
 	sudo rm -rf /usr/share/applications/kde4
 	sudo rm -f /usr/share/applications/arduino.desktop
+	sudo rm -f /usr/share/applications/driftnet.desktop
 	sudo rm -f /usr/share/applications/edb.desktop
 	sudo rm -f /usr/share/applications/ettercap.desktop
 	sudo rm -f /usr/share/applications/gtkhash.desktop
@@ -38,7 +39,7 @@ function removelaunchers()
 	sudo rm -f /usr/share/applications/org.kde.plasma.emojier.desktop
 	sudo rm -f /usr/share/applications/org.wireshark.Wireshark.desktop
 	sudo rm -f /usr/share/applications/texdoctk.desktop
-	sudo rm -f /usr/share/applications/ubiquity.desktop
+	sudo rm -f /usr/share/applications/ubiquity-kdeui.desktop
 	sudo rm -f /usr/share/applications/*-BurpSuiteCommunity.desktop
 	sudo rm -f /usr/share/applications/*-zap.sh.desktop
 }
