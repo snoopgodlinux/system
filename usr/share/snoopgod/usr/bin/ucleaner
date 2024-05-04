@@ -359,7 +359,7 @@ function deletetrash()
     read -p "[?] Do you want to delete the trash folder content? [y/N] " yn
     case $yn in
         [Yy]* )
-			trash-empty
+			trash-empty -f
 			echo -e "[+] Trash folder content deleted\n"
 		    ;;
         [Nn]* )
