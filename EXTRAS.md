@@ -4,16 +4,6 @@ Discover a wealth of additional features and enhancements for your SnoopGod Linu
 
 * * *
 
-#### Install `Apache2`
-
-To install **Apache2**, open your terminal and enter the following command:
-
-```shell
-sudo apt install apache2
-```
-
-* * *
-
 #### Install `Chrome`
 
 To install **Chrome**, open your terminal and enter the following command:
@@ -21,6 +11,7 @@ To install **Chrome**, open your terminal and enter the following command:
 ```shell
 wget -O "/tmp/google-chrome.deb" "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 sudo dpkg -i /tmp/google-chrome.deb
+
 ```
 
 * * *
@@ -51,17 +42,11 @@ sudo apt install evolution evolution-ews
 To install **Filezilla**, open your terminal and enter the following command:
 
 ```bash
-sudo apt install filezilla
-```
-
-* * *
-
-#### Install `Gedit`
-
-To install **Gedit**, open your terminal and enter the following command:
-
-```bash
-sudo apt install gedit
+wget -O "/tmp/FileZilla_3.67.0_x86_64-linux-gnu.tar.xz" "https://dl3.cdn.filezilla-project.org/client/FileZilla_3.67.0_x86_64-linux-gnu.tar.xz?h=Ja5AfurzAal49Gsma2V-6w&x=1717175520"
+tar -xvf /tmp/FileZilla_3.67.0_x86_64-linux-gnu.tar.xz -C /tmp/
+sudo cp -r /tmp/FileZilla3/bin /usr/
+sudo cp -r /tmp/FileZilla3/lib /usr/
+sudo cp -r /tmp/FileZilla3/share /usr/
 ```
 
 * * *
@@ -72,6 +57,26 @@ To install **Gimp**, open your terminal and enter the following command:
 
 ```bash
 sudo apt install gimp gimp-data gimp-data-extras gimp-plugin-registry gimp-texturize
+```
+
+* * *
+
+#### Install `Gparted`
+
+To install **gparted**, open your terminal and enter the following command:
+
+```shell
+sudo apt install gparted
+```
+
+* * *
+
+#### Install `Hardinfo`
+
+To install **hardinfo**, open your terminal and enter the following command:
+
+```shell
+sudo apt install hardinfo
 ```
 
 * * *
@@ -106,45 +111,12 @@ sudo apt install libreoffice
 
 * * *
 
-#### Install `Postfix`
+#### Install `Restricted Extras`
 
-To install **Postfix**, open your terminal and enter the following command:
-
-```bash
-sudo apt install postfix
-```
-
-* * *
-
-#### Install `Qt6`
-
-To install **Qt6**, open your terminal and enter the following command:
+To install **Restricted Extras**, open your terminal and enter the following command:
 
 ```shell
-sudo apt install qt6-base-dev qtcreator
-```
-
-* * *
-
-#### Install `rTorrent`
-
-To install **rTorrent**, open your terminal and enter the following command:
-
-```bash
-sudo apt install rtorrent
-cp /usr/share/doc/rtorrent/examples/rtorrent.rc.gz $HOME/
-cd $HOME/ && gzip -d rtorrent.rc.gz
-mv rtorrent.rc .rtorrent.rc
-```
-
-* * *
-
-#### Install `Sendemail`
-
-To install **Sendemail**, open your terminal and enter the following command:
-
-```bash
-sudo apt install sendemail
+sudo apt install kubuntu-restricted-extras ubuntu-restricted-extras
 ```
 
 * * *
@@ -181,20 +153,31 @@ sudo apt update && sudo apt install sublime-text
 
 * * *
 
-#### Install `Subversion`
+#### Install `Virtualbox`
 
-To install **Subversion**, open your terminal and enter the following command:
+To install **Virtualbox**, open your terminal and enter the following command:
 
 ```bash
-sudo apt install subversion
+sudo apt install virtualbox
 ```
 
 * * *
 
-#### Install `Transmission`
+#### Install `Yakuake`
 
-To install **Transmission**, open your terminal and enter the following command:
+To install **yakuake**, open your terminal and enter the following command:
 
-```bash
-sudo apt install transmission-cli transmission-common transmission-daemon transmission-gtk
+```shell
+sudo apt install yakuake
+```
+
+* * *
+
+#### Install `Warp`
+
+To install **Warp**, open your terminal and enter the following command:
+
+```shell
+wget -O "/tmp/warp.deb" "https://releases.warp.dev/stable/v0.2024.05.28.08.02.stable_00/warp-terminal_0.2024.05.28.08.02.stable.00_amd64.deb"
+sudo dpkg -i /tmp/warp.deb
 ```
