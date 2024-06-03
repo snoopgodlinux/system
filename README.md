@@ -20,8 +20,8 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Checksum File | [snoopgod-24.04.1-desktop-amd64.md5](https://download.snoopgod.com/24.04.1/snoopgod-24.04.1-desktop-amd64.md5) |
 | Version | 24.04.1 |
 | Volume ID | SnoopGod 24.04.1 LTS amd64 |
+| Build Date | April 19th, 2024 |
 | Release Name | Noble Numbat |
-| Release Date | April 30th, 2024 |
 | Release Link | [https://snoopgod.com/releases/?ver=24.04.1](https://snoopgod.com/releases/?ver=24.04.1) |
 | Disk Name | SnoopGod 24.04.1 LTS amd64 "Noble Numbat" |
 | Kernel Version | 6.8.0-31-generic |
@@ -40,8 +40,8 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Checksum File | [snoopgod-22.04.4-desktop-amd64.md5](https://download.snoopgod.com/22.04.4/snoopgod-22.04.4-desktop-amd64.md5) |
 | Version | 22.04.4 |
 | Volume ID | SnoopGod 22.04.4 LTS amd64 |
+| Build Date | February 27th, 2024 |
 | Release Name | Jammy Jellyfish |
-| Release Date | February 27th, 2024 |
 | Release Link | [https://snoopgod.com/releases/?ver=22.04.4](https://snoopgod.com/releases/?ver=22.04.4) |
 | Disk Name | SnoopGod 22.04.4 LTS amd64 "Jammy Jellyfish" |
 | Kernel Version | 6.5.0-21-generic |
@@ -56,8 +56,8 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Checksum File | [snoopgod-22.04.3-desktop-amd64.md5](https://download.snoopgod.com/22.04.3/snoopgod-22.04.3-desktop-amd64.md5) |
 | Version | 22.04.3 |
 | Volume ID | SnoopGod 22.04.3 LTS amd64 |
+| Build Date | January 2th, 2024 |
 | Release Name | Jammy Jellyfish |
-| Release Date | January 2th, 2024 |
 | Release Link | [https://snoopgod.com/releases/?ver=22.04.3](https://snoopgod.com/releases/?ver=22.04.3) |
 | Disk Name | SnoopGod 22.04.3 LTS amd64 "Jammy Jellyfish" |
 | Kernel Version | 6.5.0-18-generic |
