@@ -85,7 +85,7 @@ function promptuser()
 function updatehook()
 {
 	## Checking for update
-	loadstatus "[+] Checking for update"
+	loadstatus "[+] Checking for update" "ok" "valid"
 
 	## Check current release
 	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
