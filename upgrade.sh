@@ -164,6 +164,7 @@ function launch()
 	keepalive
 	promptuser
 	upgradehook
+	upgradedebs
 }
 
 ## -------- ##
