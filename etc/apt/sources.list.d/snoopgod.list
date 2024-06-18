@@ -1,0 +1,1 @@
+deb [signed-by=/etc/apt/keyrings/snoopgod-pubkey.asc arch=amd64] https://packages.snoopgod.com noble main
