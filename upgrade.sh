@@ -135,7 +135,7 @@ function upgradehook()
 ## ---------------
 function upgradedebs()
 {
-	input="/etc/snoopgod/debs.txt"
+	input="/etc/debs-release"
 	while IFS= read -r line
 	do
 	    if [ "$line" != "" ];
