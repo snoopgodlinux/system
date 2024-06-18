@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# [Release]: SnoopGod 24.04.1 LTS amd64
-# [Website]: https://snoopgod.com/releases/?ver=24.04.1
+# [Release]: SnoopGod 24.04.2 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=24.04.2
 # [License]: http://www.gnu.org/licenses/gpl-3.0.html
 
 ## ---------------- ##
@@ -10,12 +10,12 @@
 
 ## Colour output
 ## -------------
-texterror="\033[01;31m"		# Error
-textreset="\033[00m"		# Reset
+texterror="\033[01;31m"     # Text Error
+textreset="\033[00m"        # Text Reset
 
-## ------------------- ##
-## PREPARE ENVIRONMENT ##
-## ------------------- ##
+## ---------------- ##
+## DEFINE FUNCTIONS ##
+## ---------------- ##
 
 ## Clear screen
 ## ------------
@@ -23,6 +23,41 @@ function clearscreen()
 {
 	clear
 	sleep 2s
+}
+
+## Load Status
+## -----------
+loadstatus()
+{
+    texterror=$(tput setaf 1)
+    textvalid=$(tput setaf 2)
+    textalert=$(tput setaf 3)
+    textlabel=$(tput setaf 4)
+    textreset=$(tput sgr0)
+
+    message=$1
+    display="[$2]"
+
+    if [ "$3" == "issue" ];
+    then
+        return="$texterror${display}$textreset"
+    elif [ "$3" == "valid" ];
+    then
+        return="$textvalid${display}$textreset"
+    elif [ "$3" == "warning" ];
+    then
+        return="$textalert${display}$textreset"
+    elif [ "$3" == "info" ];
+    then
+        return="$textalert${display}$textreset"
+    else
+        return="$textreset${display}$textreset"
+    fi
+
+    let COL=$(tput cols)-${#message}+${#return}-${#display}
+
+    echo -n $message
+    printf "%${COL}s\n"  "$return"
 }
 
 ## Warning
@@ -75,10 +110,12 @@ function deletecachechrome()
         [Yy]* )
 			rm -rf $HOME/.cache/google-chrome/*
 		    rm -rf $HOME/.config/google-chrome/Default/*
-			echo -e "[+] Chrome cache folder deleted\n"
+			loadstatus "[+] Chrome cache folder deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Chrome cache folder not deleted\n"
+			loadstatus "[!] Chrome cache folder not deleted" "!!" "issue"
+			echo
 			;;
         * )
             deletecachechrome
@@ -95,10 +132,12 @@ function deletecachefilezilla()
         [Yy]* )
 		    securedelete -rf $HOME/.config/filezilla/queue.sqlite3
 		    securedelete -rf $HOME/.config/filezilla/recentservers.xml
-			echo -e "[+] Filezilla cache folder deleted\n"
+			loadstatus "[+] Filezilla cache folder deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Filezilla cache folder not deleted\n"
+			loadstatus "[!] Filezilla cache folder not deleted" "!!" "issue"
+			echo
 			;;
         * )
             deletecachefilezilla
@@ -114,10 +153,12 @@ function deletecachefirefox()
     case $yn in
         [Yy]* )
 			securedelete $HOME/Downloads/firefox.tmp
-			echo -e "[+] Firefox cache folder deleted\n"
+			loadstatus "[+] Firefox cache folder deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Firefox cache folder not deleted\n"
+			loadstatus "[!] Firefox cache folder not deleted" "!!" "issue"
+			echo
 			;;
         * )
             deletecachefirefox
@@ -141,10 +182,12 @@ function deletecachejetbrains()
 				rm -rf $HOME/.cache/Google/AndroidStudio*
 				rm -rf $HOME/.cache/JetBrains
 				rm -rf $HOME/.cache/JNA
-				echo -e "[+] Jetbrains cache deleted\n"
+				loadstatus "[+] Jetbrains cache deleted" "OK" "valid"
+				echo
 			    ;;
 	        [Nn]* )
-				echo -e "[!] Jetbrains cache not deleted\n"
+				loadstatus "[!] Jetbrains cache not deleted" "!!" "issue"
+				echo
 	            ;;
 	        * )
 	            deletecachejetbrains
@@ -161,10 +204,12 @@ function deletecachekeepassxc()
     case $yn in
         [Yy]* )
 			rm -rf $HOME/.cache/keepassxc
-			echo -e "[+] KeePassXC cache deleted\n"
+			loadstatus "[+] KeePassXC cache deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[+] KeePassXC cache not deleted\n"
+			loadstatus "[+] KeePassXC cache not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletecachekeepassxc
@@ -180,10 +225,12 @@ function deletecachethumbs()
     case $yn in
         [Yy]* )
 			rm -rf $HOME/.cache/thumbnails/*
-			echo -e "[+] Thumbnails cache deleted\n"
+			loadstatus "[+] Thumbnails cache deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[+] Thumbnails cache not deleted\n"
+			loadstatus "[+] Thumbnails cache not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletecachethumbs
@@ -200,10 +247,12 @@ function deleterecentfiles()
         [Yy]* )
 			securedelete $HOME/.local/share/recently-used.xbel
 			securedelete $HOME/.msf4/history
-			echo -e "[+] Recent files logs deleted\n"
+			loadstatus "[+] Recent files logs deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Recent Files logs not deleted\n"
+			loadstatus "[!] Recent Files logs not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deleterecentfiles
@@ -221,10 +270,12 @@ function deletesshkeys()
 			securedelete $HOME/.ssh/authorized_keys
 			securedelete $HOME/.ssh/known_hosts
 			securedelete $HOME/.ssh/known_hosts.old
-			echo -e "[+] SSH keys deleted\n"
+			loadstatus "[+] SSH keys deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] SSH keys not deleted\n"
+			loadstatus "[!] SSH keys not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletesshkeys
@@ -240,10 +291,12 @@ function deletesnapdirectory()
     case $yn in
         [Yy]* )
 			rm -rf $HOME/snap
-			echo -e "[+] Snap directory deleted\n"
+			loadstatus "[+] Snap directory deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Snap directory not deleted\n"
+			loadstatus "[!] Snap directory not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletesnapdirectory
@@ -259,10 +312,12 @@ function deletesqlmaplogs()
     case $yn in
         [Yy]* )
 			rm -rf $HOME/.local/share/sqlmap
-			echo -e "[+] Sqlmap logs deleted\n"
+			loadstatus "[+] Sqlmap logs deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Sqlmap logs not deleted\n"
+			loadstatus "[!] Sqlmap logs not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletesqlmaplogs
@@ -278,10 +333,12 @@ function deletewgetlogs()
     case $yn in
         [Yy]* )
 			securedelete $HOME/.wget-hsts
-			echo -e "[+] Wget logs deleted\n"
+			loadstatus "[+] Wget logs deleted" "OK" "valid"
+			echo
 		    ;;
         [Nn]* )
-			echo -e "[!] Wget logs not deleted\n"
+			loadstatus "[!] Wget logs not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletewgetlogs
@@ -297,10 +354,12 @@ function deletexerrors()
     case $yn in
         [Yy]* )
 			securedelete $HOME/.xsession-errors
-			echo -e "[+] X-Session errors deleted\n"
+			loadstatus "[+] X-Session errors deleted" "OK" "valid"
+			echo
 		    ;;
         [Nn]* )
-			echo -e "[!] X-Session errors not deleted\n"
+			loadstatus "[!] X-Session errors not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletexerrors
@@ -321,10 +380,12 @@ function deletekatesearch()
                 sed -i s/"^Recent Files\[\$e\]=.*"/"Recent Files\[\$e\]="/g $HOME/.config/katerc
                 sed -i s/"^Recent URLs\[\$e\]=.*"/"Recent URLs\[\$e\]="/g $HOME/.config/katerc
                 truncate -s 0 $HOME/.config/katemetainfos
-                echo -e "[+] Kate history deleted\n"
+                loadstatus "[+] Kate history deleted" "OK" "valid"
+				echo
 			    ;;
 	        [Nn]* )
-                echo -e "[!] Kate history not deleted\n"
+                loadstatus "[!] Kate history not deleted" "!!" "issue"
+				echo
 	            ;;
 	        * )
 	            deletekatesearch
@@ -341,10 +402,12 @@ function deletesublimehistory()
     case $yn in
         [Yy]* )
 			securedelete $HOME/.config/sublime-text/Local/Session.sublime_session
-			echo -e "[+] Sublime-Text history deleted\n"
+			loadstatus "[+] Sublime-Text history deleted" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Sublime-Text history not deleted\n"
+			loadstatus "[!] Sublime-Text history not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletesublimehistory
@@ -360,10 +423,12 @@ function deletetrash()
     case $yn in
         [Yy]* )
 			trash-empty -f
-			echo -e "[+] Trash folder content deleted\n"
+			loadstatus "[+] Trash folder content deleted" "OK" "valid"
+			echo
 		    ;;
         [Nn]* )
-			echo -e "[!] Trash folder content not deleted\n"
+			loadstatus "[!] Trash folder content not deleted" "!!" "issue"
+			echo
             ;;
         * )
             deletetrash
@@ -380,10 +445,12 @@ function flushcachedir()
         [Yy]* )
 			rm -rf $HOME/.cache
 			mkdir -p $HOME/.cache
-			echo -e "[+] Cache directory flushed\n"
+			loadstatus "[+] Cache directory flushed" "OK" "valid"
+			echo
             ;;
         [Nn]* )
-			echo -e "[!] Cache directory not flushed\n"
+			loadstatus "[!] Cache directory not flushed" "!!" "issue"
+			echo
             ;;
         * )
             flushcachedir
@@ -395,7 +462,7 @@ function flushcachedir()
 ## ---------
 function terminate()
 {
-	echo "Process completed"
+	echo "[+] Process completed"
 	sleep 1s
 }
 
@@ -438,7 +505,7 @@ function launch()
 	# Return notice
 	endtime=`date +%s.%N`
 	runtime=$( echo "$endtime - $flushtime" | bc -l )
-	echo "Executed within ${runtime} seconds"
+	echo "[+] Executed within ${runtime} seconds"
 }
 
 ## -------- ##

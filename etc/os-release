@@ -1,7 +1,7 @@
-PRETTY_NAME="SnoopGod 24.04.1 LTS amd64"
+PRETTY_NAME="SnoopGod 24.04.2 LTS amd64"
 NAME="Ubuntu"
 VERSION_ID="24.04"
-VERSION="24.04.1 LTS (Noble Numbat)"
+VERSION="24.04.2 LTS (Noble Numbat)"
 VERSION_CODENAME=noble
 ID=ubuntu
 ID_LIKE=debian

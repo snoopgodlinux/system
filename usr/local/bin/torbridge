@@ -1,26 +1,24 @@
 #!/usr/bin/env bash
 #
-# [Release]: SnoopGod 24.04.1 LTS amd64
-# [Website]: https://snoopgod.com/releases/?ver=24.04.1
+# [Release]: SnoopGod 24.04.2 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=24.04.2
 # [License]: http://www.gnu.org/licenses/gpl-3.0.html
 
 ## ---------------- ##
-## Define Variables ##
+## DEFINE VARIABLES ##
 ## ---------------- ##
 
 ## Colour Output
 ## -------------
-color_d9534f="\033[01;31m"	# Issues/Errors
-color_5cb85c="\033[01;32m"	# Success
-color_f0ad4e="\033[01;33m"	# Warnings/Information
-color_0275d8="\033[01;34m"	# Heading
-color_revert="\033[00m"		# Normal
+texterror="\033[01;31m"     # Text Error
+textvalid="\033[01;32m"     # Text Success
+textalert="\033[01;33m"     # Text Warnings/Information
+textlabel="\033[01;34m"     # Text Heading
+textreset="\033[00m"        # Text Reset
 
-## Text Options
-## ------------
-text_bold="\e[1m"		# Text Bold
-text_line="\e[4m"		# Text Underline
-text_main="\e[0m"		# Text Normal
+## Path Backup Directory
+## ----------------------
+torbridgepath="/etc/torbridge"
 
 ## Packaging
 ## ---------
@@ -28,17 +26,13 @@ package="TorBridge"
 version="v2.0.5"
 website="neoslab.com"
 
-## Path Backup Directory
-## ----------------------
-backup_path="/etc/torbridge"
-
 ## Tor Exclude CIDR
 ## ----------------
 tor_cidr="192.168.0.0/16 172.16.0.0/12 10.0.0.0/8"
 
 ## Tor UUID
 ## --------
-tor_uuid="tor"
+tor_uuid="debian-tor"
 
 ## Tor Port
 ## --------
@@ -48,60 +42,37 @@ tor_port="9040"
 ## -------
 tor_dns="9053"
 
-## Load Banner
-## -----------
-function showbanner()
-{
-	clear
-
-    echo -e "${color_d9534f}   _____        ___     _    _              ${color_revert}"
-    echo -e "${color_d9534f}  |_   _|__ _ _| _ )_ _(_)__| |__ _ ___     ${color_revert}"
-    echo -e "${color_d9534f}    | |/ _ \ '_| _ \ '_| / _` / _` / -_)    ${color_revert}"
-    echo -e "${color_d9534f}    |_|\___/_| |___/_| |_\__,_\__, \___|    ${color_revert}"
-    echo -e "${color_d9534f}    v2.0.5                    |___/         ${color_revert}"
-	echo
-	echo -e "${color_5cb85c} [i] [Package]: torbridge                   ${color_revert}"
-	echo -e "${color_5cb85c} [i] [Website]: https://neoslab.com         ${color_revert}"
-  	echo
-  	sleep 1s
-}
-
-## Load Header
-## -----------
-function loadheader()
-{
-	echo
-    echo -e "${color_0275d8}${@}${color_revert}"
-	sleep 2
-}
+## ---------------- ##
+## DEFINE FUNCTIONS ##
+## ---------------- ##
 
 ## Load Status
 ## -----------
 loadstatus()
 {
-    color_d9534f=$(tput setaf 1)
-    color_5cb85c=$(tput setaf 2)
-    color_f0ad4e=$(tput setaf 3)
-    color_0275d8=$(tput setaf 4)
-    color_revert=$(tput sgr0)
+    texterror=$(tput setaf 1)
+    textvalid=$(tput setaf 2)
+    textalert=$(tput setaf 3)
+    textlabel=$(tput setaf 4)
+    textreset=$(tput sgr0)
 
     message=$1
     display="[$2]"
 
     if [ "$3" == "issue" ];
     then
-        return="$color_d9534f${display}$color_revert"
+        return="$texterror${display}$textreset"
     elif [ "$3" == "valid" ];
     then
-        return="$color_5cb85c${display}$color_revert"
+        return="$textvalid${display}$textreset"
     elif [ "$3" == "warning" ];
     then
-        return="$color_f0ad4e${display}$color_revert"
+        return="$textalert${display}$textreset"
     elif [ "$3" == "info" ];
     then
-        return="$color_f0ad4e${display}$color_revert"
+        return="$textalert${display}$textreset"
     else
-        return="$color_revert${display}$color_revert"
+        return="$textreset${display}$textreset"
     fi
 
     let COL=$(tput cols)-${#message}+${#return}-${#display}
@@ -110,48 +81,82 @@ loadstatus()
     printf "%${COL}s\n"  "$return"
 }
 
-## Display Usage
-## -------------
-function usage
+## Create Backup Directory
+## -----------------------
+function backupdir()
 {
-	clear
-    echo "usage: torbridge [-c --command] or [-h --help] or [-v --version]"
-	echo
-	echo "  -c      - Followed by the command to be executed by the script"
-	echo "  -h      - Display this help menu"
-	echo "  -v      - Display current version of TorBridge"
-	echo
-	echo -e "${text_bold}Commands:${text_main}"
-    echo "  start          - Start redirecting all traffic through Tor"
-    echo "  stop           - Stop redirecting all traffic through Tor"
-    echo "  status         - Get Tor service status"
-    echo "  restart        - Restart Tor and traffic rules"
-    echo "  showip         - Display Tor IP address"
-    echo "  switchid       - Switch Tor identity"
-    echo "  changemac      - Change mac addresses of all interfaces"
-    echo "  revertmac      - Revert mac addresses of all interfaces"
-	echo
-    exit 1
+    if [ ! -d "$torbridgepath" ];
+    then
+        mkdir -p "$torbridgepath"
+    fi
+}
+
+## Backup TorRC
+## ------------
+function backuptorrc()
+{
+    mv /etc/tor/torrc $torbridgepath/torrc.bak
+    loadstatus "[+] Backed-up TorRC" "OK" "valid"
+}
+
+## Backup Resolv
+## -------------
+function backupresolv()
+{
+    mv /etc/resolv.conf $torbridgepath/resolv.conf.bak
+    loadstatus "[+] Backed-up Resolv" "OK" "valid"
+}
+
+## Backup Iptables
+## ---------------
+function backupiptables()
+{
+    iptables-save > $torbridgepath/iptables.rules.bak
+    loadstatus "[+] Backed-up Iptables" "OK" "valid"
+}
+
+## Backup Sysctl
+## -------------
+function backupsysctl()
+{
+    sysctl -a > $torbridgepath/sysctl.conf.bak
+    loadstatus "[+] Backed-up Sysctl" "OK" "valid"
+}
+
+## Change MAC Address
+## ------------------
+function changemac()
+{
+    interfaces=$(ip -o link show | awk -F': ' '{print $2}')
+    for interface in $interfaces;
+    do
+        if [ $interface != "lo" ];
+        then
+            ip link set $interface down &>"/dev/null"
+            macchanger -r $interface &>"/dev/null"
+            ip link set $interface up &>"/dev/null"
+        fi
+    done
+    loadstatus "[+] Changed MAC address" "OK" "valid"
 }
 
 ## Check Internet status
 ## ---------------------
 function checkinternet()
 {
-	for i in {1..10};
-	do
-		ping -c 1 -W ${i} www.google.com &>/dev/null && break;
-	done
+    for i in {1..10};
+    do
+        ping -c 1 -W ${i} www.google.com &>/dev/null && break;
+    done
 
-	if [[ "$?" -ne 0 ]];
-	then
-		cd /tmp/
-		echo
-		echo -e " ${color_d9534f}[!]${color_revert} An unknown error occured ~ Possible DNS issues or no Internet connection"
-		echo -e " ${color_d9534f}[!]${color_revert} Quitting ..."
-		echo -e "\n"
-		exit 1
-	fi
+    if [[ "$?" -ne 0 ]];
+    then
+        echo
+        echo -e "${texterror}[!]${textreset} An unknown error occured ~ Possible DNS issues or no Internet connection"
+        echo -e "${texterror}[!]${textreset} Quitting ..."
+        echo
+        exit 1
+    fi
 }
 
 ## Check Root
@@ -159,21 +164,12 @@ function checkinternet()
 function checkroot()
 {
     if [ $(id -u) -ne 0 ];
-	then
-		echo -e " ${color_d9534f}[!]${color_revert} This script must be run as root"
-		echo -e " ${color_d9534f}[!]${color_revert} Quitting ..."
-		echo
-		exit 1
-    fi
-}
-
-## Create Backup Directory
-## -----------------------
-function backupdir()
-{
-    if [ ! -d "$backup_path" ];
-	then
-        mkdir -p "$backup_path"
+    then
+        echo
+        echo -e "[!] This script must be run as root"
+        echo -e "[!] Quitting ..."
+        echo
+        exit 1
     fi
 }
 
@@ -181,121 +177,33 @@ function backupdir()
 ## --------------------
 function checkstatus()
 {
-    if [ -e "$backup_path/started" ];
-	then
+    if [ -e "$torbridgepath/started" ];
+    then
         return 0
     else
-		return 1
-	fi
-}
-
-## Flush Iptables Rules
-## --------------------
-function flushiptables()
-{
-    iptables -F
-    iptables -t nat -F
-}
-
-## Backup TorRC
-## ------------
-function backup_torrc()
-{
-    mv /etc/tor/torrc $backup_path/torrc.bak
-	loadstatus " [+] Backed-up TorRC" "OK" "valid"
-}
-
-## Backup Resolv
-## -------------
-function backup_resolv()
-{
-    mv /etc/resolv.conf $backup_path/resolv.conf.bak
-	loadstatus " [+] Backed-up Resolv" "OK" "valid"
-}
-
-## Backup Iptables
-## ---------------
-function backup_iptables()
-{
-    iptables-save > $backup_path/iptables.rules.bak
-	loadstatus " [+] Backed-up Iptables" "OK" "valid"
-}
-
-## Backup Sysctl
-## -------------
-function backup_sysctl()
-{
-    sysctl -a > $backup_path/sysctl.conf.bak
-	loadstatus " [+] Backed-up Sysctl" "OK" "valid"
-}
-
-## Restore TorRC
-## -------------
-function restore_torrc()
-{
-    if [ -e $backup_path/torrc.bak ];
-	then
-        rm -f /etc/tor/torrc
-        mv $backup_path/torrc.bak /etc/tor/torrc
-        loadstatus " [+] Restored TorRC" "OK" "valid"
-    fi
-}
-
-## Restore Resolv
-## --------------
-function restore_resolv()
-{
-    if [ -e $backup_path/resolv.conf.bak ];
-	then
-        rm -f $backup_path/resolv.conf
-        mv $backup_path/resolv.conf.bak /etc/resolv.conf
-        loadstatus " [+] Restored Resolv" "OK" "valid"
-    fi
-}
-
-## Restore Iptables
-## ----------------
-function restore_iptables()
-{
-    if [ -e $backup_path/iptables.rules.bak ];
-	then
-        iptables-restore < $backup_path/iptables.rules.bak
-        rm -f $backup_path/iptables.rules.bak
-        loadstatus " [+] Restored Iptables" "OK" "valid"
-    fi
-}
-
-## Restore Sysctl
-## --------------
-function restore_sysctl()
-{
-    if [ -e $backup_path/sysctl.conf.bak ];
-	then
-        sysctl -p $backup_path/sysctl.conf.bak &>"/dev/null"
-        rm -f $backup_path/sysctl.conf.bak
-        loadstatus " [+] Restored Sysctl" "OK" "valid"
+        return 1
     fi
 }
 
 ## Build Resolv Config
 ## -------------------
-function build_resolv()
+function configresolv()
 {
     echo '# Generated by TorBridge' | tee /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 127.0.0.1' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 1.1.1.1' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 1.0.0.1' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 208.67.222.222' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 208.67.220.220' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	echo 'nameserver 8.8.4.4' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
-	chmod 644 /etc/resolv.conf
-    loadstatus " [+] Nameservers configured" "OK" "valid"
+    echo 'nameserver 127.0.0.1' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    echo 'nameserver 1.1.1.1' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    echo 'nameserver 1.0.0.1' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    echo 'nameserver 208.67.222.222' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    echo 'nameserver 208.67.220.220' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    echo 'nameserver 8.8.8.8' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    echo 'nameserver 8.8.4.4' | sudo tee -a /etc/resolv.conf >/dev/null 2>&1
+    chmod 644 /etc/resolv.conf
+    loadstatus "[+] Nameservers configured" "OK" "valid"
 }
 
 ## Build TorRC Config
 ## ------------------
-function build_torrc()
+function configtorrc()
 {
     echo '# Generated by TorBridge' | tee /etc/tor/torrc >/dev/null 2>&1
     echo 'DataDirectory /var/lib/tor' | tee -a /etc/tor/torrc >/dev/null 2>&1
@@ -317,89 +225,134 @@ function build_torrc()
     echo 'MaxClientCircuitsPending 48' | tee -a /etc/tor/torrc >/dev/null 2>&1
     echo 'UseEntryGuards 1' | tee -a /etc/tor/torrc >/dev/null 2>&1
     echo 'EnforceDistinctSubnets 1' | tee -a /etc/tor/torrc >/dev/null 2>&1
-	chmod 644 /etc/tor/torrc
-	loadstatus " [+] Tor Network configured" "OK" "valid"
+    chmod 644 /etc/tor/torrc
+    loadstatus "[+] Tor Network configured" "OK" "valid"
 }
 
-## Start Service
-## -------------
-function service_start()
+## Flush Iptables Rules
+## --------------------
+function flushiptables()
 {
-    service_uuid=${@}
-    if [[ $(systemctl is-active $service_uuid) != "active" ]];
-	then
-		systemctl start $service_uuid || loadstatus " [*] Unable to start ${service_uuid} service" "!!" "issue"
-        loadstatus " [+] Started $service_uuid service" "OK" "valid"
-    else
-		systemctl reload $service_uuid || loadstatus " [*] Unable to reload ${service_uuid} service" "!!" "issue"
-        loadstatus " [+] Reloaded $service_uuid service" "OK" "valid"
-    fi
-
+    iptables -F
+    iptables -t nat -F
 }
 
-## Stop Service
+## Revert Torrc
 ## ------------
-function service_stop()
+function reverttorrc()
 {
-    service_uuid=${@}
-    if [[ $(systemctl is-active $service_uuid) == "active" ]];
-	then
-        systemctl stop $service_uuid || loadstatus " [*] Unable to stop ${service_uuid} service" "!!" "issue"
-        loadstatus " [+] Stopped $service_uuid service" "OK" "valid"
+    if [ -e $torbridgepath/torrc.bak ];
+    then
+        rm -f /etc/tor/torrc
+        mv $torbridgepath/torrc.bak /etc/tor/torrc
+        loadstatus "[+] Restored TorRC" "OK" "valid"
     fi
 }
 
-## Create Iptables Rules
-## ---------------------
-function apply_iptables_rules()
+## Revert Resolv
+## -------------
+function revertresolv()
+{
+    if [ -e $torbridgepath/resolv.conf.bak ];
+    then
+        rm -f $torbridgepath/resolv.conf
+        mv $torbridgepath/resolv.conf.bak /etc/resolv.conf
+        loadstatus "[+] Restored Resolv" "OK" "valid"
+    fi
+}
+
+## Revert Iptables
+## ---------------
+function revertiptables()
+{
+    if [ -e $torbridgepath/iptables.rules.bak ];
+    then
+        iptables-restore < $torbridgepath/iptables.rules.bak
+        rm -f $torbridgepath/iptables.rules.bak
+        loadstatus "[+] Restored Iptables" "OK" "valid"
+    fi
+}
+
+## Revert MAC Address
+## ------------------
+function revertmac()
+{
+    interfaces=$(ip -o link show | awk -F': ' '{print $2}')
+    for interface in $interfaces;
+    do
+        if [ $interface != "lo" ];
+        then
+            ip link set $interface down &>"/dev/null"
+            macchanger -p $interface &>"/dev/null"
+            ip link set $interface up &>"/dev/null"
+        fi
+    done
+    loadstatus "[+] Reverted MAC address" "OK" "valid"
+}
+
+## Revert Sysctl
+## -------------
+function revertsysctl()
+{
+    if [ -e $torbridgepath/sysctl.conf.bak ];
+    then
+        sysctl -p $torbridgepath/sysctl.conf.bak &>"/dev/null"
+        rm -f $torbridgepath/sysctl.conf.bak
+        loadstatus "[+] Restored Sysctl" "OK" "valid"
+    fi
+}
+
+## Rules Iptables
+## --------------
+function rulesiptables()
 {
     ## Set Iptables Nat
-	## ----------------
+    ## ----------------
     iptables -t nat -A OUTPUT -m owner --uid-owner $tor_uuid -j RETURN
 
     ## Set DNS Redirect
-	## ----------------
+    ## ----------------
     iptables -t nat -A OUTPUT -p udp --dport 53 -j REDIRECT --to-ports $tor_dns
     iptables -t nat -A OUTPUT -p tcp --dport 53 -j REDIRECT --to-ports $tor_dns
     iptables -t nat -A OUTPUT -p udp -m owner --uid-owner $tor_uuid -m udp --dport 53 -j REDIRECT --to-ports $tor_dns
 
     ## Resolve domains mapping 10.192.0.0/10 address space
-	## ---------------------------------------------------
+    ## ---------------------------------------------------
     iptables -t nat -A OUTPUT -p tcp -d 10.192.0.0/10 -j REDIRECT --to-ports $tor_port
     iptables -t nat -A OUTPUT -p udp -d 10.192.0.0/10 -j REDIRECT --to-ports $tor_port
 
-	## Exclude Tor CIDR
-	## ----------------
+    ## Exclude Tor CIDR
+    ## ----------------
     for NET in $tor_cidr 127.0.0.0/9 127.128.0.0/10;
-	do
+    do
         iptables -t nat -A OUTPUT -d $NET -j RETURN
         iptables -A OUTPUT -d "$NET" -j ACCEPT
     done
 
     ## Redirect all other output through Tor
-	## -------------------------------------
+    ## -------------------------------------
     iptables -t nat -A OUTPUT -p tcp --syn -j REDIRECT --to-ports $tor_port
     iptables -t nat -A OUTPUT -p udp -j REDIRECT --to-ports $tor_port
     iptables -t nat -A OUTPUT -p icmp -j REDIRECT --to-ports $tor_port
 
     ## Accept already established connections
-	## --------------------------------------
+    ## --------------------------------------
     iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
     ## Allow only Tor output
-	## ---------------------
+    ## ---------------------
     iptables -A OUTPUT -m owner --uid-owner $tor_uuid -j ACCEPT
     iptables -A OUTPUT -j REJECT
 
-	loadstatus " [+] Applied Iptables rules" "OK" "valid"
+    loadstatus "[+] Applied Iptables rules" "OK" "valid"
 }
 
-## Create Sysctl Rules
-## -------------------
-function apply_sysctl_rules()
+## Rules Sysctl 
+## ------------
+function rulessysctl()
 {
     ## Swappiness
-	## ----------
+    ## ----------
     sysctl -w vm.dirty_ratio=10 &>"/dev/null"
     sysctl -w vm.dirty_background_ratio=5 &>"/dev/null"
     sysctl -w vm.dirty_expire_centisecs=2000 &>"/dev/null"
@@ -408,127 +361,127 @@ function apply_sysctl_rules()
     sysctl -w vm.vfs_cache_pressure=70 &>"/dev/null"
 
     ## Disable Explicit Congestion Notification in TCP
-	## -----------------------------------------------
+    ## -----------------------------------------------
     sysctl -w net.ipv4.tcp_ecn=0 &>"/dev/null"
 
     ## Window scaling
-	## --------------
+    ## --------------
     sysctl -w net.ipv4.tcp_window_scaling=1 &>"/dev/null"
 
     ## Increase Linux auto-tuning TCP buffer limits
-	## --------------------------------------------
+    ## --------------------------------------------
     sysctl -w net.ipv4.tcp_rmem="8192 87380 16777216" &>"/dev/null"
     sysctl -w net.ipv4.tcp_wmem="8192 65536 16777216" &>"/dev/null"
 
     ## Increase TCP max buffer size
-	## ----------------------------
+    ## ----------------------------
     sysctl -w net.core.rmem_max=16777216 &>"/dev/null"
     sysctl -w net.core.wmem_max=16777216 &>"/dev/null"
 
     ## Increase number of incoming connections backlog
-	## -----------------------------------------------
+    ## -----------------------------------------------
     sysctl -w net.core.netdev_max_backlog=16384 &>"/dev/null"
     sysctl -w net.core.dev_weight=64 &>"/dev/null"
 
     ## Increase number of incoming connections
-	## ---------------------------------------
+    ## ---------------------------------------
     sysctl -w net.core.somaxconn=32768 &>"/dev/null"
 
     ## Increase the maximum amount of option memory buffers
-	## ----------------------------------------------------
+    ## ----------------------------------------------------
     sysctl -w net.core.optmem_max=65535 &>"/dev/null"
 
     ## Increase the TCP-time-wait buckets
-	## Pool sizeto prevent simple DOS attacks
-	## --------------------------------------
+    ## Pool sizeto prevent simple DOS attacks
+    ## --------------------------------------
     sysctl -w net.ipv4.tcp_max_tw_buckets=1440000 &>"/dev/null"
 
     ## Try to reuse time-wait connections
-	## ----------------------------------
+    ## ----------------------------------
     sysctl -w net.ipv4.tcp_tw_reuse=1 &>"/dev/null"
 
     ## Limit number of allowed orphans
-	## Each orphan can eat up to 16M of unswappable memory
-	## ---------------------------------------------------
+    ## Each orphan can eat up to 16M of unswappable memory
+    ## ---------------------------------------------------
     sysctl -w net.ipv4.tcp_max_orphans=16384 &>"/dev/null"
     sysctl -w net.ipv4.tcp_orphan_retries=0 &>"/dev/null"
 
     ## Don't cache ssthresh from previous connection
-	## ---------------------------------------------
+    ## ---------------------------------------------
     sysctl -w net.ipv4.tcp_no_metrics_save=1 &>"/dev/null"
     sysctl -w net.ipv4.tcp_moderate_rcvbuf=1 &>"/dev/null"
 
     ## Increase size of RPC datagram queue length
-	## ------------------------------------------
+    ## ------------------------------------------
     sysctl -w net.unix.max_dgram_qlen=50 &>"/dev/null"
 
     ## Don't allow the ARP table to become bigger than this
-	## ----------------------------------------------------
+    ## ----------------------------------------------------
     sysctl -w net.ipv4.neigh.default.gc_thresh3=2048 &>"/dev/null"
 
     ## Tell the gc when to become aggressive with arp table cleaning
     ## Adjust this based on size of the LAN. 1024 is suitable for most /24 networks
-	## ----------------------------------------------------------------------------
+    ## ----------------------------------------------------------------------------
     sysctl -w net.ipv4.neigh.default.gc_thresh2=1024 &>"/dev/null"
 
     ## Adjust where the GC will leave ARP table alone set to 32
-	## --------------------------------------------------------
+    ## --------------------------------------------------------
     sysctl -w net.ipv4.neigh.default.gc_thresh1=32 &>"/dev/null"
 
     ## Adjust to ARP table GC to clean-up more often
-	## ---------------------------------------------
+    ## ---------------------------------------------
     sysctl -w net.ipv4.neigh.default.gc_interval=30 &>"/dev/null"
 
     ## Increase TCP queue length
-	## -------------------------
+    ## -------------------------
     sysctl -w net.ipv4.neigh.default.proxy_qlen=96 &>"/dev/null"
     sysctl -w net.ipv4.neigh.default.unres_qlen=6 &>"/dev/null"
 
     ## Enable Explicit Congestion Notification
-	## ---------------------------------------
-	sysctl -w net.ipv4.tcp_ecn=1 &>"/dev/null"
+    ## ---------------------------------------
+    sysctl -w net.ipv4.tcp_ecn=1 &>"/dev/null"
     sysctl -w net.ipv4.tcp_reordering=3 &>"/dev/null"
 
     ## How many times to retry killing an alive TCP connection
-	## -------------------------------------------------------
+    ## -------------------------------------------------------
     sysctl -w net.ipv4.tcp_retries2=15 &>"/dev/null"
     sysctl -w net.ipv4.tcp_retries1=3 &>"/dev/null"
 
     ## Avoid falling back to slow start after a connection goes idle
     ## keeps our cwnd large with the keep alive connections (kernel > 3.6)
-	## -------------------------------------------------------------------
+    ## -------------------------------------------------------------------
     sysctl -w net.ipv4.tcp_slow_start_after_idle=0 &>"/dev/null"
 
     ## Allow the TCP fastopen flag to be used
-	## Beware some firewalls do not like TFO (kernel > 3.7)
-	## ----------------------------------------------------
+    ## Beware some firewalls do not like TFO (kernel > 3.7)
+    ## ----------------------------------------------------
     sysctl -w net.ipv4.tcp_fastopen=3 &>"/dev/null"
 
     ## This will ensure that immediatly subsequent connections use the new values
-	## --------------------------------------------------------------------------
+    ## --------------------------------------------------------------------------
     sysctl -w net.ipv4.route.flush=1 &>"/dev/null"
     sysctl -w net.ipv6.route.flush=1 &>"/dev/null"
 
     ## TCP SYN cookie protection
-	## -------------------------
+    ## -------------------------
     sysctl -w net.ipv4.tcp_syncookies=1 &>"/dev/null"
 
     ## TCP RFC 1337
-	## ------------
+    ## ------------
     sysctl -w net.ipv4.tcp_rfc1337=1 &>"/dev/null"
 
     ## Reverse path filtering
-	## ----------------------
+    ## ----------------------
     sysctl -w net.ipv4.conf.default.rp_filter=1 &>"/dev/null"
     sysctl -w net.ipv4.conf.all.rp_filter=1 &>"/dev/null"
 
     ## Log martian packets
-	## -------------------
+    ## -------------------
     sysctl -w net.ipv4.conf.default.log_martians=1 &>"/dev/null"
     sysctl -w net.ipv4.conf.all.log_martians=1 &>"/dev/null"
 
     ## Disable ICMP redirecting
-	## ------------------------
+    ## ------------------------
     sysctl -w net.ipv4.conf.all.accept_redirects=0 &>"/dev/null"
     sysctl -w net.ipv4.conf.default.accept_redirects=0 &>"/dev/null"
     sysctl -w net.ipv4.conf.all.secure_redirects=0 &>"/dev/null"
@@ -539,287 +492,311 @@ function apply_sysctl_rules()
     sysctl -w net.ipv4.conf.default.send_redirects=0 &>"/dev/null"
 
     ## Enable Ignoring to ICMP Request
-	## -------------------------------
+    ## -------------------------------
     sysctl -w net.ipv4.icmp_echo_ignore_all=1 &>"/dev/null"
 
     ## Disable IPv6
-	## ------------
+    ## ------------
     sysctl -w net.ipv6.conf.all.disable_ipv6=1 &>"/dev/null"
     sysctl -w net.ipv6.conf.default.disable_ipv6=1 &>"/dev/null"
 
-	loadstatus " [+] Applied Sysctl rules" "OK" "valid"
+    loadstatus "[+] Applied Sysctl rules" "OK" "valid"
 }
 
-## Switch ID
-## ---------
-function switchid()
+## Service Start
+## -------------
+function servicestart()
 {
-	if ! checkstatus;
-	then
-        loadstatus " [*] TorBridge already stopped" "!!" "issue"
+    service_uuid=${@}
+    if [[ $(systemctl is-active $service_uuid) != "active" ]];
+    then
+        systemctl start $service_uuid || loadstatus "[*] Unable to start ${service_uuid} service" "!!" "issue"
+        loadstatus "[+] Started $service_uuid service" "OK" "valid"
     else
-		## Display IP Address
-		## ------------------
-		showipaddr
+        systemctl reload $service_uuid || loadstatus "[*] Unable to reload ${service_uuid} service" "!!" "issue"
+        loadstatus "[+] Reloaded $service_uuid service" "OK" "valid"
+    fi
 
-	    ## Stop and Restart Services
-		## -------------------------
-	    service_stop tor &>"/dev/null"
-	    sleep 1
-	    service_start tor &>"/dev/null"
-	    loadstatus " [+] Tor identity switched" "OK" "valid"
-
-		## Display IP Address
-		## ------------------
-		showipaddr
-	fi
 }
 
-## Change MAC Address
-## ------------------
-function changemac()
+## Service Stop
+## ------------
+function servicestop()
 {
-    interfaces=$(ip -o link show | awk -F': ' '{print $2}')
-    for interface in $interfaces;
-	do
-        if [ $interface != "lo" ];
-		then
-            ip link set $interface down &>"/dev/null"
-            macchanger -r $interface &>"/dev/null"
-            ip link set $interface up &>"/dev/null"
-        fi
-    done
-    loadstatus " [+] Changed MAC address" "OK" "valid"
-}
-
-## Revert MAC Address
-## ------------------
-function revertmac()
-{
-    interfaces=$(ip -o link show | awk -F': ' '{print $2}')
-    for interface in $interfaces;
-	do
-        if [ $interface != "lo" ];
-		then
-            ip link set $interface down &>"/dev/null"
-            macchanger -p $interface &>"/dev/null"
-            ip link set $interface up &>"/dev/null"
-        fi
-    done
-    loadstatus " [+] Reverted MAC address" "OK" "valid"
+    service_uuid=${@}
+    if [[ $(systemctl is-active $service_uuid) == "active" ]];
+    then
+        systemctl stop $service_uuid || loadstatus "[*] Unable to stop ${service_uuid} service" "!!" "issue"
+        loadstatus "[+] Stopped $service_uuid service" "OK" "valid"
+    fi
 }
 
 ## Show IP Address
 ## ---------------
 function showipaddr()
 {
-	taddr=$(curl -s https://check.torproject.org/ | cat | grep -m 1 IP | xargs | sed 's/<[^>]*>//g')
-	raddr=$(grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' <<< "$taddr")
-	loadstatus " [+] Remote IP ${raddr}" "OK" "valid"
+    taddr=$(curl -s https://check.torproject.org/ | cat | grep -m 1 IP | xargs | sed 's/<[^>]*>//g')
+    raddr=$(grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' <<< "$taddr")
+    loadstatus "[+] Remote IP ${raddr}" "OK" "valid"
+}
+
+## Switch ID
+## ---------
+function switchid()
+{
+    if ! checkstatus;
+    then
+        loadstatus "[*] TorBridge already stopped" "!!" "issue"
+    else
+        ## Display IP Address
+        ## ------------------
+        showipaddr
+
+        ## Stop and Restart Services
+        ## -------------------------
+        servicestop tor &>"/dev/null"
+        sleep 2s
+        servicestart tor &>"/dev/null"
+        loadstatus "[+] Tor identity switched" "OK" "valid"
+
+        ## Display IP Address
+        ## ------------------
+        sleep 2s
+        showipaddr
+    fi
+}
+
+## TorBridge Start
+## ---------------
+function torstart()
+{
+    if ! [ -z "$(ls -A $torbridgepath)" ];
+    then
+        if ! [ -e "$torbridgepath/started" ];
+        then
+            touch "$torbridgepath/started"
+        fi
+    fi
+
+    if checkstatus;
+    then
+        loadstatus "[*] TorBridge already started" "!!" "issue"
+    else
+        # Display IP Address
+        ## ------------------
+        showipaddr
+
+        ## Backup Tor Config
+        ## -----------------
+        backuptorrc
+
+        ## Backup Resolv Config
+        ## --------------------
+        backupresolv
+
+        ## Backup Iptables Rules
+        ## ---------------------
+        backupiptables
+
+        ## Backup Sysctl Rules
+        ## -------------------
+        backupsysctl
+
+        ## Flush Iptables
+        ## --------------
+        flushiptables
+
+        ## Build Tor Config
+        ## ----------------
+        configtorrc
+
+        ## Build Rsolv Config
+        ## ------------------
+        configresolv
+
+        ## Start Services
+        ## --------------
+        servicestart tor
+
+        ## Apply Rules
+        ## -----------
+        rulesiptables
+        rulessysctl
+
+        ## Display IP Address
+        ## ------------------
+        showipaddr
+
+        ## Return Notice
+        ## -------------
+        loadstatus "[+] All traffic is being redirected through Tor" "OK" "valid"
+        touch $torbridgepath/started
+    fi
+}
+
+## TorBridge Status
+## ----------------
+function torstatus()
+{
+    service_tor=$(systemctl is-active tor)
+
+    if checkstatus;
+    then
+        loadstatus "[+] TorBridge is started" "OK" "valid"
+    else
+        loadstatus "[*] TorBridge is stopped" "!!" "issue"
+    fi
+
+    if [[ "${service_tor}" == "active" ]];
+    then
+        loadstatus "[+] Tor service is ${service_tor}" "OK" "valid"
+    else
+        loadstatus "[*] Tor service is ${service_tor}" "!!" "issue"
+    fi
+
+    ## Display IP Address
+    ## ------------------
+    showipaddr
+}
+
+## TorBridge Stop
+## --------------
+function torstop()
+{
+    if ! checkstatus;
+    then
+        loadstatus "[*] TorBridge already stopped" "!!" "issue"
+    else
+        ## Restore Sysctl Rules
+        ## --------------------
+        revertsysctl
+
+        ## Flush Iptables
+        ## --------------
+        flushiptables
+
+        ## Restore Iptables Rules
+        ## ----------------------
+        revertiptables
+
+        ## Stop Services
+        ## -------------
+        servicestop tor
+
+        ## Restore Tor Config
+        ## ------------------
+        reverttorrc
+
+        ## Restore Resolv Config
+        ## ---------------------
+        revertresolv
+
+        ## Display IP Address
+        ## ------------------
+        showipaddr
+
+        ## Return Notice
+        ## -------------
+        loadstatus "[+] Traffic is not redirected through Tor" "OK" "valid"
+        rm -f $torbridgepath/started
+    fi
 }
 
 ## Show Version
 ## ------------
 function version()
 {
-	echo
+    echo
     echo -e "[Package]: ${package}"
     echo -e "[Version]: ${version}"
     echo -e "[Website]: ${website}"
-	echo
 }
 
-## Start TorBridge
-## ---------------
-function torbridge_start()
+## Help Menu
+## ---------
+function helpmenu()
 {
-    if checkstatus;
-	then
-        loadstatus " [*] TorBridge already started" "!!" "issue"
-    else
-		# Display IP Address
-		## ------------------
-		showipaddr
-
-		## Backup Tor Config
-		## -----------------
-	    backup_torrc
-
-		## Backup Resolv Config
-		## --------------------
-		backup_resolv
-
-		## Backup Iptables Rules
-		## ---------------------
-		backup_iptables
-
-		## Backup Sysctl Rules
-		## -------------------
-		backup_sysctl
-
-	    ## Flush Iptables
-		## --------------
-	    flushiptables
-
-	    ## Build Tor Config
-		## ----------------
-	    build_torrc
-
-		## Build Rsolv Config
-		## ------------------
-		build_resolv
-
-	    ## Start Services
-		## --------------
-	    service_start iptables
-	    service_start tor
-
-		## Apply Rules
-		## -----------
-		apply_iptables_rules
-	    apply_sysctl_rules
-
-		## Display IP Address
-		## ------------------
-		showipaddr
-
-		## Return Notice
-		## -------------
-		loadstatus " [+] All traffic is being redirected through Tor" "OK" "valid"
-	    touch $backup_path/started
-	fi
+    echo 
+    echo "Usage: snoopgod [-h|--help] [--start] [--stop] [--status] [--restart] [--showip] [--switchid] [--changemac] [--revertmac] [--version]"
+    echo
+    echo "Options:"
+    echo " -h, --help           show this help"
+    echo " --start              start redirecting all traffic through Tor"
+    echo " --stop               stop redirecting all traffic through Tor"
+    echo " --status             get Tor service status"
+    echo " --restart            restart Tor and traffic rules"
+    echo " --showip             display Tor IP address"
+    echo " --switchid           switch Tor identity"
+    echo " --changemac          change mac addresses of all interfaces"
+    echo " --version            display current version of TorBridge"
 }
 
-## Stop TorBridge
+## Callback
+## --------
+while test $# -gt 0;
+do
+    case "$1" in
+        -h|--help)
+            helpmenu
+            exit 1
+            ;;
+        --start)
+            checkroot
+            checkinternet
+            torstart
+            exit 1
+            ;;
+        --stop)
+            checkroot
+            torstop
+            exit 1
+            ;;
+        --status)
+            checkroot
+            torstatus
+            exit 1
+            ;;
+        --restart)
+            checkroot
+            torstop
+            sleep 2s
+            torstart
+            exit 1
+            ;;
+        --showip)
+            checkroot
+            showipaddr
+            exit 1
+            ;;
+        --switchid)
+            checkroot
+            switchid
+            exit 1
+            ;;
+        --changemac)
+            checkroot
+            changemac
+            exit 1
+            ;;
+        --revertmac)
+            checkroot
+            revertmac
+            exit 1
+            ;;
+        --version)
+            version
+            exit 1
+            ;;
+        *)
+            helpmenu
+            exit 1
+            ;;
+    esac
+done
+
+## Check Argument
 ## --------------
-function torbridge_stop()
-{
-	if ! checkstatus;
-	then
-        loadstatus " [*] TorBridge already stopped" "!!" "issue"
-    else
-		## Restore Sysctl Rules
-		## --------------------
-	    restore_sysctl
-
-		## Flush Iptables
-		## --------------
-	    flushiptables
-
-	    ## Restore Iptables Rules
-		## ----------------------
-	    restore_iptables
-
-	    ## Stop Services
-		## -------------
-	    service_stop tor
-
-	    ## Restore Tor Config
-		## ------------------
-	    restore_torrc
-
-		## Restore Resolv Config
-		## ---------------------
-	    restore_resolv
-
-		## Display IP Address
-		## ------------------
-		showipaddr
-
-		## Return Notice
-		## -------------
-		loadstatus " [+] Traffic is not redirected through Tor" "OK" "valid"
-	    rm -f $backup_path/started
-	fi
-}
-
-## Status TorBridge
-## ----------------
-function torbridge_status()
-{
-    service_tor=$(systemctl is-active tor)
-
-	if checkstatus;
-	then
-        loadstatus " [+] TorBridge is started" "OK" "valid"
-    else
-		loadstatus " [*] TorBridge is stopped" "!!" "issue"
-	fi
-
-	if [[ "${service_tor}" == "active" ]];
-	then
-        loadstatus " [+] Tor service is: ${service_tor}" "OK" "valid"
-    else
-        loadstatus " [*] Tor service is: ${service_tor}" "!!" "issue"
-    fi
-
-	## Display IP Address
-	## ------------------
-	showipaddr
-}
-
-## -------- ##
-## Callback ##
-## -------- ##
-
-if [ "$#" -eq  "0" ]
+if [ $# -eq 0 ]
 then
-	usage
-else
-	if [ "$1" == "--command" -o "$1" == "-c" ];
-	then
-		clear
-		backupdir
-
-		case "$2" in
-	    start)
-	        checkroot
-			checkinternet
-	        torbridge_start
-	        ;;
-	    stop)
-	        checkroot
-	        torbridge_stop
-	        ;;
-	    status)
-	        checkroot
-	        torbridge_status
-	        ;;
-	    restart)
-	        checkroot
-	        torbridge_stop
-	        sleep 1
-	        torbridge_start
-	        ;;
-	    showip)
-			checkroot
-	        showipaddr
-	        ;;
-	    switchid)
-	        checkroot
-	        switchid
-	        ;;
-	    changemac)
-	        checkroot
-	        changemac
-	        ;;
-	    revertmac)
-	        checkroot
-	        revertmac
-	        ;;
-	    *)
-	        usage
-	        exit 1
-	        ;;
-	    esac
-	    exit 0
-	elif [ "$1" == "--help" -o "$1" == "-h" ];
-	then
-		usage
-	elif [ "$1" == "--version" -o "$1" == "-v" ];
-	then
-		version
-	else
-		usage
-	fi
+    helpmenu
 fi
