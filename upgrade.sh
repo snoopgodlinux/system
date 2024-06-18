@@ -131,27 +131,6 @@ function upgradehook()
 	fi
 }
 
-## Upgrade System
-## ---------------
-function upgradedebs()
-{
-	input="/etc/debs-release"
-	while IFS= read -r line
-	do
-	    if [ "$line" != "" ];
-	    then
-		  	deb=$(echo $line | cut -f1 -d"_")
-		  	ver=$(curl -s "https://api.snoopgod.com/debs/?d=$deb")
-		  	if [[ "$line" == "$ver" ]]
-		  	then
-		  		loadstatus "[+] $line package is up of date" "ok" "valid"
-		  	else
-		  		loadstatus "[+] $line package is out of date" "!!" "issue"
-		  	fi
-	    fi
-	done < "$input"
-}
-
 ## -------------- ##
 ## EXECUTE SCRIPT ##
 ## -------------- ##
@@ -164,7 +143,6 @@ function launch()
 	keepalive
 	promptuser
 	upgradehook
-	upgradedebs
 }
 
 ## -------- ##
