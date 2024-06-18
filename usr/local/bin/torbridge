@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
-# [Release]: SnoopGod 24.04.2 LTS amd64
-# [Website]: https://snoopgod.com/releases/?ver=24.04.2
+# [Release]: SnoopGod 24.04.1 LTS amd64
+# [Website]: https://snoopgod.com/releases/?ver=24.04.1
 # [License]: http://www.gnu.org/licenses/gpl-3.0.html
 
 ## ---------------- ##
@@ -535,6 +535,7 @@ function servicestop()
 ## ---------------
 function showipaddr()
 {
+    sleep 2s
     taddr=$(curl -s https://check.torproject.org/ | cat | grep -m 1 IP | xargs | sed 's/<[^>]*>//g')
     raddr=$(grep -oE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' <<< "$taddr")
     loadstatus "[+] Remote IP ${raddr}" "OK" "valid"
@@ -561,7 +562,6 @@ function switchid()
 
         ## Display IP Address
         ## ------------------
-        sleep 2s
         showipaddr
     fi
 }
