@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Utilities;
+Exec=sh -c 'chkrootkit --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/chkrootkit.png
+Name=Chkrootkit
+Terminal=true
+Type=Application

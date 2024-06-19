@@ -1,0 +1,8 @@
+[Desktop Entry]
+Version=1.0
+Categories=Information Gathering;
+Exec=sh -c 'sherlock --help; $SHELL'
+Icon=/usr/share/icons/snoopgod/sherlock.png
+Name=Sherlock
+Terminal=true
+Type=Application
