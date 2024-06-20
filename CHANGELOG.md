@@ -24,6 +24,7 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 - Added subfinder
 - Added trufflehog
 - Added gophish
+- Added polipo
 - Removed protonvpn
 
 * * *
