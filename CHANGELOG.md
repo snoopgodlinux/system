@@ -4,28 +4,27 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 **2024-06-30**
 
-- Updated linux kernel
-- Updated beef-xss
-- Updated burpsuite
-- Updated maltego
-- Updated metasploit
-- Updated torbrowser
-- Updated exploitdb
-- Updated ghidra
-- Added docker
-- Added torbridge
-- Added chkrootkit
-- Added sherlock
-- Added sublist3r
-- Added xsser
-- Added goldeneye
-- Added nuclei
-- Added netexec
-- Added subfinder
-- Added trufflehog
-- Added gophish
-- Added polipo
-- Removed protonvpn
+- Added Chkrootkit
+- Added Docker
+- Added Goldeneye
+- Added Gophish
+- Added Netexec
+- Added Nuclei
+- Added Sherlock
+- Added Subfinder
+- Added Sublist3r
+- Added Torbridge
+- Added Trufflehog
+- Added Xsser
+- Removed Protonvpn
+- Updated Beef-XSS
+- Updated Burpsuite
+- Updated Exploitdb
+- Updated Ghidra
+- Updated Linux Kernel
+- Updated Maltego
+- Updated Metasploit
+- Updated Tor Browser
 
 * * *
 
@@ -33,8 +32,8 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 
 - Updated distribution logo
 - Updated distribution wallpapers
-- Updated linux kernel
-- Removed generic linux kernel
+- Updated Linux Kernel
+- Removed generic Linux Kernel
 
 * * *
 

@@ -449,7 +449,6 @@ You can find in the below document all the libraries and tools present in the Sn
 - [net-tools](https://packages.ubuntu.com/noble/net-tools)
 - [ninja-build](https://packages.ubuntu.com/noble/ninja-build)
 - [openvpn](https://packages.ubuntu.com/noble/openvpn)
-- [polipo](https://packages.ubuntu.com/noble/polipo)
 - [pkg-config](https://packages.ubuntu.com/noble/pkg-config)
 - [rake](https://packages.ubuntu.com/noble/rake)
 - [rename](https://packages.ubuntu.com/noble/rename)
