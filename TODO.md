@@ -31,8 +31,6 @@ netexec
 networking
 https://github.com/Pennyw0rth/NetExec/releases
 
-* * *
-
 subfinder
 gathering
 https://github.com/projectdiscovery/subfinder
@@ -40,6 +38,8 @@ https://github.com/projectdiscovery/subfinder
 trufflehog
 gathering
 https://github.com/trufflesecurity/trufflehog
+
+* * *
 
 gophish
 exploitation
