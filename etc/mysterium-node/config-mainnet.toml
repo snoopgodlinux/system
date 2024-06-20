@@ -1,0 +1,21 @@
+active-services = "scraping,dvpn,data_transfer,wireguard"
+traversal = "holepunching,manual,upnp"
+
+[mmn]
+  api-key = "L1rsSXUC4hn1caNXWGpGgUdXSm1OktAnanewMcM1"
+
+[node]
+  version = "9564203725"
+
+[shaper]
+  bandwidth = 125000.0
+  enabled = false
+
+[terms]
+  consumer-agreed = true
+  provider-agreed = true
+  version = "0.0.53"
+
+[ui-terms]
+  agreedat = "2024-06-17"
+  agreedtoversion = "0.0.53"
