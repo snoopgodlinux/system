@@ -134,6 +134,10 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# Python Warning
+# ==============
+export PYTHONWARNINGS="ignore"
+
 # PIP Export Path
 # ===============
 export PATH=$PATH:/home/$USER/.local/bin
