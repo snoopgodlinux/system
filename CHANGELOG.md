@@ -2,6 +2,39 @@
 
 Follow at anytime the development of SnoopGod Linux OS along with all the corrections and the optimizations made to the project.
 
+**2024-06-30**
+
+- Updated linux kernel
+- Updated beef-xss
+- Updated burpsuite
+- Updated maltego
+- Updated metasploit
+- Updated torbrowser
+- Updated exploitdb
+- Updated ghidra
+- Added docker
+- Added torbridge
+- Added chkrootkit
+- Added sherlock
+- Added sublist3r
+- Added xsser
+- Added goldeneye
+- Added nuclei
+- Added netexec
+- Added subfinder
+- Added trufflehog
+- Added gophish
+- Removed protonvpn
+
+* * *
+
+**2024-04-30**
+
+- Updated distribution logo
+- Updated distribution wallpapers
+- Updated linux kernel
+- Removed generic linux kernel
+
 * * *
 
 **2024-02-18**

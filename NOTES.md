@@ -1,7 +1,3 @@
-updated
-exploitdb
-ghidra
-
 chkrootkit
 https://www.chkrootkit.org/
 
