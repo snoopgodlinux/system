@@ -9,7 +9,10 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 - Added Goldeneye
 - Added Gophish
 - Added Netexec
+- Added Ngrok
 - Added Nuclei
+- Added PortMapper
+- Added Sch
 - Added Sherlock
 - Added Subfinder
 - Added Sublist3r

@@ -10,6 +10,28 @@ Enjoy the simplicity of SnoopGod’s interface created on the latest Ubuntu vers
 
 #### Image Details
 
+The current version of SnoopGod is based on Ubuntu 24.04.2 LTS. More information about the current release and download link can be found below.
+
+| Key | Description |
+| :--- | :--- |
+| Custom Disk | [snoopgod-24.04.2-desktop-amd64.iso](https://snoopgod.com/download/) |
+| Size | 7,72 GiB (8,289,468,416 bytes) |
+| Checksum | 34777e9f00f9fc2e117059a405a31cb8 |
+| Checksum File | [snoopgod-24.04.2-desktop-amd64.md5](https://download.snoopgod.com/24.04.2/snoopgod-24.04.2-desktop-amd64.md5) |
+| Version | 24.04.2 |
+| Volume ID | SnoopGod 24.04.2 LTS amd64 |
+| Build Date | June 21th, 2024 |
+| Release Name | Noble Numbat |
+| Release Link | [https://snoopgod.com/releases/?ver=24.04.2](https://snoopgod.com/releases/?ver=24.04.2) |
+| Disk Name | SnoopGod 24.04.2 LTS amd64 "Noble Numbat" |
+| Kernel Version | 6.8.0-35-generic |
+
+* * *
+
+#### Previous Versions
+
+##### Version 24.04.1
+
 The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information about the current release and download link can be found below.
 
 | Key | Description |
@@ -25,10 +47,6 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Release Link | [https://snoopgod.com/releases/?ver=24.04.1](https://snoopgod.com/releases/?ver=24.04.1) |
 | Disk Name | SnoopGod 24.04.1 LTS amd64 "Noble Numbat" |
 | Kernel Version | 6.8.0-31-generic |
-
-* * *
-
-#### Previous Versions
 
 ##### Version 22.04.4
 

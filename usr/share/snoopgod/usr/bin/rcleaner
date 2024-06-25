@@ -40,7 +40,7 @@ function keepalive()
 
 ## Load Status
 ## -----------
-loadstatus()
+function loadstatus()
 {
     texterror=$(tput setaf 1)
     textvalid=$(tput setaf 2)
@@ -148,6 +148,30 @@ function deleterecentfiles()
             ;;
         [Nn]* )
 			loadstatus "[!] Recent Files logs not deleted" "!!" "issue"
+			echo
+            ;;
+        * )
+            deleterecentfiles
+            ;;
+    esac
+}
+
+## Delete docker images/containers
+## -------------------------------
+function deletedockers()
+{
+    read -p "[?] Do you want to delete the Dockers images/containers? [y/N] " yn
+    case $yn in
+        [Yy]* )
+			docker stop $(docker ps -aq) > /dev/null 2>&1
+            docker rm $(docker ps -aq) > /dev/null 2>&1
+            docker rmi $(docker images -q) -f > /dev/null 2>&1
+            docker system prune --volumes -a -f > /dev/null 2>&1
+			loadstatus "[+] Dockers images/containers deleted" "OK" "valid"
+			echo
+            ;;
+        [Nn]* )
+			loadstatus "[!] Dockers images/containers not deleted" "!!" "issue"
 			echo
             ;;
         * )
@@ -422,6 +446,7 @@ function launch()
 	# Execute Actions
 	deletecachethumbs
 	deleterecentfiles
+	deletedockers
 	deletesshkeys
 	deletesnapdirectory
 	deletesqlmaplogs

@@ -48,7 +48,7 @@ tor_dns="9053"
 
 ## Load Status
 ## -----------
-loadstatus()
+function loadstatus()
 {
     texterror=$(tput setaf 1)
     textvalid=$(tput setaf 2)
@@ -717,13 +717,13 @@ function version()
 function helpmenu()
 {
     echo 
-    echo "Usage: snoopgod [-h|--help] [--start] [--stop] [--status] [--restart] [--showip] [--switchid] [--changemac] [--revertmac] [--version]"
+    echo "Usage: torbridge [-h|--help] [--start] [--stop] [--status] [--restart] [--showip] [--switchid] [--changemac] [--revertmac] [--version]"
     echo
     echo "Options:"
     echo " -h, --help           show this help"
     echo " --start              start redirecting all traffic through Tor"
     echo " --stop               stop redirecting all traffic through Tor"
-    echo " --status             get Tor service status"
+    echo " --status             check Tor service status"
     echo " --restart            restart Tor and traffic rules"
     echo " --showip             display Tor IP address"
     echo " --switchid           switch Tor identity"
@@ -798,5 +798,6 @@ done
 ## --------------
 if [ $# -eq 0 ]
 then
+    backupdir
     helpmenu
 fi

@@ -22,7 +22,7 @@ textreset="\033[00m"        # Text Reset
 
 ## Load Status
 ## -----------
-loadstatus()
+function loadstatus()
 {
     texterror=$(tput setaf 1)
     textvalid=$(tput setaf 2)
