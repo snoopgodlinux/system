@@ -455,7 +455,7 @@ You can find in the below document all the libraries and tools present in the Sn
 - [rename](https://packages.ubuntu.com/noble/rename)
 - [reprepro](https://packages.ubuntu.com/noble/reprepro)
 - [rhythmbox](https://packages.ubuntu.com/noble/rhythmbox)
-- [sch](https://packages.ubuntu.com/noble/sch)
+- [shc](https://packages.ubuntu.com/noble/shc)
 - [screen](https://packages.ubuntu.com/noble/screen)
 - [screenfetch](https://packages.ubuntu.com/noble/screenfetch)
 - [secure-delete](https://packages.ubuntu.com/noble/secure-delete)
