@@ -19,6 +19,7 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 - Added Trufflehog
 - Added Xsser
 - Removed Protonvpn
+- Removed all unused wallpapers
 - Updated Beef-XSS
 - Updated Burpsuite
 - Updated Exploitdb
