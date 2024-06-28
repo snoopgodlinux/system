@@ -5,7 +5,6 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 **2024-06-30**
 
 - Added Chkrootkit
-- Added Docker
 - Added Goldeneye
 - Added Gophish
 - Added Netexec
