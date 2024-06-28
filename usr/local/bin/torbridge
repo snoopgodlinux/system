@@ -737,27 +737,33 @@ while test $# -gt 0;
 do
     case "$1" in
         -h|--help)
+            checkroot
+            backupdir
             helpmenu
             exit 1
             ;;
         --start)
             checkroot
+            backupdir
             checkinternet
             torstart
             exit 1
             ;;
         --stop)
             checkroot
+            backupdir
             torstop
             exit 1
             ;;
         --status)
             checkroot
+            backupdir
             torstatus
             exit 1
             ;;
         --restart)
             checkroot
+            backupdir
             torstop
             sleep 2s
             torstart
@@ -765,21 +771,25 @@ do
             ;;
         --showip)
             checkroot
+            backupdir
             showipaddr
             exit 1
             ;;
         --switchid)
             checkroot
+            backupdir
             switchid
             exit 1
             ;;
         --changemac)
             checkroot
+            backupdir
             changemac
             exit 1
             ;;
         --revertmac)
             checkroot
+            backupdir
             revertmac
             exit 1
             ;;
@@ -788,6 +798,8 @@ do
             exit 1
             ;;
         *)
+            checkroot
+            backupdir
             helpmenu
             exit 1
             ;;
@@ -798,6 +810,7 @@ done
 ## --------------
 if [ $# -eq 0 ]
 then
+    checkroot
     backupdir
     helpmenu
 fi
