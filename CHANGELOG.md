@@ -11,7 +11,7 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 - Added Ngrok
 - Added Nuclei
 - Added PortMapper
-- Added Sch
+- Added Shc
 - Added Sherlock
 - Added Subfinder
 - Added Sublist3r

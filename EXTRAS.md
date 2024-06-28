@@ -27,16 +27,6 @@ sudo apt update && sudo apt install cubic
 
 * * *
 
-#### Install `Evolution`
-
-To install **Evolution**, open your terminal and enter the following command:
-
-```bash
-sudo apt install evolution evolution-ews
-```
-
-* * *
-
 #### Install `Filezilla`
 
 To install **Filezilla**, open your terminal and enter the following command:
