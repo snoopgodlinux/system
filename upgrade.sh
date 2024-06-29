@@ -126,6 +126,12 @@ function upgradehook()
 		## Upgrade system
 		loadstatus "[+] Upgrade system" "ok" "valid"
 
+		## Correct launcher
+		if [ -e $HOME/.local/share/applications/kde-ubiquity-kdeui.desktop ];
+		then
+			rm -f $HOME/.local/share/applications/kde-ubiquity-kdeui.desktop
+		fi
+
 		## Terminate
 		loadstatus "[+] Upgrade done successfully" "ok" "valid"
 	fi

@@ -482,6 +482,13 @@ function flushcachedir()
     esac
 }
 
+## Remove unwanted launchers
+## -------------------------
+function removelaunchers()
+{
+	rm -f $HOME/.local/share/applications/kde-ubiquity-kdeui.desktop
+}
+
 ## Terminate
 ## ---------
 function terminate()
@@ -523,6 +530,7 @@ function launch()
 	deletesublimehistory
 	deletetrash
 	flushcachedir
+	removelaunchers
 
 	# Terminate
 	terminate
