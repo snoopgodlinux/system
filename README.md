@@ -15,16 +15,16 @@ The current version of SnoopGod is based on Ubuntu 24.04.2 LTS. More information
 | Key | Description |
 | :--- | :--- |
 | Custom Disk | [snoopgod-24.04.2-desktop-amd64.iso](https://snoopgod.com/download/) |
-| Size | 7,72 GiB (8,289,468,416 bytes) |
-| Checksum | 34777e9f00f9fc2e117059a405a31cb8 |
+| Size | 6.83 GiB (7,336,935,424 bytes) |
+| Checksum | 3cb1a90cc6bd34bad04d0a5be6282fc1 |
 | Checksum File | [snoopgod-24.04.2-desktop-amd64.md5](https://download.snoopgod.com/24.04.2/snoopgod-24.04.2-desktop-amd64.md5) |
 | Version | 24.04.2 |
 | Volume ID | SnoopGod 24.04.2 LTS amd64 |
-| Build Date | June 21th, 2024 |
+| Build Date | June 29th, 2024 |
 | Release Name | Noble Numbat |
 | Release Link | [https://snoopgod.com/releases/?ver=24.04.2](https://snoopgod.com/releases/?ver=24.04.2) |
 | Disk Name | SnoopGod 24.04.2 LTS amd64 "Noble Numbat" |
-| Kernel Version | 6.8.0-35-generic |
+| Kernel Version | 6.8.0-36-generic |
 
 * * *
 
@@ -37,7 +37,7 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Key | Description |
 | :--- | :--- |
 | Custom Disk | [snoopgod-24.04.1-desktop-amd64.iso](https://snoopgod.com/download/) |
-| Size | 7,13 GiB (7,657,590,784 bytes) |
+| Size | 7.13 GiB (7,657,590,784 bytes) |
 | Checksum | 748bf86bcbc1a957369f03631bc6549c |
 | Checksum File | [snoopgod-24.04.1-desktop-amd64.md5](https://download.snoopgod.com/24.04.1/snoopgod-24.04.1-desktop-amd64.md5) |
 | Version | 24.04.1 |
@@ -53,7 +53,7 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Key | Description |
 | :--- | :--- |
 | Custom Disk | [snoopgod-22.04.4-desktop-amd64.iso](https://snoopgod.com/download/) |
-| Size | 7,62 GiB (8,184,717,312 bytes) |
+| Size | 7.62 GiB (8,184,717,312 bytes) |
 | Checksum | 527cf0e0bcca519f2a88e6cf2181414f |
 | Checksum File | [snoopgod-22.04.4-desktop-amd64.md5](https://download.snoopgod.com/22.04.4/snoopgod-22.04.4-desktop-amd64.md5) |
 | Version | 22.04.4 |
@@ -69,7 +69,7 @@ The current version of SnoopGod is based on Ubuntu 24.04.1 LTS. More information
 | Key | Description |
 | :--- | :--- |
 | Custom Disk | [snoopgod-22.04.3-desktop-amd64.iso](https://snoopgod.com/download/) |
-| Size | 7,41 GiB (7,958,245,376 bytes) |
+| Size | 7.41 GiB (7,958,245,376 bytes) |
 | Checksum | 40ff9029c0e24d01329318360cbaa3cc |
 | Checksum File | [snoopgod-22.04.3-desktop-amd64.md5](https://download.snoopgod.com/22.04.3/snoopgod-22.04.3-desktop-amd64.md5) |
 | Version | 22.04.3 |
