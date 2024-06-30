@@ -133,8 +133,6 @@ function upgradehook()
 			rm -f $HOME/.local/share/applications/kde-ubiquity-kdeui.desktop
 		fi
 
-		echo "hello"
-		
 		## Terminate
 		loadstatus "[+] Upgrade done successfully" "ok" "valid"
 	fi
