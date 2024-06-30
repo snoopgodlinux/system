@@ -89,7 +89,8 @@ function upgradehook()
 
 	## Check current release
 	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
-
+	echo $release
+	
 	## Proceed upgrade
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
 	then
@@ -129,6 +130,7 @@ function upgradehook()
 		## Correct launcher
 		if [ -e $HOME/.local/share/applications/kde-ubiquity-kdeui.desktop ];
 		then
+			echo "hello"
 			rm -f $HOME/.local/share/applications/kde-ubiquity-kdeui.desktop
 		fi
 
