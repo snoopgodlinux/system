@@ -15,8 +15,8 @@ The current version of SnoopGod is based on Ubuntu 24.04.2 LTS. More information
 | Key | Description |
 | :--- | :--- |
 | Custom Disk | [snoopgod-24.04.2-desktop-amd64.iso](https://snoopgod.com/download/) |
-| Size | 6.83 GiB (7,336,935,424 bytes) |
-| Checksum | 3cb1a90cc6bd34bad04d0a5be6282fc1 |
+| Size | 6.83 GiB (7,336,931,328 bytes) |
+| Checksum | 141a5c0b5fbcf86adcc1d1cc3793135c |
 | Checksum File | [snoopgod-24.04.2-desktop-amd64.md5](https://download.snoopgod.com/24.04.2/snoopgod-24.04.2-desktop-amd64.md5) |
 | Version | 24.04.2 |
 | Volume ID | SnoopGod 24.04.2 LTS amd64 |
