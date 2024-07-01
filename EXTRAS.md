@@ -16,6 +16,14 @@ sudo dpkg -i /tmp/google-chrome.deb
 
 * * *
 
+#### Install Cheese
+
+```shell
+sudo apt install cheese
+```
+
+* * *
+
 #### Install `Cubic`
 
 To install **Cubic**, open your terminal and enter the following command:
@@ -91,22 +99,27 @@ sudo apt install kdenlive
 
 * * *
 
+#### Install `KVM`
+
+```shell
+sudo apt update
+sudo apt install cpu-checker
+sudo apt install qemu-kvm virt-manager libvirt-daemon-system virtinst libvirt-clients bridge-utils
+sudo systemctl enable --now libvirtd
+sudo systemctl start libvirtd
+sudo systemctl status libvirtd
+sudo usermod -aG kvm $USER
+sudo usermod -aG libvirt $USER
+```
+
+* * *
+
 #### Install `Libreoffice`
 
 To install **Libreoffice**, open your terminal and enter the following command:
 
 ```bash
 sudo apt install libreoffice
-```
-
-* * *
-
-#### Install `Restricted Extras`
-
-To install **Restricted Extras**, open your terminal and enter the following command:
-
-```shell
-sudo apt install kubuntu-restricted-extras ubuntu-restricted-extras
 ```
 
 * * *
