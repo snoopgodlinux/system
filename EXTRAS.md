@@ -124,6 +124,16 @@ sudo apt install libreoffice
 
 * * *
 
+#### Install `Remmina`
+
+To install **Remmina**, open your terminal and enter the following command:
+
+```bash
+sudo apt install remmina
+```
+
+* * *
+
 #### Install `Shotwell`
 
 To install **Shotwell**, open your terminal and enter the following command:
