@@ -171,7 +171,7 @@ sudo apt update && sudo apt install sublime-text
 To install **Virtualbox**, open your terminal and enter the following command:
 
 ```bash
-sudo apt install virtualbox
+sudo apt install virtualbox virtualbox-guest-additions-iso
 ```
 
 * * *
