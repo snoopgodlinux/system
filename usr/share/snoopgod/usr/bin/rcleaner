@@ -382,7 +382,6 @@ function removelaunchers()
 	sudo rm -f /usr/share/applications/arduino.desktop
 	sudo rm -f /usr/share/applications/edb.desktop
 	sudo rm -f /usr/share/applications/ettercap.desktop
-	sudo rm -f /usr/share/applications/gtkhash.desktop
 	sudo rm -f /usr/share/applications/guymager.desktop
 	sudo rm -f /usr/share/applications/lstopo.desktop
 	sudo rm -f /usr/share/applications/lynis.desktop
