@@ -34,7 +34,6 @@ function removelaunchers()
 	sudo rm -f /usr/share/applications/guymager.desktop
 	sudo rm -f /usr/share/applications/lstopo.desktop
 	sudo rm -f /usr/share/applications/lynis.desktop
-	sudo rm -f /usr/share/applications/ophcrack.desktop
 	sudo rm -f /usr/share/applications/org.kde.plasma.emojier.desktop
 	sudo rm -f /usr/share/applications/org.wireshark.Wireshark.desktop
 	sudo rm -f /usr/share/applications/texdoctk.desktop
