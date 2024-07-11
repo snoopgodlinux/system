@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Utilities;
-Exec=sh -c 'sudo torbridge --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/torbridge.png
-Name=TorBridge
-Terminal=true
-Type=Application
