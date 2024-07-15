@@ -2,6 +2,13 @@
 
 Follow at anytime the development of SnoopGod Linux OS along with all the corrections and the optimizations made to the project.
 
+**Next Release**
+
+- Added libarchive-dev
+- Added libsnoopgod
+- Added cppcrypt
+- Updated Torbridge
+
 **2024-06-30**
 
 - Added Chkrootkit
