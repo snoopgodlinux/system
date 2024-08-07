@@ -7,6 +7,8 @@ Follow at anytime the development of SnoopGod Linux OS along with all the correc
 - Added libarchive-dev
 - Added libsnoopgod
 - Added cppcrypt
+- Added toutatis
+- Updated Routersploit
 - Updated Torbridge
 
 **2024-06-30**
