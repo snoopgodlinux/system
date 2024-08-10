@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Stress Testing;
-Exec=sh -c 't50 --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=T50
-Terminal=true
-Type=Application

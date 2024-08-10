@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Exploitation;
-Exec=sh -c 'weevely -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/weevely.png
-Name=Weevely
-Terminal=true
-Type=Application

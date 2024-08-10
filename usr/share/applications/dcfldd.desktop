@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'dcfldd --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=DCFL-DD
-Terminal=true
-Type=Application

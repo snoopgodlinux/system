@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Sniffing - Spoofing;
-Exec=sh -c 'bettercap --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/bettercap.png
-Name=Bettercap
-Terminal=true
-Type=Application

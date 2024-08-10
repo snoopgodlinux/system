@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Information Gathering;
-Exec=sh -c 'nmap --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/nmap.png
-Name=Nmap
-Terminal=true
-Type=Application

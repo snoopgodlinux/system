@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Stress Testing;
-Exec=sh -c 'dhcpig --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=DHCpig
-Terminal=true
-Type=Application

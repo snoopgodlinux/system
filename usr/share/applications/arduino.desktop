@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Hardening;
-Exec=arduino
-Icon=/usr/share/icons/snoopgod/arduino.png
-Name=Arduino IDE
-Terminal=false
-Type=Application

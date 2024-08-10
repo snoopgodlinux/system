@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Vulnerability Analysis;
-Exec=sh -c 'doona -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Doona
-Terminal=true
-Type=Application

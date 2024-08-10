@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'ncrack --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/ncrack.png
-Name=Ncrack
-Terminal=true
-Type=Application

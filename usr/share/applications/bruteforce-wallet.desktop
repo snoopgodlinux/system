@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'bruteforce-wallet -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Bruteforce Wallet
-Terminal=true
-Type=Application

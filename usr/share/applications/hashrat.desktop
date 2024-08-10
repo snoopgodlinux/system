@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'hashrat --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=HashRat
-Terminal=true
-Type=Application

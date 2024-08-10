@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Wireless;
-Exec=sh -c 'multimon-ng -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Multimon NG
-Terminal=true
-Type=Application

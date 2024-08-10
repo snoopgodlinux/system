@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'ophcrack; $SHELL'
-Icon=/usr/share/icons/snoopgod/ophcrack.png
-Name=OPHCrack
-Terminal=false
-Type=Application

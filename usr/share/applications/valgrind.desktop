@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Reverse Engineering;
-Exec=sh -c 'valgrind --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Valgrind
-Terminal=true
-Type=Application

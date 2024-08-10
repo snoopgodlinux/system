@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Web Applications;
-Exec=sh -c 'gobuster -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/gobuster.png
-Name=Gobuster
-Terminal=true
-Type=Application

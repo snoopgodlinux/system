@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Networking;
-Exec=sh -c 'proxychains; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Proxychains
-Terminal=true
-Type=Application

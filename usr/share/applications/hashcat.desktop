@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'hashcat --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/hashcat.png
-Name=HashCat
-Terminal=true
-Type=Application

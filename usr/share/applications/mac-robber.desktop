@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'mac-robber; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Mac Robber
-Terminal=true
-Type=Application

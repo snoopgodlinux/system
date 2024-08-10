@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Information Gathering;
-Exec=sh -c 'sudo nikto -Help; $SHELL'
-Icon=/usr/share/icons/snoopgod/nikto.png
-Name=Nikto
-Terminal=true
-Type=Application

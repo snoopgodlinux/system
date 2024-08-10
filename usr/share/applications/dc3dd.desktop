@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'dc3dd --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=DC3-DD
-Terminal=true
-Type=Application

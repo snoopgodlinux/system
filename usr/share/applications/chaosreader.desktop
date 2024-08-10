@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Sniffing - Spoofing;
-Exec=sh -c 'chaosreader --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=ChaosReader
-Terminal=true
-Type=Application

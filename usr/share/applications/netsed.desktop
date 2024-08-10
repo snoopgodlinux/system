@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Networking;
-Exec=sh -c 'netsed -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Netsed
-Terminal=true
-Type=Application

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'autopsy -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/autopsy.png
-Name=Autopsy
-Terminal=true
-Type=Application

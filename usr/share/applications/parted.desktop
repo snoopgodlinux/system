@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'parted --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Parted
-Terminal=true
-Type=Application

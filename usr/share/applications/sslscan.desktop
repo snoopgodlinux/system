@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Networking;
-Exec=sh -c 'sslscan -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/sslscan.png
-Name=SSL Scan
-Terminal=true
-Type=Application

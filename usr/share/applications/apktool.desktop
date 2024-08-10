@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Hardening;
-Exec=sh -c 'apktool; $SHELL'
-Icon=/usr/share/icons/snoopgod/apktool.png
-Name=APK Tool
-Terminal=true
-Type=Application

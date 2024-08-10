@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'bruteforce-luks -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Bruteforce LUKS
-Terminal=true
-Type=Application

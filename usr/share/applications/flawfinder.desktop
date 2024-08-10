@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Reverse Engineering;
-Exec=sh -c 'flawfinder -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=FlawFinder
-Terminal=true
-Type=Application

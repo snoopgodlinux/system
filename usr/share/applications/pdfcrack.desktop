@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'pdfcrack; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=PDF Crack
-Terminal=true
-Type=Application

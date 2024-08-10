@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'brutespray --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/brutespray.png
-Name=Brutespray
-Terminal=true
-Type=Application

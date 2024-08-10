@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Hardening;
-Exec=sh -c 'sudo lynis; $SHELL'
-Icon=/usr/share/icons/snoopgod/lynis.png
-Name=Lynis
-Terminal=true
-Type=Application

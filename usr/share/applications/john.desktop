@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'john; $SHELL'
-Icon=/usr/share/icons/snoopgod/john.png
-Name=John the Ripper
-Terminal=true
-Type=Application

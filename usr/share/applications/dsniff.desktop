@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Sniffing - Spoofing;
-Exec=sh -c 'dsniff -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/dsniff.png
-Name=Dsniff
-Terminal=true
-Type=Application

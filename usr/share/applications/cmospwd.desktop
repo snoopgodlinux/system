@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Cracking;
-Exec=sh -c 'sudo cmospwd --help; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=Cmos-PWD
-Terminal=true
-Type=Application

@@ -1,8 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Categories=Forensics;
-Exec=sh -c 'aeskeyfind -h; $SHELL'
-Icon=/usr/share/icons/snoopgod/default.png
-Name=AES Keyfind
-Terminal=true
-Type=Application
