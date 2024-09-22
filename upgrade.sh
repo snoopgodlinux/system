@@ -91,9 +91,18 @@ function upgradehook()
 	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
 	if [ -z "$release" ];
 	then
-	  	echo "Variable is empty"
+	  	wget -q -O "/tmp/os-release" "https://raw.githubusercontent.com/snoopgodlinux/system/refs/heads/main/usr/lib/os-release"
+	  	if [ -f "/tmp/os-release" ];
+	  	then
+	  		# Copy `os-release` configuration
+	  		sudo rm -f /etc/os-release
+	  		sudo rm -f /usr/lib/os-release
+	  		sudo cp /tmp/os-release /etc/
+	  		sudo cp /tmp/os-release /usr/lib/
+	  		loadstatus "[+] Release detected" "ok" "valid"
+	  	fi
 	else
-		loadstatus "[+] Detected ${release}" "ok" "valid"
+		loadstatus "[+] Release not detected" "!!" "issue"
 	fi	
 
 	## Proceed upgrade
