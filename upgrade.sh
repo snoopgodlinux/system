@@ -89,7 +89,12 @@ function upgradehook()
 
 	## Check current release
 	release=$(lsb_release -d | grep -Po "SnoopGod ([0-9]{2}.[0-9]{2}.[0-9]{1}) LTS")
-	loadstatus "[+] Detected ${release}" "ok" "valid"
+	if [ -z "$release" ];
+	then
+	  	echo "Variable is empty"
+	else
+		loadstatus "[+] Detected ${release}" "ok" "valid"
+	fi	
 
 	## Proceed upgrade
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
