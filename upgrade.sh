@@ -99,11 +99,11 @@ function upgradehook()
 	  		sudo rm -f /usr/lib/os-release
 	  		sudo cp /tmp/os-release /etc/
 	  		sudo cp /tmp/os-release /usr/lib/
-	  		loadstatus "[+] Release detected" "ok" "valid"
+	  		loadstatus "[+] OS-Release updated" "ok" "valid"
 	  	fi
 	else
-		loadstatus "[+] Release not detected" "!!" "issue"
-	fi	
+		loadstatus "[+] OS-Release detected" "!!" "issue"
+	fi
 
 	## Proceed upgrade
 	if [ "$release" = "SnoopGod 22.04.3 LTS" ];
