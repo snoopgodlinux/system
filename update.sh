@@ -102,7 +102,7 @@ function updatehook()
 	  		loadstatus "[+] OS-Release updated" "ok" "valid"
 	  	fi
 	else
-		loadstatus "[+] OS-Release found" "ok" "issue"
+		loadstatus "[+] OS-Release found" "ok" "valid"
 	fi
 	
 	## Proceed update
